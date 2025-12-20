@@ -30,3 +30,5 @@ Step 1: Drafts:
     create a model | in progress
     create a backend | in progress
     create a frontend/desktop | not started
+
+    source ~/.venvs/diploma/bin/activate (это для моего линукса, у тебя мб будет в другом месте)
