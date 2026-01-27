@@ -4,6 +4,7 @@ from .blink_detector import detect_blinks
 from .head_motion import detect_head_motion
 from .static_frame import detect_static_video
 from .mask_edge_artifact import detect_mask_edges
+from .skin_tone import detect_skin_tone_mismatch
 
 # from cleanup import cleanup, cleanup_pycache
 from models.deepfake_model.main_model import predict_video_file
@@ -11,11 +12,6 @@ from models.deepfake_model.main_model import predict_video_file
 # VIDEO = "./models/dataset/train/fake/eukvucdetx.mp4"
 # VIDEO = "./models/dataset/train/real/000_real.mp4"
 
-from .screen_flicker import detect_screen_flicker
-from .blink_detector import detect_blinks
-from .head_motion import detect_head_motion
-from .static_frame import detect_static_video
-from .mask_edge_artifact import detect_mask_edges
 from models.deepfake_model.main_model import predict_video_file
 
 def run_full_check(VIDEO):
@@ -31,6 +27,8 @@ def run_full_check(VIDEO):
     results["static_frame"] = (bool(flag), float(score))
     flag, score = detect_mask_edges(VIDEO)
     results["mask_edges"] = (bool(flag), float(score))
+    flag, score = detect_skin_tone_mismatch(VIDEO)
+    results["skin_tone"] = (bool(flag), float(score))
 
     print(results)
 

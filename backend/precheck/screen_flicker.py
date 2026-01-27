@@ -14,14 +14,13 @@ def detect_screen_flicker(video_path, max_frames=120):
         intensities.append(np.mean(gray))
 
     cap.release()
+
     intensities = np.array(intensities)
     if len(intensities) < 30:
         return False, 0.0
 
-    signal = intensities - intensities.mean()
-    fft = np.abs(np.fft.rfft(signal))
-    mid_band = fft[5:len(fft)//2]
-    fft_energy = np.sum(mid_band) / (np.sum(fft) + 1e-6)
-    is_flicker = fft_energy > 0.75
+    fft = np.abs(np.fft.rfft(intensities - intensities.mean()))
+    fft_energy = np.sum(fft[5:]) / (np.sum(fft) + 1e-6)
 
-    return bool(is_flicker), float(fft_energy)
+    is_flicker = fft_energy > 0.5
+    return is_flicker, fft_energy

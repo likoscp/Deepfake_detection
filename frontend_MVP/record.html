@@ -1,27 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Video Verification</title>
+<meta charset="UTF-8">
+<title>СЫР!</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+.video-container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+#preview {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 8px;
+}
+
+#oval-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+button {
+    margin: 10px 5px;
+    padding: 8px 16px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+#progress-container {
+    width: 400px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+    height: 20px;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #007bff;
+    transition: width 0.2s;
+}
+
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 10px;
+    width: 400px;
+    max-height: 300px;
+    overflow: auto;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    transition: opacity 0.3s;
+}
+</style>
 </head>
 <body>
-    <h2>Record video</h2>
 
-    <video id="preview" autoplay muted width="400"></video>
-    <br><br>
+<h2>Record Video for Verification</h2>
 
+<div class="video-container">
+    <video id="preview" autoplay muted></video>
+    <div id="oval-overlay"></div>
+</div>
+
+<div>
     <button onclick="startRecording()">Start</button>
     <button onclick="stopRecording()">Stop</button>
     <button onclick="sendVideo()">Send</button>
+    <button onclick="copyJSON()">Copy JSON</button>
+</div>
 
-    <pre id="result"></pre>
+<div id="progress-container">
+    <div id="progress-bar"></div>
+</div>
+
+<pre><code id="result"></code></pre>
 
 <script>
 let mediaRecorder;
 let recordedChunks = [];
 let stream;
+let isProcessing = false;
+let progressInterval;
 
 async function startRecording() {
+    document.getElementById("result").textContent = "";
+    updateProgress(0);
+    clearInterval(progressInterval);
+    isProcessing = false;
+
     stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
     document.getElementById("preview").srcObject = stream;
 
@@ -36,23 +135,63 @@ async function startRecording() {
 }
 
 function stopRecording() {
+    if (!mediaRecorder) return;
     mediaRecorder.stop();
     stream.getTracks().forEach(track => track.stop());
 }
 
 async function sendVideo() {
+    if (recordedChunks.length === 0) {
+        alert("No video recorded!");
+        return;
+    }
     const blob = new Blob(recordedChunks, { type: "video/webm" });
     const formData = new FormData();
     formData.append("file", blob, "recorded.webm");
 
-    const res = await fetch("http://127.0.0.1:8000/verify-video", {
-        method: "POST",
-        body: formData
-    });
+    isProcessing = true;
+    const resultEl = document.getElementById("result");
+    resultEl.textContent = "";
 
-    const json = await res.json();
-    document.getElementById("result").textContent = JSON.stringify(json, null, 2);
+    let progress = 0;
+    updateProgress(0);
+    progressInterval = setInterval(() => {
+        progress = Math.min(progress + Math.random() * 5, 99);
+        updateProgress(progress);
+    }, 300);
+
+    try {
+        const res = await fetch("http://127.0.0.1:8000/verify-video", {
+            method: "POST",
+            body: formData
+        });
+
+        if (!res.ok) throw new Error(`Server returned ${res.status}`);
+
+        const json = await res.json();
+        isProcessing = false;
+        clearInterval(progressInterval);
+        updateProgress(100);
+        resultEl.textContent = JSON.stringify(json, null, 2);
+    } catch (err) {
+        isProcessing = false;
+        clearInterval(progressInterval);
+        updateProgress(0);
+        resultEl.textContent = "Error: " + err.message;
+    }
+}
+
+function updateProgress(percent) {
+    document.getElementById("progress-bar").style.width = percent + "%";
+}
+
+function copyJSON() {
+    const text = document.getElementById("result").textContent;
+    if (!text || isProcessing) return alert("Nothing to copy or still processing!");
+    navigator.clipboard.writeText(text);
+    alert("JSON copied!");
 }
 </script>
+
 </body>
 </html>
