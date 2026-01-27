@@ -11,3 +11,5 @@ opencv-python>=4.8.0,<4.9
 tensorflow==2.10.0
 transformers==4.34.0   
 torch==2.1.0            
+pip install "fastapi>=0.111,<0.120"
+pip install python-multipart

@@ -1,5 +1,5 @@
 import cv2
-from face_iterator import iterate_faces
+from .face_iterator import iterate_faces
 
 EYE_CASCADE = cv2.CascadeClassifier(
     cv2.data.haarcascades + "haarcascade_eye.xml"

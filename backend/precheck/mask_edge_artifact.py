@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from face_iterator import iterate_faces
+from .face_iterator import iterate_faces
 
 def detect_mask_edges(video_path, max_frames=50):
     scores = []
