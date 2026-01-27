@@ -78,7 +78,6 @@ pre {
     color: #d4d4d4;
     padding: 10px;
     width: 400px;
-    max-height: 300px;
     overflow: auto;
     border-radius: 5px;
     font-family: 'Courier New', monospace;
@@ -88,7 +87,7 @@ pre {
 </head>
 <body>
 
-<h2>Record Video for Verification</h2>
+<h2>For registration, to get access etc record a video with your face</h2>
 
 <div class="video-container">
     <video id="preview" autoplay muted></video>
@@ -156,7 +155,7 @@ async function sendVideo() {
     let progress = 0;
     updateProgress(0);
     progressInterval = setInterval(() => {
-        progress = Math.min(progress + Math.random() * 5, 99);
+        progress = Math.min(progress + Math.random() * 5, 70);
         updateProgress(progress);
     }, 300);
 
