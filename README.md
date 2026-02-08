@@ -31,4 +31,8 @@ Step 1: Drafts:
     create a backend | in progress
     create a frontend/desktop | not started
 
-    source ~/.venvs/diploma/bin/activate (это для моего линукса, у тебя мб будет в другом месте)
+
+ python3 -m venv .diploma
+ source .diploma/bin/activate
+ pip install -r requirements.txt
+    source ~/.diploma/diploma/bin/activate (это для моего линукса, у тебя мб будет в другом месте)

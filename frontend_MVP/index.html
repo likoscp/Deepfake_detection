@@ -13,9 +13,7 @@ body {
     padding: 20px;
 }
 
-h2 {
-    color: #333;
-}
+h2 { color: #333; }
 
 .video-container {
     position: relative;
@@ -43,6 +41,8 @@ h2 {
     pointer-events: none;
 }
 
+.controls { margin-top: 8px; }
+
 button {
     margin: 10px 5px;
     padding: 8px 16px;
@@ -52,10 +52,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-
-button:hover {
-    background: #0056b3;
-}
+button:hover { background: #0056b3; }
 
 #progress-container {
     width: 400px;
@@ -64,8 +61,8 @@ button:hover {
     overflow: hidden;
     margin-top: 10px;
     height: 20px;
+    margin-bottom: 10px;
 }
-
 #progress-bar {
     width: 0%;
     height: 100%;
@@ -83,29 +80,66 @@ pre {
     font-family: 'Courier New', monospace;
     transition: opacity 0.3s;
 }
+
+.auth-box {
+    width: 400px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.auth-row {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0;
+}
+.auth-row input {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.small-note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
 </style>
 </head>
 <body>
 
-<h2>For registration, to get access etc record a video with your face</h2>
+<h2>For registration / to get access: enter email, get a code, send video</h2>
+
 
 <div class="video-container">
-    <video id="preview" autoplay muted></video>
+    <video id="preview" autoplay muted playsinline></video>
+
     <div id="oval-overlay"></div>
 </div>
 
-<div>
+<div class="controls">
     <button onclick="startRecording()">Start</button>
     <button onclick="stopRecording()">Stop</button>
-    <button onclick="sendVideo()">Send</button>
-    <button onclick="copyJSON()">Copy JSON</button>
 </div>
 
 <div id="progress-container">
     <div id="progress-bar"></div>
 </div>
 
+<div class="auth-box">
+  <div class="auth-row">
+    <input id="email" type="email" placeholder="Email" autocomplete="email">
+    <button onclick="requestCode()">Send code</button>
+  </div>
+  <div class="auth-row">
+    <input id="code" type="text" placeholder="6-digit code" inputmode="numeric" maxlength="6">
+    <button onclick="sendVideo()">Send video</button>
+  </div>
+</div>
+
 <pre><code id="result"></code></pre>
+<button onclick="copyJSON()">Copy JSON</button>
 
 <script>
 let mediaRecorder;
@@ -113,6 +147,8 @@ let recordedChunks = [];
 let stream;
 let isProcessing = false;
 let progressInterval;
+
+const API_BASE = "https://karmen-vigoroso-candy.ngrok-free.dev";
 
 async function startRecording() {
     document.getElementById("result").textContent = "";
@@ -136,16 +172,51 @@ async function startRecording() {
 function stopRecording() {
     if (!mediaRecorder) return;
     mediaRecorder.stop();
-    stream.getTracks().forEach(track => track.stop());
+    if (stream) stream.getTracks().forEach(track => track.stop());
+}
+
+async function requestCode() {
+    const email = document.getElementById("email").value.trim();
+    const resultEl = document.getElementById("result");
+    resultEl.textContent = "";
+
+    if (!email) return alert("Enter email first!");
+
+    const fd = new FormData();
+    fd.append("email", email);
+
+    try {
+        const res = await fetch(`${API_BASE}/request-access`, {
+            method: "POST",
+            body: fd
+        });
+        if (!res.ok) {
+            const txt = await res.text();
+            throw new Error(`Server returned ${res.status}: ${txt}`);
+        }
+        resultEl.textContent = "Code sent to email. Check inbox/spam.";
+    } catch (err) {
+        resultEl.textContent = "Error: " + err.message;
+        alert(err.message);
+    }
 }
 
 async function sendVideo() {
+    const email = document.getElementById("email").value.trim();
+    const code = document.getElementById("code").value.trim();
+
+    if (!email) return alert("Enter email first!");
+    if (!code || code.length < 4) return alert("Enter the code from email!");
+
     if (recordedChunks.length === 0) {
         alert("No video recorded!");
         return;
     }
+
     const blob = new Blob(recordedChunks, { type: "video/webm" });
     const formData = new FormData();
+    formData.append("email", email);
+    formData.append("code", code);
     formData.append("file", blob, "recorded.webm");
 
     isProcessing = true;
@@ -154,18 +225,22 @@ async function sendVideo() {
 
     let progress = 0;
     updateProgress(0);
+    clearInterval(progressInterval);
     progressInterval = setInterval(() => {
         progress = Math.min(progress + Math.random() * 5, 70);
         updateProgress(progress);
     }, 300);
 
     try {
-        const res = await fetch("http://127.0.0.1:8000/verify-video", {
+        const res = await fetch(`${API_BASE}/verify-video`, {
             method: "POST",
             body: formData
         });
 
-        if (!res.ok) throw new Error(`Server returned ${res.status}`);
+        if (!res.ok) {
+            const txt = await res.text();
+            throw new Error(`Server returned ${res.status}: ${txt}`);
+        }
 
         const json = await res.json();
         isProcessing = false;
