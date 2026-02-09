@@ -18,7 +18,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-TEMP_VIDEO_PATH = "temp/temp.mp4"
 os.makedirs("temp", exist_ok=True)
 
 
@@ -31,19 +30,27 @@ async def request_access(email: str = Form(...)):
     return {"ok": True}
 
 
+import uuid
+
 @app.post("/verify-video")
-async def verify_video(
-    email: str = Form(...),
-    code: str = Form(...),
-    file: UploadFile = File(...),
-):
+async def verify_video(email: str = Form(...), code: str = Form(...), file: UploadFile = File(...)):
     check_code(email, code)
 
+    video_id = uuid.uuid4().hex
+    path = f"temp/{video_id}.mp4"
+
     contents = await file.read()
-    with open(TEMP_VIDEO_PATH, "wb") as f:
+    with open(path, "wb") as f:
         f.write(contents)
 
-    return run_full_check(TEMP_VIDEO_PATH)
+    try:
+        return run_full_check(path)
+    finally:
+        try:
+            os.remove(path)
+        except OSError:
+            pass
+
 
 
 app.mount("/", StaticFiles(directory="../frontend_MVP"), name="frontend")
