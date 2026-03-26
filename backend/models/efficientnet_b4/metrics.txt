@@ -1,0 +1,6 @@
+Model: efficientnet_b4
+Best val acc: 0.7894
+Accuracy: 0.8510
+FAR:      0.1747
+FRR:      0.1224
+HTER:     0.1485
