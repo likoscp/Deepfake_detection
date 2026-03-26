@@ -2,7 +2,7 @@ import cv2
 from .face_iterator import iterate_faces
 import numpy as np
 
-def detect_skin_tone_mismatch(video_path, max_frames=80):
+def detect_skin_tone_mismatch(video_path, max_frames=30):
     diffs = []
 
     for frame, (x, y, w, h) in iterate_faces(video_path, max_frames):
@@ -35,6 +35,6 @@ def detect_skin_tone_mismatch(video_path, max_frames=80):
         diffs.append(diff)
 
     avg_diff = float(np.median(diffs)) if diffs else 0.0
-    is_mismatch = avg_diff > 15.0  
+    is_mismatch = avg_diff > 12.0  
 
     return is_mismatch, avg_diff

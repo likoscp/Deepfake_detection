@@ -33,6 +33,9 @@ Step 1: Drafts:
 
 
  python3 -m venv .diploma
- source .diploma/bin/activate
+ linux source .diploma/bin/activate
+  win .diploma/Scripts/activate
  pip install -r requirements.txt
     source ~/.diploma/diploma/bin/activate (это для моего линукса, у тебя мб будет в другом месте)
+uvicorn main:app --reload --host 0.0.0.0 --port 8000 
+.\ngrok  http 8000      
