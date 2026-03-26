@@ -17,4 +17,4 @@ def detect_mask_edges(video_path, max_frames=50):
         return False, 0.0
 
     mean_edge = float(np.mean(scores))
-    return mean_edge > 0.12, mean_edge
+    return mean_edge > 0.09, mean_edge

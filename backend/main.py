@@ -37,7 +37,7 @@ async def verify_video(
     code: str = Form(...),
     file: UploadFile = File(...),
 ):
-    check_code(email, code)
+    # check_code(email, code)
 
     contents = await file.read()
     with open(TEMP_VIDEO_PATH, "wb") as f:
