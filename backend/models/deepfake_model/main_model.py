@@ -24,7 +24,7 @@ transform = transforms.Compose([
                          [0.229, 0.224, 0.225]),
 ])
 
-def predict_video_file(video_path, max_frames=100, threshold=0.9):
+def predict_video_file(video_path, max_frames=100, threshold=0.5):
     cap = cv2.VideoCapture(video_path)
     total = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     fps   = cap.get(cv2.CAP_PROP_FPS)

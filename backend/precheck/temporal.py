@@ -1,7 +1,12 @@
 import cv2
 import numpy as np
 
-def detect_temporal_inconsistency(video_path, max_frames=50, resize=(224, 224), threshold=1300.0):
+def detect_temporal_inconsistency(
+    video_path, 
+    max_frames=50, 
+    resize=(224, 224), 
+    threshold=0.08
+):
     frames = []
     cap = cv2.VideoCapture(video_path)
     
@@ -11,30 +16,28 @@ def detect_temporal_inconsistency(video_path, max_frames=50, resize=(224, 224), 
             break
         if frame is None or frame.size == 0:
             continue
-        if len(frame.shape) == 2:
-            frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
-        elif frame.shape[2] == 4:
+
+        if len(frame.shape) == 3 and frame.shape[2] == 4:
             frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
-        
-        frame_resized = cv2.resize(frame, resize)
-        frames.append(frame_resized.astype(np.float32))
-        
-        
-        if len(frames) == 5:
-            test = np.stack(frames, axis=0)
-            d = np.diff(test, axis=0).reshape(4, -1)
-            if np.linalg.norm(d, axis=1).mean() < 1.0:
-                cap.release()
-                return True, 0.0  
-    
+
+        if len(frame.shape) == 3:
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        frame = cv2.GaussianBlur(frame, (5, 5), 0)
+
+        frame = cv2.resize(frame, resize)
+        frame = frame.astype(np.float32) / 255.0
+
+        frames.append(frame)
+
     cap.release()
-    
+
     if len(frames) < 2:
         return False, 0.0
-    
+
     frames_array = np.stack(frames, axis=0)
-    diffs = np.diff(frames_array, axis=0).reshape(len(frames)-1, -1)
-    diffs = np.linalg.norm(diffs, axis=1)
+
+    diffs = np.abs(np.diff(frames_array, axis=0))
     score = float(np.mean(diffs))
-    
+
     return score > threshold, score

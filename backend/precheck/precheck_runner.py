@@ -16,9 +16,6 @@ from .face_iterator import detect_no_face
 import time
 from models.deepfake_model.main_model import predict_video_file
 
-
-
-
 PHASE2_WEIGHTS = {
     "no_blink":              0.01,
     "static_head":           0.05,
@@ -26,20 +23,15 @@ PHASE2_WEIGHTS = {
     "skin_tone":             0.05,
     "gan_fingerprint":       0.35,
     "texture":               0.28,
-    "temporal_inconsistency":0.10,
+    "temporal_inconsistency":0.20,
     "compression_artifacts": 0.08,
     "face_warping":          0.43,
 }
 
 PHASE2_THRESHOLD = 0.5   
 
-
-
-
-
 def run_phase1(video_path):
     details = {}
-
     
     is_static, static_score = detect_static_video(video_path)
     details["static_frame"] = {"flag": bool(is_static), "score": float(static_score)}
@@ -51,7 +43,6 @@ def run_phase1(video_path):
     if is_no_face:
         return False, f"no_face_detected (ratio={face_ratio:.2f})", details
 
-    
     is_screen, screen_score = detect_screen_display(video_path)
     is_flicker, flicker_score = detect_screen_flicker_pattern(video_path)
     is_flat, flat_score = detect_screen_flatness(video_path)
@@ -59,7 +50,6 @@ def run_phase1(video_path):
     details["screen_display"] = {"flag": bool(is_screen), "score": float(screen_score)}
     details["screen_flicker"] = {"flag": bool(is_flicker), "score": float(flicker_score)}
     details["screen_flatness"] = {"flag": bool(is_flat), "score": float(flat_score)}
-
     
     screen_score_norm = 0.0
     screen_score_norm += min(screen_score / 20.0, 1.0)
@@ -72,22 +62,17 @@ def run_phase1(video_path):
 
     return True, "ok", details
 
-
-
-
-
 def normalize(det_name, score):
     if det_name == "gan_fingerprint":
         return min(score / 10.0, 1.0)
     elif det_name == "temporal_inconsistency":
-        return min(score / 10000.0, 1.0)
+        return max(min((score - 0.02) / 0.15, 1.0), 0.0)
     elif det_name == "compression_artifacts":
         return max(min((300 - score) / 300.0, 1.0), 0.0)
     elif det_name == "skin_tone":
         return min(score / 20.0, 1.0)
     else:
         return min(score, 1.0)
-
 
 def run_phase2(video_path):
     DETECTORS = [
@@ -129,14 +114,11 @@ def run_phase2(video_path):
             print(f"Phase2 error {det_name}: {e}")
             details[det_name] = {"flag": False, "raw_score": -1.0, "norm_score": 0.0}
 
-    
-    
-    
     t = details["temporal_inconsistency"]["norm_score"]
     s = details["skin_tone"]["norm_score"]
     g = details["gan_fingerprint"]["norm_score"]
 
-    screen_like = (t > 0.75 and s > 0.85)
+    screen_like = (t > 0.3 and s > 0.85)
 
     if screen_like:
         details["screen_pattern"] = True
@@ -148,9 +130,8 @@ def run_phase2(video_path):
     
     nb = details["no_blink"]["norm_score"]
     ti = details["temporal_inconsistency"]["norm_score"]
-
     
-    photo_pattern = (nb > 0.9 and ti > 0.4 and g > 0.5)
+    photo_pattern = (nb > 0.9 and ti > 0.15 and g > 0.5)
 
     if photo_pattern:
         details["photo_pattern"] = True
@@ -160,14 +141,8 @@ def run_phase2(video_path):
     
     return passed, weighted_score, details
 
-
-
-
-
 def run_full_check(video_path):
     results = {}
-
-
     print(f"Starting Phase 1...")
     t = time.time()
     p1_passed, p1_reason, p1_details = run_phase1(video_path)
@@ -201,13 +176,11 @@ def run_full_check(video_path):
         _log(video_path, results)
         return results
 
-    
-    deepfake_result = predict_video_file(video_path, threshold=0.95)
+    deepfake_result = predict_video_file(video_path, threshold=0.5)
     results["deepfake"] = deepfake_result
 
     _log(video_path, results)
     return results
-
 
 def _log(video_path, results):
     print(f"\nResults for {video_path}:")

@@ -2,40 +2,40 @@
   "summary": {
     "real": {
       "total": 83,
-      "correct": 55,
-      "accuracy": 0.6627,
-      "FRR": 0.3373
+      "correct": 56,
+      "accuracy": 0.6747,
+      "FRR": 0.3253
     },
     "deepfake": {
       "total": 82,
-      "caught": 75,
-      "detection_rate": 0.9146,
-      "FAR": 0.0854,
+      "caught": 56,
+      "detection_rate": 0.6829,
+      "FAR": 0.3171,
       "caught_by": {
         "phase1": 25,
-        "phase2": 0,
-        "phase3_ml": 50
+        "phase2": 6,
+        "phase3_ml": 25
       }
     },
     "print_attack": {
       "total": 11,
-      "caught": 0,
-      "detection_rate": 0.0,
-      "FAR": 1.0,
+      "caught": 4,
+      "detection_rate": 0.3636,
+      "FAR": 0.6364,
       "caught_by": {
         "phase1": 0,
-        "phase2": 0,
+        "phase2": 4,
         "phase3_ml": 0
       }
     },
     "replay_attack": {
       "total": 34,
-      "caught": 5,
-      "detection_rate": 0.1471,
-      "FAR": 0.8529,
+      "caught": 23,
+      "detection_rate": 0.6765,
+      "FAR": 0.3235,
       "caught_by": {
         "phase1": 5,
-        "phase2": 0,
+        "phase2": 18,
         "phase3_ml": 0
       }
     },
@@ -63,13 +63,13 @@
     },
     "DFDC": {
       "total": 62,
-      "caught": 43,
-      "detection_rate": 0.6935,
-      "FAR": 0.3065,
+      "caught": 36,
+      "detection_rate": 0.5806,
+      "FAR": 0.4194,
       "caught_by": {
         "phase1": 33,
         "phase2": 3,
-        "phase3_ml": 7
+        "phase3_ml": 0
       }
     }
   },
@@ -105,7 +105,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3548,
+        "phase2_score": 0.38,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -138,9 +138,9 @@
             "norm_score": 0.09
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.00823576282709837,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2522.761474609375,
+            "norm_score": 0.252
           },
           "compression_artifacts": {
             "flag": false,
@@ -264,7 +264,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3479,
+        "phase2_score": 0.3598,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -298,8 +298,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0023753808345645666,
-            "norm_score": 0.0
+            "raw_score": 1190.8101806640625,
+            "norm_score": 0.119
           },
           "compression_artifacts": {
             "flag": false,
@@ -324,8 +324,8 @@
       "file": "real_asian_0145.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\group_033\\real_asian_0145.mp4",
       "ground_truth": "REAL",
-      "prediction": "FAKE",
-      "correct": false,
+      "prediction": "REAL",
+      "correct": true,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -351,7 +351,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3306,
+        "phase2_score": 0.3387,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -385,8 +385,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0014175539836287498,
-            "norm_score": 0.0
+            "raw_score": 806.8994140625,
+            "norm_score": 0.081
           },
           "compression_artifacts": {
             "flag": false,
@@ -403,7 +403,7 @@
         },
         "deepfake": {
           "video_score": 0.5608291029930115,
-          "prediction": "FAKE"
+          "prediction": "REAL"
         }
       }
     },
@@ -437,8 +437,8 @@
             "score": 3484.8582010298032
           }
         },
-        "phase2": "OK",
-        "phase2_score": 0.3475,
+        "phase2": "FAILED (0.892)",
+        "phase2_score": 0.8919,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -471,9 +471,9 @@
             "norm_score": 0.171
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.00949955452233553,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 4434.98681640625,
+            "norm_score": 0.443
           },
           "compression_artifacts": {
             "flag": false,
@@ -486,11 +486,11 @@
             "norm_score": 0.0
           },
           "screen_pattern": false,
-          "photo_pattern": false
+          "photo_pattern": true
         },
         "deepfake": {
-          "video_score": 0.6297412514686584,
-          "prediction": "FAKE"
+          "prediction": "FAKE",
+          "reason": "Phase2 score=0.892"
         }
       }
     },
@@ -498,8 +498,8 @@
       "file": "real_asian_0150.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\group_033\\real_asian_0150.mp4",
       "ground_truth": "REAL",
-      "prediction": "FAKE",
-      "correct": false,
+      "prediction": "REAL",
+      "correct": true,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -525,7 +525,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3819,
+        "phase2_score": 0.4467,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -558,9 +558,9 @@
             "norm_score": 0.219
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.031208062544465065,
-            "norm_score": 0.075
+            "flag": true,
+            "raw_score": 7978.6611328125,
+            "norm_score": 0.798
           },
           "compression_artifacts": {
             "flag": false,
@@ -577,7 +577,7 @@
         },
         "deepfake": {
           "video_score": 0.6790212392807007,
-          "prediction": "FAKE"
+          "prediction": "REAL"
         }
       }
     },
@@ -612,7 +612,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.36,
+        "phase2_score": 0.4225,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -645,9 +645,9 @@
             "norm_score": 0.213
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.012606521137058735,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 6249.3525390625,
+            "norm_score": 0.625
           },
           "compression_artifacts": {
             "flag": false,
@@ -699,7 +699,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.2948,
+        "phase2_score": 0.3078,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -732,9 +732,9 @@
             "norm_score": 0.208
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.002773173851892352,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1302.6173095703125,
+            "norm_score": 0.13
           },
           "compression_artifacts": {
             "flag": false,
@@ -786,7 +786,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.2876,
+        "phase2_score": 0.2994,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -820,8 +820,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.002544633112847805,
-            "norm_score": 0.0
+            "raw_score": 1172.541015625,
+            "norm_score": 0.117
           },
           "compression_artifacts": {
             "flag": true,
@@ -873,7 +873,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3502,
+        "phase2_score": 0.3687,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -906,9 +906,9 @@
             "norm_score": 0.343
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.0033457977697253227,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1855.9129638671875,
+            "norm_score": 0.186
           },
           "compression_artifacts": {
             "flag": false,
@@ -960,7 +960,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3514,
+        "phase2_score": 0.3643,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -994,8 +994,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0023358219768851995,
-            "norm_score": 0.0
+            "raw_score": 1293.681396484375,
+            "norm_score": 0.129
           },
           "compression_artifacts": {
             "flag": false,
@@ -1047,7 +1047,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3555,
+        "phase2_score": 0.366,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1081,8 +1081,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0021174438297748566,
-            "norm_score": 0.0
+            "raw_score": 1049.5562744140625,
+            "norm_score": 0.105
           },
           "compression_artifacts": {
             "flag": false,
@@ -1134,7 +1134,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3621,
+        "phase2_score": 0.3783,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1167,9 +1167,9 @@
             "norm_score": 0.282
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.004012714605778456,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1624.125,
+            "norm_score": 0.162
           },
           "compression_artifacts": {
             "flag": false,
@@ -1194,8 +1194,8 @@
       "file": "real_asian_0179.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\group_037\\real_asian_0179.mp4",
       "ground_truth": "REAL",
-      "prediction": "REAL",
-      "correct": true,
+      "prediction": "FAKE",
+      "correct": false,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -1220,8 +1220,8 @@
             "score": 8263.736021113973
           }
         },
-        "phase2": "OK",
-        "phase2_score": 0.3625,
+        "phase2": "FAILED (0.905)",
+        "phase2_score": 0.9045,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1254,9 +1254,9 @@
             "norm_score": 0.348
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.011410760693252087,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 4204.28515625,
+            "norm_score": 0.42
           },
           "compression_artifacts": {
             "flag": false,
@@ -1269,11 +1269,11 @@
             "norm_score": 0.0
           },
           "screen_pattern": false,
-          "photo_pattern": false
+          "photo_pattern": true
         },
         "deepfake": {
-          "video_score": 0.01595800742506981,
-          "prediction": "REAL"
+          "prediction": "FAKE",
+          "reason": "Phase2 score=0.905"
         }
       }
     },
@@ -1308,7 +1308,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.342,
+        "phase2_score": 0.362,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1341,9 +1341,9 @@
             "norm_score": 0.292
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.005048804916441441,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2000.734375,
+            "norm_score": 0.2
           },
           "compression_artifacts": {
             "flag": false,
@@ -1395,7 +1395,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3238,
+        "phase2_score": 0.3453,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1428,9 +1428,9 @@
             "norm_score": 0.264
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.005836646072566509,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2159.17138671875,
+            "norm_score": 0.216
           },
           "compression_artifacts": {
             "flag": false,
@@ -1482,7 +1482,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3325,
+        "phase2_score": 0.3506,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1515,9 +1515,9 @@
             "norm_score": 0.278
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.004765387158840895,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1805.6275634765625,
+            "norm_score": 0.181
           },
           "compression_artifacts": {
             "flag": false,
@@ -1569,7 +1569,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3415,
+        "phase2_score": 0.3616,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1602,9 +1602,9 @@
             "norm_score": 0.293
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.005393079947680235,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2013.574462890625,
+            "norm_score": 0.201
           },
           "compression_artifacts": {
             "flag": false,
@@ -1656,7 +1656,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.352,
+        "phase2_score": 0.3782,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1689,9 +1689,9 @@
             "norm_score": 0.317
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.007044726051390171,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2618.25439453125,
+            "norm_score": 0.262
           },
           "compression_artifacts": {
             "flag": false,
@@ -1743,7 +1743,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3022,
+        "phase2_score": 0.3354,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1776,9 +1776,9 @@
             "norm_score": 0.245
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.009073379449546337,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 3319.9833984375,
+            "norm_score": 0.332
           },
           "compression_artifacts": {
             "flag": true,
@@ -1829,8 +1829,8 @@
             "score": 4598.146785798362
           }
         },
-        "phase2": "FAILED (0.874)",
-        "phase2_score": 0.874,
+        "phase2": "FAILED (0.938)",
+        "phase2_score": 0.9382,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1863,9 +1863,9 @@
             "norm_score": 0.232
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.0433640331029892,
-            "norm_score": 0.156
+            "flag": true,
+            "raw_score": 9532.669921875,
+            "norm_score": 0.953
           },
           "compression_artifacts": {
             "flag": false,
@@ -1882,7 +1882,7 @@
         },
         "deepfake": {
           "prediction": "FAKE",
-          "reason": "Phase2 score=0.874"
+          "reason": "Phase2 score=0.938"
         }
       }
     },
@@ -1890,8 +1890,8 @@
       "file": "real_asian_0207.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\group_041\\real_asian_0207.mp4",
       "ground_truth": "REAL",
-      "prediction": "REAL",
-      "correct": true,
+      "prediction": "FAKE",
+      "correct": false,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -1916,8 +1916,8 @@
             "score": 2626.5501451111318
           }
         },
-        "phase2": "OK",
-        "phase2_score": 0.3813,
+        "phase2": "FAILED (0.945)",
+        "phase2_score": 0.945,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -1950,9 +1950,9 @@
             "norm_score": 0.225
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.02298698201775551,
-            "norm_score": 0.02
+            "flag": true,
+            "raw_score": 6774.94921875,
+            "norm_score": 0.677
           },
           "compression_artifacts": {
             "flag": false,
@@ -1965,11 +1965,11 @@
             "norm_score": 0.0
           },
           "screen_pattern": false,
-          "photo_pattern": false
+          "photo_pattern": true
         },
         "deepfake": {
-          "video_score": 0.3353041261434555,
-          "prediction": "REAL"
+          "prediction": "FAKE",
+          "reason": "Phase2 score=0.945"
         }
       }
     },
@@ -2004,7 +2004,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.369,
+        "phase2_score": 0.3857,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2037,9 +2037,9 @@
             "norm_score": 0.265
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.003716860432177782,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1664.5428466796875,
+            "norm_score": 0.166
           },
           "compression_artifacts": {
             "flag": false,
@@ -2091,7 +2091,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3175,
+        "phase2_score": 0.3439,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2124,9 +2124,9 @@
             "norm_score": 0.178
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.008219004608690739,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2645.27978515625,
+            "norm_score": 0.265
           },
           "compression_artifacts": {
             "flag": false,
@@ -2178,7 +2178,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3669,
+        "phase2_score": 0.4029,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2211,9 +2211,9 @@
             "norm_score": 0.332
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.014369692653417587,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 3600.07373046875,
+            "norm_score": 0.36
           },
           "compression_artifacts": {
             "flag": false,
@@ -2265,7 +2265,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.4256,
+        "phase2_score": 0.4867,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2298,9 +2298,9 @@
             "norm_score": 0.288
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.03950602188706398,
-            "norm_score": 0.13
+            "flag": true,
+            "raw_score": 8710.0322265625,
+            "norm_score": 0.871
           },
           "compression_artifacts": {
             "flag": false,
@@ -2325,8 +2325,8 @@
       "file": "real_asian_0027.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\group_044\\real_asian_0027.mp4",
       "ground_truth": "REAL",
-      "prediction": "REAL",
-      "correct": true,
+      "prediction": "FAKE",
+      "correct": false,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -2351,8 +2351,8 @@
             "score": 5776.527109788519
           }
         },
-        "phase2": "OK",
-        "phase2_score": 0.3456,
+        "phase2": "FAILED (0.896)",
+        "phase2_score": 0.8964,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2385,9 +2385,9 @@
             "norm_score": 0.297
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.01979329250752926,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 5079.8544921875,
+            "norm_score": 0.508
           },
           "compression_artifacts": {
             "flag": false,
@@ -2400,11 +2400,11 @@
             "norm_score": 0.0
           },
           "screen_pattern": false,
-          "photo_pattern": false
+          "photo_pattern": true
         },
         "deepfake": {
-          "video_score": 0.04721447080373764,
-          "prediction": "REAL"
+          "prediction": "FAKE",
+          "reason": "Phase2 score=0.896"
         }
       }
     },
@@ -2439,7 +2439,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3453,
+        "phase2_score": 0.3682,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2472,9 +2472,9 @@
             "norm_score": 0.239
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.00871194712817669,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2290.796875,
+            "norm_score": 0.229
           },
           "compression_artifacts": {
             "flag": false,
@@ -2523,8 +2523,8 @@
       "file": "real_asian_0010.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\group_046\\real_asian_0010.mp4",
       "ground_truth": "REAL",
-      "prediction": "FAKE",
-      "correct": false,
+      "prediction": "REAL",
+      "correct": true,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -2550,7 +2550,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3624,
+        "phase2_score": 0.3939,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2583,9 +2583,9 @@
             "norm_score": 0.245
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.005922290962189436,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 3148.736572265625,
+            "norm_score": 0.315
           },
           "compression_artifacts": {
             "flag": false,
@@ -2602,7 +2602,7 @@
         },
         "deepfake": {
           "video_score": 0.9465299844741821,
-          "prediction": "FAKE"
+          "prediction": "REAL"
         }
       }
     },
@@ -2637,7 +2637,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3701,
+        "phase2_score": 0.4056,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2670,9 +2670,9 @@
             "norm_score": 0.3
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.00661049596965313,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 3547.19775390625,
+            "norm_score": 0.355
           },
           "compression_artifacts": {
             "flag": false,
@@ -2760,7 +2760,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3709,
+        "phase2_score": 0.394,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2793,9 +2793,9 @@
             "norm_score": 0.254
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.006996501237154007,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2305.2255859375,
+            "norm_score": 0.231
           },
           "compression_artifacts": {
             "flag": false,
@@ -2847,7 +2847,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3678,
+        "phase2_score": 0.3847,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2880,9 +2880,9 @@
             "norm_score": 0.266
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.003247022395953536,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1689.0833740234375,
+            "norm_score": 0.169
           },
           "compression_artifacts": {
             "flag": false,
@@ -2934,7 +2934,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3566,
+        "phase2_score": 0.3646,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -2968,8 +2968,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0028240687679499388,
-            "norm_score": 0.0
+            "raw_score": 798.5661010742188,
+            "norm_score": 0.08
           },
           "compression_artifacts": {
             "flag": false,
@@ -3021,7 +3021,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.364,
+        "phase2_score": 0.3788,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3054,9 +3054,9 @@
             "norm_score": 0.292
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.004766838625073433,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1480.8431396484375,
+            "norm_score": 0.148
           },
           "compression_artifacts": {
             "flag": false,
@@ -3108,7 +3108,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3831,
+        "phase2_score": 0.4015,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3141,9 +3141,9 @@
             "norm_score": 0.305
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.003908500075340271,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1844.731201171875,
+            "norm_score": 0.184
           },
           "compression_artifacts": {
             "flag": false,
@@ -3267,7 +3267,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3674,
+        "phase2_score": 0.4005,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3300,9 +3300,9 @@
             "norm_score": 0.261
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.008796051144599915,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 3309.0205078125,
+            "norm_score": 0.331
           },
           "compression_artifacts": {
             "flag": false,
@@ -3426,7 +3426,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3116,
+        "phase2_score": 0.3276,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3459,9 +3459,9 @@
             "norm_score": 0.328
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.0027151647955179214,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1599.0086669921875,
+            "norm_score": 0.16
           },
           "compression_artifacts": {
             "flag": false,
@@ -3513,7 +3513,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3313,
+        "phase2_score": 0.3486,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3546,9 +3546,9 @@
             "norm_score": 0.288
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.005246755667030811,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1726.7587890625,
+            "norm_score": 0.173
           },
           "compression_artifacts": {
             "flag": false,
@@ -3600,7 +3600,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.317,
+        "phase2_score": 0.3308,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3633,9 +3633,9 @@
             "norm_score": 0.287
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.003571232780814171,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1377.760986328125,
+            "norm_score": 0.138
           },
           "compression_artifacts": {
             "flag": false,
@@ -3687,7 +3687,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.2775,
+        "phase2_score": 0.2923,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3720,9 +3720,9 @@
             "norm_score": 0.259
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.004247977398335934,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1484.518798828125,
+            "norm_score": 0.148
           },
           "compression_artifacts": {
             "flag": false,
@@ -3747,8 +3747,8 @@
       "file": "real_others_0182.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\unique\\real_others_0182.mp4",
       "ground_truth": "REAL",
-      "prediction": "FAKE",
-      "correct": false,
+      "prediction": "REAL",
+      "correct": true,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -3774,7 +3774,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.351,
+        "phase2_score": 0.4005,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3807,9 +3807,9 @@
             "norm_score": 0.257
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.01958700641989708,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 4951.900390625,
+            "norm_score": 0.495
           },
           "compression_artifacts": {
             "flag": false,
@@ -3826,7 +3826,7 @@
         },
         "deepfake": {
           "video_score": 0.5228210687637329,
-          "prediction": "FAKE"
+          "prediction": "REAL"
         }
       }
     },
@@ -3861,7 +3861,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.2864,
+        "phase2_score": 0.3169,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3894,9 +3894,9 @@
             "norm_score": 0.213
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.0082474984228611,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 3047.128173828125,
+            "norm_score": 0.305
           },
           "compression_artifacts": {
             "flag": false,
@@ -3948,7 +3948,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3855,
+        "phase2_score": 0.4111,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -3981,9 +3981,9 @@
             "norm_score": 0.322
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.004745031241327524,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2557.959716796875,
+            "norm_score": 0.256
           },
           "compression_artifacts": {
             "flag": false,
@@ -4071,7 +4071,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3405,
+        "phase2_score": 0.3875,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4104,9 +4104,9 @@
             "norm_score": 0.305
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.022360052913427353,
-            "norm_score": 0.016
+            "flag": true,
+            "raw_score": 5007.8525390625,
+            "norm_score": 0.501
           },
           "compression_artifacts": {
             "flag": false,
@@ -4158,7 +4158,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3651,
+        "phase2_score": 0.3949,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4191,9 +4191,9 @@
             "norm_score": 0.333
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.01074252650141716,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2982.554443359375,
+            "norm_score": 0.298
           },
           "compression_artifacts": {
             "flag": false,
@@ -4281,7 +4281,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3344,
+        "phase2_score": 0.347,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4315,8 +4315,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0032597689423710108,
-            "norm_score": 0.0
+            "raw_score": 1257.3831787109375,
+            "norm_score": 0.126
           },
           "compression_artifacts": {
             "flag": false,
@@ -4368,7 +4368,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.335,
+        "phase2_score": 0.376,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4401,9 +4401,9 @@
             "norm_score": 0.318
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.01650853455066681,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 4098.72265625,
+            "norm_score": 0.41
           },
           "compression_artifacts": {
             "flag": false,
@@ -4455,7 +4455,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3935,
+        "phase2_score": 0.4074,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4488,9 +4488,9 @@
             "norm_score": 0.297
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.005565731320530176,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1381.503662109375,
+            "norm_score": 0.138
           },
           "compression_artifacts": {
             "flag": false,
@@ -4542,7 +4542,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3448,
+        "phase2_score": 0.3563,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4576,8 +4576,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.002844012575224042,
-            "norm_score": 0.0
+            "raw_score": 1146.5079345703125,
+            "norm_score": 0.115
           },
           "compression_artifacts": {
             "flag": false,
@@ -4629,7 +4629,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3426,
+        "phase2_score": 0.3691,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4662,9 +4662,9 @@
             "norm_score": 0.226
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.008970003575086594,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2646.476806640625,
+            "norm_score": 0.265
           },
           "compression_artifacts": {
             "flag": false,
@@ -4716,7 +4716,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3528,
+        "phase2_score": 0.3826,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4749,9 +4749,9 @@
             "norm_score": 0.242
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.006150755565613508,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2976.63134765625,
+            "norm_score": 0.298
           },
           "compression_artifacts": {
             "flag": false,
@@ -4776,8 +4776,8 @@
       "file": "real_others_0195.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\unique\\real_others_0195.mp4",
       "ground_truth": "REAL",
-      "prediction": "REAL",
-      "correct": true,
+      "prediction": "FAKE",
+      "correct": false,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -4802,8 +4802,8 @@
             "score": 5575.842307044405
           }
         },
-        "phase2": "OK",
-        "phase2_score": 0.3561,
+        "phase2": "FAILED (0.909)",
+        "phase2_score": 0.9088,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4836,9 +4836,9 @@
             "norm_score": 0.273
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.013155261985957623,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 5267.39453125,
+            "norm_score": 0.527
           },
           "compression_artifacts": {
             "flag": false,
@@ -4851,11 +4851,11 @@
             "norm_score": 0.0
           },
           "screen_pattern": false,
-          "photo_pattern": false
+          "photo_pattern": true
         },
         "deepfake": {
-          "video_score": 6.0372503867256455e-05,
-          "prediction": "REAL"
+          "prediction": "FAKE",
+          "reason": "Phase2 score=0.909"
         }
       }
     },
@@ -4926,7 +4926,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3621,
+        "phase2_score": 0.376,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -4959,9 +4959,9 @@
             "norm_score": 0.218
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.0027597113512456417,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1396.08740234375,
+            "norm_score": 0.14
           },
           "compression_artifacts": {
             "flag": false,
@@ -5013,7 +5013,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3585,
+        "phase2_score": 0.3677,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5047,8 +5047,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0021462298464030027,
-            "norm_score": 0.0
+            "raw_score": 924.2031860351562,
+            "norm_score": 0.092
           },
           "compression_artifacts": {
             "flag": false,
@@ -5100,7 +5100,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3297,
+        "phase2_score": 0.3405,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5134,8 +5134,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0027778579387813807,
-            "norm_score": 0.0
+            "raw_score": 1075.8369140625,
+            "norm_score": 0.108
           },
           "compression_artifacts": {
             "flag": false,
@@ -5187,7 +5187,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3173,
+        "phase2_score": 0.3512,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5220,9 +5220,9 @@
             "norm_score": 0.262
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.010607720352709293,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 3389.74658203125,
+            "norm_score": 0.339
           },
           "compression_artifacts": {
             "flag": false,
@@ -5274,7 +5274,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.4275,
+        "phase2_score": 0.4731,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5307,9 +5307,9 @@
             "norm_score": 0.281
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.04492562636733055,
-            "norm_score": 0.166
+            "flag": true,
+            "raw_score": 7886.572265625,
+            "norm_score": 0.789
           },
           "compression_artifacts": {
             "flag": false,
@@ -5381,7 +5381,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3526,
+        "phase2_score": 0.3703,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5414,9 +5414,9 @@
             "norm_score": 0.299
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.0027028839103877544,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1771.7117919921875,
+            "norm_score": 0.177
           },
           "compression_artifacts": {
             "flag": false,
@@ -5468,7 +5468,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.2813,
+        "phase2_score": 0.2922,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5502,8 +5502,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0020885136909782887,
-            "norm_score": 0.0
+            "raw_score": 1093.2308349609375,
+            "norm_score": 0.109
           },
           "compression_artifacts": {
             "flag": false,
@@ -5528,8 +5528,8 @@
       "file": "real_others_0206.mp4",
       "path": "G:\\dataset\\dataset_test\\all\\real\\unique\\real_others_0206.mp4",
       "ground_truth": "REAL",
-      "prediction": "FAKE",
-      "correct": false,
+      "prediction": "REAL",
+      "correct": true,
       "raw": {
         "phase1": "OK",
         "phase1_details": {
@@ -5555,7 +5555,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.362,
+        "phase2_score": 0.3818,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5588,9 +5588,9 @@
             "norm_score": 0.268
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.003738248022273183,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 1973.154052734375,
+            "norm_score": 0.197
           },
           "compression_artifacts": {
             "flag": false,
@@ -5607,7 +5607,7 @@
         },
         "deepfake": {
           "video_score": 0.6930635571479797,
-          "prediction": "FAKE"
+          "prediction": "REAL"
         }
       }
     },
@@ -5678,7 +5678,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3242,
+        "phase2_score": 0.3702,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5711,9 +5711,9 @@
             "norm_score": 0.278
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.0401962473988533,
-            "norm_score": 0.135
+            "flag": true,
+            "raw_score": 7294.79638671875,
+            "norm_score": 0.729
           },
           "compression_artifacts": {
             "flag": false,
@@ -5897,7 +5897,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3317,
+        "phase2_score": 0.3381,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -5931,8 +5931,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.0015641337959095836,
-            "norm_score": 0.0
+            "raw_score": 644.3526611328125,
+            "norm_score": 0.064
           },
           "compression_artifacts": {
             "flag": false,
@@ -5984,7 +5984,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3406,
+        "phase2_score": 0.3622,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -6017,9 +6017,9 @@
             "norm_score": 0.271
           },
           "temporal_inconsistency": {
-            "flag": false,
-            "raw_score": 0.005277503281831741,
-            "norm_score": 0.0
+            "flag": true,
+            "raw_score": 2165.6083984375,
+            "norm_score": 0.217
           },
           "compression_artifacts": {
             "flag": false,
@@ -6127,7 +6127,7 @@
           }
         },
         "phase2": "OK",
-        "phase2_score": 0.3491,
+        "phase2_score": 0.3613,
         "phase2_details": {
           "no_blink": {
             "flag": false,
@@ -6161,8 +6161,8 @@
           },
           "temporal_inconsistency": {
             "flag": false,
-            "raw_score": 0.004143218509852886,
-            "norm_score": 0.0
+            "raw_score": 1217.233154296875,
+            "norm_score": 0.122
           },
           "compression_artifacts": {
             "flag": false,
@@ -6191,9 +6191,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0151.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -6219,7 +6219,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3557,
+          "phase2_score": 0.3777,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6252,9 +6252,9 @@
               "norm_score": 0.274
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.004905352834612131,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2200.230224609375,
+              "norm_score": 0.22
             },
             "compression_artifacts": {
               "flag": true,
@@ -6271,7 +6271,7 @@
           },
           "deepfake": {
             "video_score": 0.8317062854766846,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -6308,7 +6308,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3532,
+          "phase2_score": 0.3951,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6341,9 +6341,9 @@
               "norm_score": 0.244
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.009875238873064518,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4181.6796875,
+              "norm_score": 0.418
             },
             "compression_artifacts": {
               "flag": false,
@@ -6397,7 +6397,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3604,
+          "phase2_score": 0.4227,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6430,9 +6430,9 @@
               "norm_score": 0.234
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.012648571282625198,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 6229.400390625,
+              "norm_score": 0.623
             },
             "compression_artifacts": {
               "flag": false,
@@ -6458,9 +6458,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0154.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -6486,7 +6486,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.289,
+          "phase2_score": 0.3026,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6519,9 +6519,9 @@
               "norm_score": 0.226
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0031306680757552385,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1360.237548828125,
+              "norm_score": 0.136
             },
             "compression_artifacts": {
               "flag": false,
@@ -6538,7 +6538,7 @@
           },
           "deepfake": {
             "video_score": 0.7363978922367096,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -6547,9 +6547,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0155.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -6575,7 +6575,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.2801,
+          "phase2_score": 0.2923,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6609,8 +6609,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0028311468195170164,
-              "norm_score": 0.0
+              "raw_score": 1220.7008056640625,
+              "norm_score": 0.122
             },
             "compression_artifacts": {
               "flag": false,
@@ -6627,7 +6627,7 @@
           },
           "deepfake": {
             "video_score": 0.8898470401763916,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -6637,7 +6637,7 @@
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
         "prediction": "FAKE",
-        "caught_by": "phase3_ml",
+        "caught_by": "phase2",
         "correct": true,
         "raw": {
           "phase1": "OK",
@@ -6663,8 +6663,8 @@
               "score": 4535.770408181503
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3489,
+          "phase2": "FAILED (0.890)",
+          "phase2_score": 0.8895,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6697,9 +6697,9 @@
               "norm_score": 0.318
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.009399340488016605,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4060.20556640625,
+              "norm_score": 0.406
             },
             "compression_artifacts": {
               "flag": false,
@@ -6712,11 +6712,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.9319173097610474,
-            "prediction": "FAKE"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.890"
           }
         }
       },
@@ -6753,7 +6753,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3192,
+          "phase2_score": 0.3318,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6787,8 +6787,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.005157801788300276,
-              "norm_score": 0.0
+              "raw_score": 1267.7401123046875,
+              "norm_score": 0.127
             },
             "compression_artifacts": {
               "flag": false,
@@ -6864,7 +6864,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3535,
+          "phase2_score": 0.3953,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6897,9 +6897,9 @@
               "norm_score": 0.243
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0098694683983922,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4176.82275390625,
+              "norm_score": 0.418
             },
             "compression_artifacts": {
               "flag": false,
@@ -6953,7 +6953,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3141,
+          "phase2_score": 0.3187,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -6987,8 +6987,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0008748798281885684,
-              "norm_score": 0.0
+              "raw_score": 460.7193603515625,
+              "norm_score": 0.046
             },
             "compression_artifacts": {
               "flag": false,
@@ -7014,9 +7014,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0161.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7042,7 +7042,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.2962,
+          "phase2_score": 0.3028,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7076,8 +7076,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.001108494820073247,
-              "norm_score": 0.0
+              "raw_score": 662.4877319335938,
+              "norm_score": 0.066
             },
             "compression_artifacts": {
               "flag": false,
@@ -7094,7 +7094,7 @@
           },
           "deepfake": {
             "video_score": 0.7628288269042969,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -7131,7 +7131,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3613,
+          "phase2_score": 0.3802,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7164,9 +7164,9 @@
               "norm_score": 0.343
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.005185456946492195,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1889.5152587890625,
+              "norm_score": 0.189
             },
             "compression_artifacts": {
               "flag": false,
@@ -7220,7 +7220,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3684,
+          "phase2_score": 0.3938,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7253,9 +7253,9 @@
               "norm_score": 0.354
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.007676657289266586,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2533.738525390625,
+              "norm_score": 0.253
             },
             "compression_artifacts": {
               "flag": false,
@@ -7281,9 +7281,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0164.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7308,8 +7308,8 @@
               "score": 2451.145871721431
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3735,
+          "phase2": "FAILED (0.915)",
+          "phase2_score": 0.9151,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7342,9 +7342,9 @@
               "norm_score": 0.357
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.017986204475164413,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4157.16796875,
+              "norm_score": 0.416
             },
             "compression_artifacts": {
               "flag": false,
@@ -7357,11 +7357,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.38453739881515503,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.915"
           }
         }
       },
@@ -7370,9 +7370,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0165.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7398,7 +7398,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3427,
+          "phase2_score": 0.3813,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7431,9 +7431,9 @@
               "norm_score": 0.286
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.017730847001075745,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3861.35693359375,
+              "norm_score": 0.386
             },
             "compression_artifacts": {
               "flag": false,
@@ -7450,7 +7450,7 @@
           },
           "deepfake": {
             "video_score": 0.9462378025054932,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -7459,9 +7459,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0166.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7486,8 +7486,8 @@
               "score": 1512.4900565131536
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.371,
+          "phase2": "FAILED (0.910)",
+          "phase2_score": 0.9103,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7520,9 +7520,9 @@
               "norm_score": 0.336
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.021449614316225052,
-              "norm_score": 0.01
+              "flag": true,
+              "raw_score": 4130.693359375,
+              "norm_score": 0.413
             },
             "compression_artifacts": {
               "flag": false,
@@ -7535,11 +7535,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.27305692434310913,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.910"
           }
         }
       },
@@ -7548,9 +7548,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0167.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7576,7 +7576,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3586,
+          "phase2_score": 0.4054,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7609,9 +7609,9 @@
               "norm_score": 0.359
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.022225111722946167,
-              "norm_score": 0.015
+              "flag": true,
+              "raw_score": 4978.23681640625,
+              "norm_score": 0.498
             },
             "compression_artifacts": {
               "flag": false,
@@ -7628,7 +7628,7 @@
           },
           "deepfake": {
             "video_score": 0.8305109143257141,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -7637,9 +7637,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0168.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7665,7 +7665,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.386,
+          "phase2_score": 0.4082,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7698,9 +7698,9 @@
               "norm_score": 0.351
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.008413800969719887,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2229.13037109375,
+              "norm_score": 0.223
             },
             "compression_artifacts": {
               "flag": false,
@@ -7717,7 +7717,7 @@
           },
           "deepfake": {
             "video_score": 0.6889765858650208,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -7726,9 +7726,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0169.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7754,7 +7754,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3154,
+          "phase2_score": 0.3239,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7788,8 +7788,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0023515839129686356,
-              "norm_score": 0.0
+              "raw_score": 855.6974487304688,
+              "norm_score": 0.086
             },
             "compression_artifacts": {
               "flag": false,
@@ -7806,7 +7806,7 @@
           },
           "deepfake": {
             "video_score": 0.8782575130462646,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -7815,9 +7815,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0170.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7843,7 +7843,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3577,
+          "phase2_score": 0.3885,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7876,9 +7876,9 @@
               "norm_score": 0.334
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.008780217729508877,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3075.255126953125,
+              "norm_score": 0.308
             },
             "compression_artifacts": {
               "flag": false,
@@ -7895,7 +7895,7 @@
           },
           "deepfake": {
             "video_score": 0.773087203502655,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -7904,9 +7904,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0171.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -7932,7 +7932,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3325,
+          "phase2_score": 0.351,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -7965,9 +7965,9 @@
               "norm_score": 0.35
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0033937706612050533,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1850.291015625,
+              "norm_score": 0.185
             },
             "compression_artifacts": {
               "flag": false,
@@ -7984,7 +7984,7 @@
           },
           "deepfake": {
             "video_score": 0.812082976102829,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -8021,7 +8021,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3598,
+          "phase2_score": 0.3824,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8054,9 +8054,9 @@
               "norm_score": 0.337
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.005439952481538057,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2260.363037109375,
+              "norm_score": 0.226
             },
             "compression_artifacts": {
               "flag": false,
@@ -8082,9 +8082,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0173.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -8110,7 +8110,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3392,
+          "phase2_score": 0.3521,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8144,8 +8144,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.002408804604783654,
-              "norm_score": 0.0
+              "raw_score": 1294.8941650390625,
+              "norm_score": 0.129
             },
             "compression_artifacts": {
               "flag": false,
@@ -8162,7 +8162,7 @@
           },
           "deepfake": {
             "video_score": 0.9190348386764526,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -8199,7 +8199,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3621,
+          "phase2_score": 0.3818,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8232,9 +8232,9 @@
               "norm_score": 0.339
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0038672827649861574,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1974.381591796875,
+              "norm_score": 0.197
             },
             "compression_artifacts": {
               "flag": false,
@@ -8260,9 +8260,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0175.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -8288,7 +8288,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3475,
+          "phase2_score": 0.3579,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8322,8 +8322,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.00217587617225945,
-              "norm_score": 0.0
+              "raw_score": 1042.759033203125,
+              "norm_score": 0.104
             },
             "compression_artifacts": {
               "flag": false,
@@ -8340,7 +8340,7 @@
           },
           "deepfake": {
             "video_score": 0.6105999946594238,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -8349,9 +8349,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0176.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -8377,7 +8377,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3606,
+          "phase2_score": 0.3983,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8410,9 +8410,9 @@
               "norm_score": 0.353
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.010264160111546516,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3774.634033203125,
+              "norm_score": 0.377
             },
             "compression_artifacts": {
               "flag": false,
@@ -8429,7 +8429,7 @@
           },
           "deepfake": {
             "video_score": 0.86965012550354,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -8466,7 +8466,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3619,
+          "phase2_score": 0.378,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8499,9 +8499,9 @@
               "norm_score": 0.318
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.00411580502986908,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1613.4539794921875,
+              "norm_score": 0.161
             },
             "compression_artifacts": {
               "flag": false,
@@ -8528,7 +8528,7 @@
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
         "prediction": "FAKE",
-        "caught_by": "phase3_ml",
+        "caught_by": "phase2",
         "correct": true,
         "raw": {
           "phase1": "OK",
@@ -8554,8 +8554,8 @@
               "score": 6440.294515702244
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3604,
+          "phase2": "FAILED (0.902)",
+          "phase2_score": 0.902,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8588,9 +8588,9 @@
               "norm_score": 0.34
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.014226023107767105,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4162.37109375,
+              "norm_score": 0.416
             },
             "compression_artifacts": {
               "flag": false,
@@ -8603,11 +8603,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.9840176701545715,
-            "prediction": "FAKE"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.902"
           }
         }
       },
@@ -8617,7 +8617,7 @@
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
         "prediction": "FAKE",
-        "caught_by": "phase3_ml",
+        "caught_by": "phase2",
         "correct": true,
         "raw": {
           "phase1": "OK",
@@ -8643,8 +8643,8 @@
               "score": 8145.640350094707
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3591,
+          "phase2": "FAILED (0.901)",
+          "phase2_score": 0.901,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8677,9 +8677,9 @@
               "norm_score": 0.374
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.011440802365541458,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4189.04638671875,
+              "norm_score": 0.419
             },
             "compression_artifacts": {
               "flag": false,
@@ -8692,11 +8692,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.9287309646606445,
-            "prediction": "FAKE"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.901"
           }
         }
       },
@@ -8705,9 +8705,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0180.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -8733,7 +8733,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3536,
+          "phase2_score": 0.3777,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8766,9 +8766,9 @@
               "norm_score": 0.319
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0057419706135988235,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2408.0888671875,
+              "norm_score": 0.241
             },
             "compression_artifacts": {
               "flag": false,
@@ -8785,7 +8785,7 @@
           },
           "deepfake": {
             "video_score": 0.5969475507736206,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -8794,9 +8794,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0181.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -8822,7 +8822,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3362,
+          "phase2_score": 0.3558,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8855,9 +8855,9 @@
               "norm_score": 0.31
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.004962844308465719,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1954.39013671875,
+              "norm_score": 0.195
             },
             "compression_artifacts": {
               "flag": false,
@@ -8874,7 +8874,7 @@
           },
           "deepfake": {
             "video_score": 0.9237543940544128,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -8883,9 +8883,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_asian_0182.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -8911,7 +8911,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3469,
+          "phase2_score": 0.3663,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -8944,9 +8944,9 @@
               "norm_score": 0.357
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.004588330630213022,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1945.80322265625,
+              "norm_score": 0.195
             },
             "compression_artifacts": {
               "flag": false,
@@ -8963,7 +8963,7 @@
           },
           "deepfake": {
             "video_score": 0.748235821723938,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -9022,7 +9022,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3348,
+          "phase2_score": 0.3534,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -9055,9 +9055,9 @@
               "norm_score": 0.324
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0043105920776724815,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1859.150390625,
+              "norm_score": 0.186
             },
             "compression_artifacts": {
               "flag": false,
@@ -9084,7 +9084,7 @@
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
         "prediction": "FAKE",
-        "caught_by": "phase3_ml",
+        "caught_by": "phase2",
         "correct": true,
         "raw": {
           "phase1": "OK",
@@ -9110,8 +9110,8 @@
               "score": 1941.1620547131208
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3818,
+          "phase2": "FAILED (0.906)",
+          "phase2_score": 0.9064,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -9144,9 +9144,9 @@
               "norm_score": 0.342
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.037238672375679016,
-              "norm_score": 0.115
+              "flag": true,
+              "raw_score": 4756.95703125,
+              "norm_score": 0.476
             },
             "compression_artifacts": {
               "flag": false,
@@ -9159,11 +9159,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.99,
-            "prediction": "FAKE"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.906"
           }
         }
       },
@@ -9304,7 +9304,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3552,
+          "phase2_score": 0.362,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -9338,8 +9338,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0015341591788455844,
-              "norm_score": 0.0
+              "raw_score": 679.2950439453125,
+              "norm_score": 0.068
             },
             "compression_artifacts": {
               "flag": false,
@@ -9475,7 +9475,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3558,
+          "phase2_score": 0.3821,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -9508,9 +9508,9 @@
               "norm_score": 0.308
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.010232934728264809,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2622.218994140625,
+              "norm_score": 0.262
             },
             "compression_artifacts": {
               "flag": false,
@@ -9586,7 +9586,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3292,
+          "phase2_score": 0.3391,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -9620,8 +9620,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.001925892080180347,
-              "norm_score": 0.0
+              "raw_score": 993.9691772460938,
+              "norm_score": 0.099
             },
             "compression_artifacts": {
               "flag": false,
@@ -9697,7 +9697,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.332,
+          "phase2_score": 0.3461,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -9730,9 +9730,9 @@
               "norm_score": 0.242
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.003650619648396969,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1408.3548583984375,
+              "norm_score": 0.141
             },
             "compression_artifacts": {
               "flag": false,
@@ -9824,7 +9824,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3356,
+          "phase2_score": 0.3454,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -9858,8 +9858,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.002830814803019166,
-              "norm_score": 0.0
+              "raw_score": 981.3052978515625,
+              "norm_score": 0.098
             },
             "compression_artifacts": {
               "flag": false,
@@ -9913,7 +9913,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3425,
+          "phase2_score": 0.3622,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -9946,9 +9946,9 @@
               "norm_score": 0.269
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.00828608963638544,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1971.049560546875,
+              "norm_score": 0.197
             },
             "compression_artifacts": {
               "flag": false,
@@ -10012,9 +10012,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_others_0255.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -10040,7 +10040,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3857,
+          "phase2_score": 0.4038,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10073,9 +10073,9 @@
               "norm_score": 0.364
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0039672162383794785,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1810.68994140625,
+              "norm_score": 0.181
             },
             "compression_artifacts": {
               "flag": false,
@@ -10092,7 +10092,7 @@
           },
           "deepfake": {
             "video_score": 0.8893445134162903,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -10129,7 +10129,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3969,
+          "phase2_score": 0.429,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10162,9 +10162,9 @@
               "norm_score": 0.364
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.012912645936012268,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3201.030029296875,
+              "norm_score": 0.32
             },
             "compression_artifacts": {
               "flag": false,
@@ -10256,7 +10256,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.314,
+          "phase2_score": 0.3244,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10290,8 +10290,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0031456651631742716,
-              "norm_score": 0.0
+              "raw_score": 1045.922119140625,
+              "norm_score": 0.105
             },
             "compression_artifacts": {
               "flag": false,
@@ -10345,7 +10345,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3673,
+          "phase2_score": 0.3948,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10378,9 +10378,9 @@
               "norm_score": 0.264
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.00855120737105608,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2746.546875,
+              "norm_score": 0.275
             },
             "compression_artifacts": {
               "flag": false,
@@ -10500,7 +10500,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3882,
+          "phase2_score": 0.3992,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10534,8 +10534,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0026095386128872633,
-              "norm_score": 0.0
+              "raw_score": 1106.96337890625,
+              "norm_score": 0.111
             },
             "compression_artifacts": {
               "flag": false,
@@ -10589,7 +10589,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3546,
+          "phase2_score": 0.3717,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10622,9 +10622,9 @@
               "norm_score": 0.284
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.004191047511994839,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1712.0704345703125,
+              "norm_score": 0.171
             },
             "compression_artifacts": {
               "flag": false,
@@ -10700,7 +10700,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3654,
+          "phase2_score": 0.3736,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10734,8 +10734,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0017697244184091687,
-              "norm_score": 0.0
+              "raw_score": 814.1128540039062,
+              "norm_score": 0.081
             },
             "compression_artifacts": {
               "flag": false,
@@ -10789,7 +10789,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3564,
+          "phase2_score": 0.3821,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10822,9 +10822,9 @@
               "norm_score": 0.244
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.007123348768800497,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2569.237548828125,
+              "norm_score": 0.257
             },
             "compression_artifacts": {
               "flag": false,
@@ -10872,9 +10872,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_others_0269.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -10900,7 +10900,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3227,
+          "phase2_score": 0.3313,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -10934,8 +10934,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.002628785092383623,
-              "norm_score": 0.0
+              "raw_score": 859.1453247070312,
+              "norm_score": 0.086
             },
             "compression_artifacts": {
               "flag": false,
@@ -10952,7 +10952,7 @@
           },
           "deepfake": {
             "video_score": 0.9027162194252014,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -11055,7 +11055,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3334,
+          "phase2_score": 0.3443,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11089,8 +11089,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.002660378348082304,
-              "norm_score": 0.0
+              "raw_score": 1084.9132080078125,
+              "norm_score": 0.108
             },
             "compression_artifacts": {
               "flag": false,
@@ -11144,7 +11144,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3493,
+          "phase2_score": 0.3566,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11178,8 +11178,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0015806638402864337,
-              "norm_score": 0.0
+              "raw_score": 735.9343872070312,
+              "norm_score": 0.074
             },
             "compression_artifacts": {
               "flag": false,
@@ -11233,7 +11233,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3026,
+          "phase2_score": 0.3184,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11266,9 +11266,9 @@
               "norm_score": 0.277
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.002651700284332037,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1580.243408203125,
+              "norm_score": 0.158
             },
             "compression_artifacts": {
               "flag": false,
@@ -11338,9 +11338,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_others_0278.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -11366,7 +11366,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3363,
+          "phase2_score": 0.3557,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11399,9 +11399,9 @@
               "norm_score": 0.356
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.003382779425010085,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1941.5108642578125,
+              "norm_score": 0.194
             },
             "compression_artifacts": {
               "flag": false,
@@ -11418,7 +11418,7 @@
           },
           "deepfake": {
             "video_score": 0.8105803728103638,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -11449,9 +11449,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_others_0280.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -11477,7 +11477,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3419,
+          "phase2_score": 0.3521,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11511,8 +11511,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.003063982119783759,
-              "norm_score": 0.0
+              "raw_score": 1015.9693603515625,
+              "norm_score": 0.102
             },
             "compression_artifacts": {
               "flag": false,
@@ -11529,7 +11529,7 @@
           },
           "deepfake": {
             "video_score": 0.6970946192741394,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -11538,9 +11538,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\deepfake\\fake_others_0281.mp4",
         "ground_truth": "FAKE",
         "attack_type": "deepfake",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -11566,7 +11566,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3582,
+          "phase2_score": 0.3708,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11600,8 +11600,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.005637475289404392,
-              "norm_score": 0.0
+              "raw_score": 1260.4920654296875,
+              "norm_score": 0.126
             },
             "compression_artifacts": {
               "flag": false,
@@ -11618,7 +11618,7 @@
           },
           "deepfake": {
             "video_score": 0.5713959336280823,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -11655,7 +11655,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3499,
+          "phase2_score": 0.3878,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11688,9 +11688,9 @@
               "norm_score": 0.303
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.011497852392494678,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3794.771484375,
+              "norm_score": 0.379
             },
             "compression_artifacts": {
               "flag": false,
@@ -11744,7 +11744,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3417,
+          "phase2_score": 0.3468,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11778,8 +11778,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.001935664564371109,
-              "norm_score": 0.0
+              "raw_score": 509.6392822265625,
+              "norm_score": 0.051
             },
             "compression_artifacts": {
               "flag": false,
@@ -11833,7 +11833,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3412,
+          "phase2_score": 0.3476,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11867,8 +11867,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.00246006459929049,
-              "norm_score": 0.0
+              "raw_score": 638.0918579101562,
+              "norm_score": 0.064
             },
             "compression_artifacts": {
               "flag": false,
@@ -11896,9 +11896,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\print_attack\\print_1.mp4",
         "ground_truth": "FAKE",
         "attack_type": "print_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -11923,8 +11923,8 @@
               "score": 2960.0367927927305
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3452,
+          "phase2": "FAILED (0.892)",
+          "phase2_score": 0.8916,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -11957,9 +11957,9 @@
               "norm_score": 0.127
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.024362940341234207,
-              "norm_score": 0.029
+              "flag": true,
+              "raw_score": 5215.7451171875,
+              "norm_score": 0.522
             },
             "compression_artifacts": {
               "flag": false,
@@ -11972,11 +11972,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0006730442401021719,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.892"
           }
         }
       },
@@ -12013,7 +12013,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3772,
+          "phase2_score": 0.4005,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12046,9 +12046,9 @@
               "norm_score": 0.21
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.009898231364786625,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2332.982177734375,
+              "norm_score": 0.233
             },
             "compression_artifacts": {
               "flag": false,
@@ -12074,9 +12074,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\print_attack\\print_15.mov",
         "ground_truth": "FAKE",
         "attack_type": "print_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -12101,8 +12101,8 @@
               "score": 4323.624426526109
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3685,
+          "phase2": "FAILED (0.934)",
+          "phase2_score": 0.9337,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12135,9 +12135,9 @@
               "norm_score": 0.184
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.022300008684396744,
-              "norm_score": 0.015
+              "flag": true,
+              "raw_score": 6819.25439453125,
+              "norm_score": 0.682
             },
             "compression_artifacts": {
               "flag": false,
@@ -12150,11 +12150,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0006900124135427177,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.934"
           }
         }
       },
@@ -12191,7 +12191,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3549,
+          "phase2_score": 0.3892,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12224,9 +12224,9 @@
               "norm_score": 0.176
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.014918051660060883,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3422.322265625,
+              "norm_score": 0.342
             },
             "compression_artifacts": {
               "flag": false,
@@ -12280,7 +12280,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3496,
+          "phase2_score": 0.3799,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12313,9 +12313,9 @@
               "norm_score": 0.119
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.013233578763902187,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3025.629150390625,
+              "norm_score": 0.303
             },
             "compression_artifacts": {
               "flag": false,
@@ -12369,7 +12369,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3443,
+          "phase2_score": 0.374,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12402,9 +12402,9 @@
               "norm_score": 0.104
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.012924148701131344,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2973.403076171875,
+              "norm_score": 0.297
             },
             "compression_artifacts": {
               "flag": false,
@@ -12430,9 +12430,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\print_attack\\print_5.mp4",
         "ground_truth": "FAKE",
         "attack_type": "print_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -12457,8 +12457,8 @@
               "score": 4023.505838425112
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.366,
+          "phase2": "FAILED (0.917)",
+          "phase2_score": 0.9169,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12491,9 +12491,9 @@
               "norm_score": 0.119
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.02654328942298889,
-              "norm_score": 0.044
+              "flag": true,
+              "raw_score": 5957.806640625,
+              "norm_score": 0.596
             },
             "compression_artifacts": {
               "flag": false,
@@ -12506,11 +12506,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0013124183751642704,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.917"
           }
         }
       },
@@ -12519,9 +12519,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\print_attack\\print_6.mp4",
         "ground_truth": "FAKE",
         "attack_type": "print_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -12546,8 +12546,8 @@
               "score": 2532.11879535499
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3521,
+          "phase2": "FAILED (0.905)",
+          "phase2_score": 0.9054,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12580,9 +12580,9 @@
               "norm_score": 0.089
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.02285248413681984,
-              "norm_score": 0.019
+              "flag": true,
+              "raw_score": 5704.462890625,
+              "norm_score": 0.57
             },
             "compression_artifacts": {
               "flag": false,
@@ -12595,11 +12595,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 7.128606375772506e-05,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.905"
           }
         }
       },
@@ -12636,7 +12636,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3442,
+          "phase2_score": 0.3823,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12669,9 +12669,9 @@
               "norm_score": 0.121
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.014267892576754093,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3813.84716796875,
+              "norm_score": 0.381
             },
             "compression_artifacts": {
               "flag": false,
@@ -12725,7 +12725,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.354,
+          "phase2_score": 0.3849,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12758,9 +12758,9 @@
               "norm_score": 0.171
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.010311691090464592,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3090.901123046875,
+              "norm_score": 0.309
             },
             "compression_artifacts": {
               "flag": false,
@@ -12814,7 +12814,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3558,
+          "phase2_score": 0.3852,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12847,9 +12847,9 @@
               "norm_score": 0.155
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.010836675763130188,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2939.939697265625,
+              "norm_score": 0.294
             },
             "compression_artifacts": {
               "flag": false,
@@ -12905,7 +12905,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3554,
+          "phase2_score": 0.3872,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -12938,9 +12938,9 @@
               "norm_score": 0.273
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.010520459152758121,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3180.571533203125,
+              "norm_score": 0.318
             },
             "compression_artifacts": {
               "flag": false,
@@ -12966,9 +12966,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\0001fffbd2--62e0c9689e0f9d346153c9fa.MOV",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -12993,8 +12993,8 @@
               "score": 4598.404880841897
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3188,
+          "phase2": "FAILED (0.872)",
+          "phase2_score": 0.8717,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13027,9 +13027,9 @@
               "norm_score": 0.202
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.014499126002192497,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 5291.36328125,
+              "norm_score": 0.529
             },
             "compression_artifacts": {
               "flag": false,
@@ -13042,11 +13042,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0012498354772105813,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.872"
           }
         }
       },
@@ -13055,9 +13055,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\0001fffbd2--62e1554ed5292d5564614201.mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -13082,8 +13082,8 @@
               "score": 7511.786812904306
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3016,
+          "phase2": "FAILED (0.875)",
+          "phase2_score": 0.8751,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13116,9 +13116,9 @@
               "norm_score": 0.177
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.01878211461007595,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 7353.83056640625,
+              "norm_score": 0.735
             },
             "compression_artifacts": {
               "flag": false,
@@ -13131,11 +13131,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.00812119571492076,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.875"
           }
         }
       },
@@ -13144,9 +13144,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\0001fffbd2--630cd419dd4a291311d91fbe.mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -13171,8 +13171,8 @@
               "score": 3002.3424045517854
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.321,
+          "phase2": "FAILED (0.877)",
+          "phase2_score": 0.8774,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13205,9 +13205,9 @@
               "norm_score": 0.231
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.015155911445617676,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 5642.7060546875,
+              "norm_score": 0.564
             },
             "compression_artifacts": {
               "flag": true,
@@ -13220,11 +13220,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0015766992582939565,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.877"
           }
         }
       },
@@ -13259,9 +13259,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\0001fffbd2--632dcc129db7bc25d69fc49c.mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -13286,8 +13286,8 @@
               "score": 6253.84382354
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3658,
+          "phase2": "FAILED (0.928)",
+          "phase2_score": 0.9284,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13320,9 +13320,9 @@
               "norm_score": 0.292
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.022619858384132385,
-              "norm_score": 0.017
+              "flag": true,
+              "raw_score": 6610.46826171875,
+              "norm_score": 0.661
             },
             "compression_artifacts": {
               "flag": false,
@@ -13335,11 +13335,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0140775959007442,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.928"
           }
         }
       },
@@ -13348,9 +13348,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\0001fffbd2--6330d85b12e6570dfea15b9d.mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -13375,8 +13375,8 @@
               "score": 3690.352368829226
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3891,
+          "phase2": "FAILED (0.933)",
+          "phase2_score": 0.9332,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13409,9 +13409,9 @@
               "norm_score": 0.219
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.015729989856481552,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4407.19287109375,
+              "norm_score": 0.441
             },
             "compression_artifacts": {
               "flag": false,
@@ -13424,11 +13424,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.02734252531081438,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.933"
           }
         }
       },
@@ -13465,7 +13465,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.2924,
+          "phase2_score": 0.3514,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13498,9 +13498,9 @@
               "norm_score": 0.274
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.020593974739313126,
-              "norm_score": 0.004
+              "flag": true,
+              "raw_score": 5979.8515625,
+              "norm_score": 0.598
             },
             "compression_artifacts": {
               "flag": false,
@@ -13554,7 +13554,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3208,
+          "phase2_score": 0.3604,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13587,9 +13587,9 @@
               "norm_score": 0.254
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.01230873353779316,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3962.3125,
+              "norm_score": 0.396
             },
             "compression_artifacts": {
               "flag": false,
@@ -13641,9 +13641,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\0001fffbd2--63af23b8ca10d41f4ad6ae71.mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -13668,8 +13668,8 @@
               "score": 9401.773283653152
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.382,
+          "phase2": "FAILED (0.962)",
+          "phase2_score": 0.962,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13702,9 +13702,9 @@
               "norm_score": 0.141
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0331995002925396,
-              "norm_score": 0.088
+              "flag": true,
+              "raw_score": 9761.3232421875,
+              "norm_score": 0.976
             },
             "compression_artifacts": {
               "flag": false,
@@ -13717,11 +13717,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.000982902362011373,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.962"
           }
         }
       },
@@ -13730,9 +13730,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\1.mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -13757,8 +13757,8 @@
               "score": 4263.715731792194
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3373,
+          "phase2": "FAILED (0.888)",
+          "phase2_score": 0.8883,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13791,9 +13791,9 @@
               "norm_score": 0.158
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.013722406700253487,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 5098.58349609375,
+              "norm_score": 0.51
             },
             "compression_artifacts": {
               "flag": false,
@@ -13806,11 +13806,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.4635069668292999,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.888"
           }
         }
       },
@@ -13847,7 +13847,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3568,
+          "phase2_score": 0.3831,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13880,9 +13880,9 @@
               "norm_score": 0.265
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.008241579867899418,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2626.813720703125,
+              "norm_score": 0.263
             },
             "compression_artifacts": {
               "flag": false,
@@ -13908,9 +13908,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\3.mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -13935,8 +13935,8 @@
               "score": 2579.3581395523097
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3555,
+          "phase2": "FAILED (0.918)",
+          "phase2_score": 0.918,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -13969,9 +13969,9 @@
               "norm_score": 0.227
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.014446690678596497,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 6255.9248046875,
+              "norm_score": 0.626
             },
             "compression_artifacts": {
               "flag": false,
@@ -13984,11 +13984,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.01109145488590002,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.918"
           }
         }
       },
@@ -14051,7 +14051,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3417,
+          "phase2_score": 0.3627,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14084,9 +14084,9 @@
               "norm_score": 0.346
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.006050828844308853,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2099.625732421875,
+              "norm_score": 0.21
             },
             "compression_artifacts": {
               "flag": false,
@@ -14140,7 +14140,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3523,
+          "phase2_score": 0.3874,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14173,9 +14173,9 @@
               "norm_score": 0.171
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.010010111145675182,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3508.97216796875,
+              "norm_score": 0.351
             },
             "compression_artifacts": {
               "flag": false,
@@ -14229,7 +14229,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3443,
+          "phase2_score": 0.3718,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14262,9 +14262,9 @@
               "norm_score": 0.134
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.006795329507440329,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2745.5302734375,
+              "norm_score": 0.275
             },
             "compression_artifacts": {
               "flag": false,
@@ -14318,7 +14318,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3254,
+          "phase2_score": 0.3624,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14351,9 +14351,9 @@
               "norm_score": 0.191
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.007957599125802517,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3697.80908203125,
+              "norm_score": 0.37
             },
             "compression_artifacts": {
               "flag": true,
@@ -14417,9 +14417,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (10).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -14444,8 +14444,8 @@
               "score": 5580.7908175383045
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3633,
+          "phase2": "FAILED (0.930)",
+          "phase2_score": 0.9298,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14478,9 +14478,9 @@
               "norm_score": 0.101
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.025771519169211388,
-              "norm_score": 0.038
+              "flag": true,
+              "raw_score": 7417.744140625,
+              "norm_score": 0.742
             },
             "compression_artifacts": {
               "flag": false,
@@ -14493,11 +14493,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0018290906446054578,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.930"
           }
         }
       },
@@ -14506,9 +14506,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (11).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -14533,8 +14533,8 @@
               "score": 2080.412590569437
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3521,
+          "phase2": "FAILED (0.897)",
+          "phase2_score": 0.8973,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14567,9 +14567,9 @@
               "norm_score": 0.295
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.011987727135419846,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4523.552734375,
+              "norm_score": 0.452
             },
             "compression_artifacts": {
               "flag": false,
@@ -14582,11 +14582,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.4841136485338211,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.897"
           }
         }
       },
@@ -14621,9 +14621,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (13).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -14648,8 +14648,8 @@
               "score": 2855.410304852369
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3575,
+          "phase2": "FAILED (0.903)",
+          "phase2_score": 0.9025,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14682,9 +14682,9 @@
               "norm_score": 0.173
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.01560343336313963,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4505.0068359375,
+              "norm_score": 0.451
             },
             "compression_artifacts": {
               "flag": false,
@@ -14697,11 +14697,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0004914014134556055,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.903"
           }
         }
       },
@@ -14710,9 +14710,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (2).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -14737,8 +14737,8 @@
               "score": 5041.969135328417
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3465,
+          "phase2": "FAILED (0.906)",
+          "phase2_score": 0.9064,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14771,9 +14771,9 @@
               "norm_score": 0.224
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.019589271396398544,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 5997.33544921875,
+              "norm_score": 0.6
             },
             "compression_artifacts": {
               "flag": false,
@@ -14786,11 +14786,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.02722814306616783,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.906"
           }
         }
       },
@@ -14827,7 +14827,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3982,
+          "phase2_score": 0.43,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14860,9 +14860,9 @@
               "norm_score": 0.225
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.010507198050618172,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3182.75341796875,
+              "norm_score": 0.318
             },
             "compression_artifacts": {
               "flag": false,
@@ -14888,9 +14888,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (4).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -14915,8 +14915,8 @@
               "score": 7261.810406815205
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3131,
+          "phase2": "FAILED (0.876)",
+          "phase2_score": 0.8757,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -14949,9 +14949,9 @@
               "norm_score": 0.187
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.014022712595760822,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 6257.9130859375,
+              "norm_score": 0.626
             },
             "compression_artifacts": {
               "flag": false,
@@ -14964,11 +14964,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.002555249957367778,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.876"
           }
         }
       },
@@ -14977,9 +14977,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (5).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -15004,8 +15004,8 @@
               "score": 3336.9687393772338
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3597,
+          "phase2": "FAILED (0.917)",
+          "phase2_score": 0.9166,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -15038,9 +15038,9 @@
               "norm_score": 0.211
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.033453501760959625,
-              "norm_score": 0.09
+              "flag": true,
+              "raw_score": 7486.57666015625,
+              "norm_score": 0.749
             },
             "compression_artifacts": {
               "flag": false,
@@ -15053,11 +15053,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0007296983385458589,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.917"
           }
         }
       },
@@ -15066,9 +15066,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (6).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -15093,8 +15093,8 @@
               "score": 3371.254799575256
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3044,
+          "phase2": "FAILED (0.863)",
+          "phase2_score": 0.8631,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -15127,9 +15127,9 @@
               "norm_score": 0.22
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.01966075971722603,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 5870.84619140625,
+              "norm_score": 0.587
             },
             "compression_artifacts": {
               "flag": true,
@@ -15142,11 +15142,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.028942875564098358,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.863"
           }
         }
       },
@@ -15155,9 +15155,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (7).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -15182,8 +15182,8 @@
               "score": 2273.2972878573987
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3505,
+          "phase2": "FAILED (0.897)",
+          "phase2_score": 0.8969,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -15216,9 +15216,9 @@
               "norm_score": 0.167
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.01609053462743759,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4643.7421875,
+              "norm_score": 0.464
             },
             "compression_artifacts": {
               "flag": false,
@@ -15231,11 +15231,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.00965444277971983,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.897"
           }
         }
       },
@@ -15272,7 +15272,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.2974,
+          "phase2_score": 0.3487,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -15305,9 +15305,9 @@
               "norm_score": 0.251
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.017229866236448288,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 5133.009765625,
+              "norm_score": 0.513
             },
             "compression_artifacts": {
               "flag": false,
@@ -15333,9 +15333,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video (9).mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -15360,8 +15360,8 @@
               "score": 4666.720970881917
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3321,
+          "phase2": "FAILED (0.897)",
+          "phase2_score": 0.8968,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -15394,9 +15394,9 @@
               "norm_score": 0.179
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.029179170727729797,
-              "norm_score": 0.061
+              "flag": true,
+              "raw_score": 7700.03271484375,
+              "norm_score": 0.77
             },
             "compression_artifacts": {
               "flag": false,
@@ -15409,11 +15409,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.006928702350705862,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.897"
           }
         }
       },
@@ -15450,7 +15450,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.325,
+          "phase2_score": 0.389,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -15483,9 +15483,9 @@
               "norm_score": 0.311
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.022144312039017677,
-              "norm_score": 0.014
+              "flag": true,
+              "raw_score": 6685.40283203125,
+              "norm_score": 0.669
             },
             "compression_artifacts": {
               "flag": false,
@@ -15511,9 +15511,9 @@
         "path": "G:\\dataset\\dataset_test\\all\\fake\\replay_attack\\replay_video.mp4",
         "ground_truth": "FAKE",
         "attack_type": "replay_attack",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase2",
+        "correct": true,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -15538,8 +15538,8 @@
               "score": 5127.813645854373
             }
           },
-          "phase2": "OK",
-          "phase2_score": 0.3513,
+          "phase2": "FAILED (0.898)",
+          "phase2_score": 0.898,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -15572,9 +15572,9 @@
               "norm_score": 0.197
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.017690397799015045,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 4665.1015625,
+              "norm_score": 0.467
             },
             "compression_artifacts": {
               "flag": false,
@@ -15587,11 +15587,11 @@
               "norm_score": 0.0
             },
             "screen_pattern": false,
-            "photo_pattern": false
+            "photo_pattern": true
           },
           "deepfake": {
-            "video_score": 0.0027612545527517796,
-            "prediction": "REAL"
+            "prediction": "FAKE",
+            "reason": "Phase2 score=0.898"
           }
         }
       }
@@ -16019,8 +16019,8 @@
               "score": 5759.350929733289
             }
           },
-          "phase2": "FAILED (0.880)",
-          "phase2_score": 0.8798,
+          "phase2": "FAILED (0.940)",
+          "phase2_score": 0.9404,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -16053,9 +16053,9 @@
               "norm_score": 0.297
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.04948901757597923,
-              "norm_score": 0.197
+              "flag": true,
+              "raw_score": 10892.470703125,
+              "norm_score": 1.0
             },
             "compression_artifacts": {
               "flag": false,
@@ -16072,7 +16072,7 @@
           },
           "deepfake": {
             "prediction": "FAKE",
-            "reason": "Phase2 score=0.880"
+            "reason": "Phase2 score=0.940"
           }
         }
       },
@@ -16131,7 +16131,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3682,
+          "phase2_score": 0.3803,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -16165,8 +16165,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0029794895090162754,
-              "norm_score": 0.0
+              "raw_score": 1211.64208984375,
+              "norm_score": 0.121
             },
             "compression_artifacts": {
               "flag": false,
@@ -16328,9 +16328,9 @@
         "path": "G:\\dfcg\\FAKE\\aczrgyricp.mp4",
         "ground_truth": "FAKE",
         "attack_type": "DFDC",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -16356,7 +16356,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3251,
+          "phase2_score": 0.3411,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -16389,9 +16389,9 @@
               "norm_score": 0.32
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0031609293073415756,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1594.5714111328125,
+              "norm_score": 0.159
             },
             "compression_artifacts": {
               "flag": false,
@@ -16408,7 +16408,7 @@
           },
           "deepfake": {
             "video_score": 0.5585734844207764,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -16445,7 +16445,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3321,
+          "phase2_score": 0.3606,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -16478,9 +16478,9 @@
               "norm_score": 0.278
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.00796743668615818,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2850.038330078125,
+              "norm_score": 0.285
             },
             "compression_artifacts": {
               "flag": false,
@@ -16556,7 +16556,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3071,
+          "phase2_score": 0.3205,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -16589,9 +16589,9 @@
               "norm_score": 0.213
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0028669540770351887,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1344.35400390625,
+              "norm_score": 0.134
             },
             "compression_artifacts": {
               "flag": false,
@@ -16726,8 +16726,8 @@
               "score": 5510.074354030352
             }
           },
-          "phase2": "FAILED (0.907)",
-          "phase2_score": 0.9071,
+          "phase2": "FAILED (0.928)",
+          "phase2_score": 0.9279,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -16760,9 +16760,9 @@
               "norm_score": 0.296
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.07943732291460037,
-              "norm_score": 0.396
+              "flag": true,
+              "raw_score": 14991.7529296875,
+              "norm_score": 1.0
             },
             "compression_artifacts": {
               "flag": false,
@@ -16779,7 +16779,7 @@
           },
           "deepfake": {
             "prediction": "FAKE",
-            "reason": "Phase2 score=0.907"
+            "reason": "Phase2 score=0.928"
           }
         }
       },
@@ -16892,7 +16892,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3785,
+          "phase2_score": 0.4093,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -16925,9 +16925,9 @@
               "norm_score": 0.359
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.008860613219439983,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3074.55126953125,
+              "norm_score": 0.307
             },
             "compression_artifacts": {
               "flag": false,
@@ -16997,9 +16997,9 @@
         "path": "G:\\dfcg\\FAKE\\aknbdpmgua.mp4",
         "ground_truth": "FAKE",
         "attack_type": "DFDC",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -17025,7 +17025,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3923,
+          "phase2_score": 0.4054,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -17058,9 +17058,9 @@
               "norm_score": 0.296
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0032590297050774097,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1308.7086181640625,
+              "norm_score": 0.131
             },
             "compression_artifacts": {
               "flag": false,
@@ -17077,7 +17077,7 @@
           },
           "deepfake": {
             "video_score": 0.8511494100093842,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -17114,7 +17114,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3626,
+          "phase2_score": 0.3701,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -17148,8 +17148,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.001887719496153295,
-              "norm_score": 0.0
+              "raw_score": 751.6637573242188,
+              "norm_score": 0.075
             },
             "compression_artifacts": {
               "flag": false,
@@ -17225,7 +17225,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.4253,
+          "phase2_score": 0.4563,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -17258,9 +17258,9 @@
               "norm_score": 0.375
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.009762131609022617,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3092.859130859375,
+              "norm_score": 0.309
             },
             "compression_artifacts": {
               "flag": false,
@@ -17314,7 +17314,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3326,
+          "phase2_score": 0.342,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -17348,8 +17348,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0031166058033704758,
-              "norm_score": 0.0
+              "raw_score": 943.68896484375,
+              "norm_score": 0.094
             },
             "compression_artifacts": {
               "flag": false,
@@ -17425,7 +17425,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.417,
+          "phase2_score": 0.4477,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -17458,9 +17458,9 @@
               "norm_score": 0.349
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.009775811806321144,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3072.586669921875,
+              "norm_score": 0.307
             },
             "compression_artifacts": {
               "flag": false,
@@ -17514,7 +17514,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3662,
+          "phase2_score": 0.373,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -17548,8 +17548,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.001956854248419404,
-              "norm_score": 0.0
+              "raw_score": 685.50830078125,
+              "norm_score": 0.069
             },
             "compression_artifacts": {
               "flag": false,
@@ -17641,7 +17641,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3092,
+          "phase2_score": 0.3291,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -17674,9 +17674,9 @@
               "norm_score": 0.176
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0039171623066067696,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1994.109375,
+              "norm_score": 0.199
             },
             "compression_artifacts": {
               "flag": false,
@@ -17816,9 +17816,9 @@
         "path": "G:\\dfcg\\FAKE\\apogckdfrz.mp4",
         "ground_truth": "FAKE",
         "attack_type": "DFDC",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -17844,7 +17844,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3353,
+          "phase2_score": 0.3531,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -17877,9 +17877,9 @@
               "norm_score": 0.267
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.004026033915579319,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1779.47021484375,
+              "norm_score": 0.178
             },
             "compression_artifacts": {
               "flag": false,
@@ -17896,7 +17896,7 @@
           },
           "deepfake": {
             "video_score": 0.501698836684227,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -17971,7 +17971,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3646,
+          "phase2_score": 0.3772,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18005,8 +18005,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0028971489518880844,
-              "norm_score": 0.0
+              "raw_score": 1261.6844482421875,
+              "norm_score": 0.126
             },
             "compression_artifacts": {
               "flag": false,
@@ -18130,9 +18130,9 @@
         "path": "G:\\dfcg\\FAKE\\dbzcqmxzaj.mp4",
         "ground_truth": "FAKE",
         "attack_type": "DFDC",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -18158,7 +18158,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3706,
+          "phase2_score": 0.3837,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18191,9 +18191,9 @@
               "norm_score": 0.303
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0032465930562466383,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1303.4462890625,
+              "norm_score": 0.13
             },
             "compression_artifacts": {
               "flag": false,
@@ -18210,7 +18210,7 @@
           },
           "deepfake": {
             "video_score": 0.8422644734382629,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -18247,7 +18247,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3549,
+          "phase2_score": 0.3629,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18281,8 +18281,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.0018373874481767416,
-              "norm_score": 0.0
+              "raw_score": 799.1302490234375,
+              "norm_score": 0.08
             },
             "compression_artifacts": {
               "flag": false,
@@ -18434,7 +18434,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3591,
+          "phase2_score": 0.3714,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18468,8 +18468,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.003101725596934557,
-              "norm_score": 0.0
+              "raw_score": 1229.7139892578125,
+              "norm_score": 0.123
             },
             "compression_artifacts": {
               "flag": false,
@@ -18523,7 +18523,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.372,
+          "phase2_score": 0.4097,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18556,9 +18556,9 @@
               "norm_score": 0.317
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.013208871707320213,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3777.317626953125,
+              "norm_score": 0.378
             },
             "compression_artifacts": {
               "flag": false,
@@ -18650,7 +18650,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3599,
+          "phase2_score": 0.3732,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18683,9 +18683,9 @@
               "norm_score": 0.201
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0029556695371866226,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1338.1085205078125,
+              "norm_score": 0.134
             },
             "compression_artifacts": {
               "flag": false,
@@ -18739,7 +18739,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3416,
+          "phase2_score": 0.3625,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18772,9 +18772,9 @@
               "norm_score": 0.241
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.005405033472925425,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2091.76171875,
+              "norm_score": 0.209
             },
             "compression_artifacts": {
               "flag": false,
@@ -18800,9 +18800,9 @@
         "path": "G:\\dfcg\\FAKE\\dgzklxjmix.mp4",
         "ground_truth": "FAKE",
         "attack_type": "DFDC",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -18828,7 +18828,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3332,
+          "phase2_score": 0.351,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18861,9 +18861,9 @@
               "norm_score": 0.254
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0038965477142482996,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 1771.34912109375,
+              "norm_score": 0.177
             },
             "compression_artifacts": {
               "flag": false,
@@ -18880,7 +18880,7 @@
           },
           "deepfake": {
             "video_score": 0.8106950223445892,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -18917,7 +18917,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3318,
+          "phase2_score": 0.3378,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -18951,8 +18951,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.002171068685129285,
-              "norm_score": 0.0
+              "raw_score": 595.7780151367188,
+              "norm_score": 0.06
             },
             "compression_artifacts": {
               "flag": false,
@@ -19088,7 +19088,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3625,
+          "phase2_score": 0.3733,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -19122,8 +19122,8 @@
             },
             "temporal_inconsistency": {
               "flag": false,
-              "raw_score": 0.002567526651546359,
-              "norm_score": 0.0
+              "raw_score": 1070.677001953125,
+              "norm_score": 0.107
             },
             "compression_artifacts": {
               "flag": false,
@@ -19149,9 +19149,9 @@
         "path": "G:\\dfcg\\FAKE\\diopzaywor.mp4",
         "ground_truth": "FAKE",
         "attack_type": "DFDC",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -19177,7 +19177,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.4099,
+          "phase2_score": 0.4446,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -19210,9 +19210,9 @@
               "norm_score": 0.31
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.01166390161961317,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 3473.55419921875,
+              "norm_score": 0.347
             },
             "compression_artifacts": {
               "flag": false,
@@ -19229,7 +19229,7 @@
           },
           "deepfake": {
             "video_score": 0.569481372833252,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -19276,9 +19276,9 @@
         "path": "G:\\dfcg\\FAKE\\diuzrpqjli.mp4",
         "ground_truth": "FAKE",
         "attack_type": "DFDC",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "phase1": "OK",
           "phase1_details": {
@@ -19304,7 +19304,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3446,
+          "phase2_score": 0.3682,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -19337,9 +19337,9 @@
               "norm_score": 0.309
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.0053213732317090034,
-              "norm_score": 0.0
+              "flag": true,
+              "raw_score": 2360.363037109375,
+              "norm_score": 0.236
             },
             "compression_artifacts": {
               "flag": false,
@@ -19356,7 +19356,7 @@
           },
           "deepfake": {
             "video_score": 0.5610691606998444,
-            "prediction": "FAKE"
+            "prediction": "REAL"
           }
         }
       },
@@ -19392,8 +19392,8 @@
               "score": 4695.279199572602
             }
           },
-          "phase2": "FAILED (0.868)",
-          "phase2_score": 0.8684,
+          "phase2": "FAILED (0.899)",
+          "phase2_score": 0.8989,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -19426,9 +19426,9 @@
               "norm_score": 0.275
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.07216177135705948,
-              "norm_score": 0.348
+              "flag": true,
+              "raw_score": 13820.3876953125,
+              "norm_score": 1.0
             },
             "compression_artifacts": {
               "flag": false,
@@ -19445,7 +19445,7 @@
           },
           "deepfake": {
             "prediction": "FAKE",
-            "reason": "Phase2 score=0.868"
+            "reason": "Phase2 score=0.899"
           }
         }
       },
@@ -19504,7 +19504,7 @@
             }
           },
           "phase2": "OK",
-          "phase2_score": 0.3813,
+          "phase2_score": 0.4074,
           "phase2_details": {
             "no_blink": {
               "flag": false,
@@ -19537,9 +19537,9 @@
               "norm_score": 0.286
             },
             "temporal_inconsistency": {
-              "flag": false,
-              "raw_score": 0.07544779777526855,
-              "norm_score": 0.37
+              "flag": true,
+              "raw_score": 14441.861328125,
+              "norm_score": 1.0
             },
             "compression_artifacts": {
               "flag": false,
