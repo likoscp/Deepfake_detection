@@ -1,7 +1,7 @@
 import numpy as np
 from .face_iterator import iterate_faces
 
-def detect_head_motion(video_path, max_frames=100):
+def detect_head_motion(video_path, max_frames=15):
     centers = []
 
     for _, (x, y, w, h) in iterate_faces(video_path, max_frames):

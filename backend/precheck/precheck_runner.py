@@ -28,11 +28,12 @@ PHASE2_WEIGHTS = {
     "face_warping":          0.43,
 }
 
-PHASE2_THRESHOLD = 0.5   
+PHASE2_THRESHOLD = 0.5
+
 
 def run_phase1(video_path):
     details = {}
-    
+
     is_static, static_score = detect_static_video(video_path)
     details["static_frame"] = {"flag": bool(is_static), "score": float(static_score)}
     if is_static:
@@ -50,17 +51,18 @@ def run_phase1(video_path):
     details["screen_display"] = {"flag": bool(is_screen), "score": float(screen_score)}
     details["screen_flicker"] = {"flag": bool(is_flicker), "score": float(flicker_score)}
     details["screen_flatness"] = {"flag": bool(is_flat), "score": float(flat_score)}
-    
+
     screen_score_norm = 0.0
     screen_score_norm += min(screen_score / 20.0, 1.0)
     screen_score_norm += min(flicker_score / 0.1, 1.0)
     screen_score_norm += min(flat_score / 1000.0, 1.0)
     screen_score_norm /= 3.0
 
-    if screen_score_norm > 0.75:
+    if screen_score_norm > 0.75 and flicker_score > 0.1:
         return False, f"screen_like (score={screen_score_norm:.2f})", details
 
     return True, "ok", details
+
 
 def normalize(det_name, score):
     if det_name == "gan_fingerprint":
@@ -74,41 +76,55 @@ def normalize(det_name, score):
     else:
         return min(score, 1.0)
 
+
 def run_phase2(video_path):
+
     DETECTORS = [
         ("no_blink",               detect_blinks),
         ("static_head",            detect_head_motion),
-        ("mask_edges",             detect_mask_edges),
-        ("skin_tone",              detect_skin_tone_mismatch),
         ("gan_fingerprint",        detect_gan_fingerprint),
         ("texture",                detect_texture_consistency),
-        ("temporal_inconsistency", detect_temporal_inconsistency),
         ("compression_artifacts",  detect_compression_artifacts),
+        ("temporal_inconsistency", detect_temporal_inconsistency),
+        ("mask_edges",             detect_mask_edges),
+        ("skin_tone",              detect_skin_tone_mismatch),
         ("face_warping",           detect_face_warping),
     ]
 
     details = {}
     weighted_score = 0.0
-    
+
     for det_name, det_func in DETECTORS:
         print(f"  Running {det_name}...", flush=True)
         t = time.time()
-        
+
         try:
             flag, score = det_func(video_path)
             print(f"  {det_name} done in {time.time()-t:.1f}s")
             score = float(score)
-
             norm = normalize(det_name, score)
-
             details[det_name] = {
                 "flag": bool(flag),
                 "raw_score": score,
                 "norm_score": round(norm, 3)
             }
-
             weight = PHASE2_WEIGHTS.get(det_name, 0.0)
             weighted_score += weight * norm
+
+            if det_name == "temporal_inconsistency":
+                nb      = details["no_blink"]["norm_score"]
+                t_score = details["temporal_inconsistency"]["norm_score"]
+                g       = details["gan_fingerprint"]["norm_score"]
+                sh      = details["static_head"]["raw_score"]
+                ca      = details["compression_artifacts"]["norm_score"]
+                tx      = details["texture"]["norm_score"]
+
+                if nb > 0.9 and t_score < 0.05 and sh < 0.02 and (g > 0.62 or ca > 0.85) and tx < 0.22:
+                    details["photo_pattern"] = True
+                    details["screen_pattern"] = False
+                    return False, weighted_score + 0.5, details
+                else:
+                    details["photo_pattern"] = False
 
         except Exception as e:
             print(f"Phase2 error {det_name}: {e}")
@@ -116,29 +132,14 @@ def run_phase2(video_path):
 
     t = details["temporal_inconsistency"]["norm_score"]
     s = details["skin_tone"]["norm_score"]
-    g = details["gan_fingerprint"]["norm_score"]
-
     screen_like = (t > 0.3 and s > 0.85)
-
     if screen_like:
         details["screen_pattern"] = True
         return False, weighted_score + 0.6, details
     else:
-        details["screen_pattern"] = False   
+        details["screen_pattern"] = False
 
     passed = weighted_score < PHASE2_THRESHOLD
-    
-    nb = details["no_blink"]["norm_score"]
-    ti = details["temporal_inconsistency"]["norm_score"]
-    
-    photo_pattern = (nb > 0.9 and ti > 0.15 and g > 0.5)
-
-    if photo_pattern:
-        details["photo_pattern"] = True
-        return False, weighted_score + 0.5, details
-    else:
-        details["photo_pattern"] = False
-    
     return passed, weighted_score, details
 
 def run_full_check(video_path):
@@ -161,7 +162,7 @@ def run_full_check(video_path):
 
     print(f"Starting Phase 2...")
     t = time.time()
-    
+
     p2_passed, p2_score, p2_details = run_phase2(video_path)
     print(f"Phase 2 done in {time.time()-t:.1f}s")
     results["phase2"] = "OK" if p2_passed else f"FAILED ({p2_score:.3f})"

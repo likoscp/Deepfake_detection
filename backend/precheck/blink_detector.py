@@ -6,7 +6,7 @@ EYE_CASCADE = cv2.CascadeClassifier(
     cv2.data.haarcascades + "haarcascade_eye.xml"
 )
 
-def detect_blinks(video_path, max_frames=30):
+def detect_blinks(video_path, max_frames=15):
     eye_counts = []
     
     for frame, (x, y, w, h) in iterate_faces(video_path, max_frames):
