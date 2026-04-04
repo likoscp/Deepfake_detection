@@ -1,27 +1,11 @@
 import cv2
 import numpy as np
 
-def detect_static_video(video_path, max_frames=60):
-    cap = cv2.VideoCapture(video_path)
-    prev = None
-    diffs = []
-
-    for _ in range(max_frames):
-        ret, frame = cap.read()
-        if not ret:
-            break
-
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-        if prev is not None:
-            diff = np.mean(cv2.absdiff(prev, gray))
-            diffs.append(diff)
-
-        prev = gray
-
-    cap.release()
-
-    mean_diff = np.mean(diffs) if diffs else 0
-    is_static = mean_diff < 0.5
-
-    return is_static, mean_diff
+def detect_static_video(frames):
+    if len(frames) < 2:
+        return False, 0.0
+    grays = [cv2.cvtColor(f, cv2.COLOR_BGR2GRAY) for f in frames]
+    diffs = [np.mean(cv2.absdiff(grays[i], grays[i+1])) 
+             for i in range(len(grays)-1)]
+    mean_diff = float(np.mean(diffs)) if diffs else 0.0
+    return mean_diff < 0.5, mean_diff

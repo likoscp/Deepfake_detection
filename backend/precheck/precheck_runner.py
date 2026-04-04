@@ -8,9 +8,10 @@ from .temporal import detect_temporal_inconsistency
 from .compression import detect_compression_artifacts
 from .face_geometry import detect_face_warping
 from .screen_detector import (
-    detect_screen_display,
-    detect_screen_flicker_pattern,
-    detect_screen_flatness
+    detect_screen_display_from_frames,
+    detect_screen_flicker_from_frames,
+    detect_screen_flatness_from_frames,
+    _load_phase1_frames
 )
 from .face_iterator import detect_no_face
 import time
@@ -34,7 +35,12 @@ PHASE2_THRESHOLD = 0.5
 def run_phase1(video_path):
     details = {}
 
-    is_static, static_score = detect_static_video(video_path)
+    frames, fps = _load_phase1_frames(video_path, sample_frames=25, max_seconds=3)
+
+    if not frames:
+        return False, "no_frames", details
+
+    is_static, static_score = detect_static_video(frames)
     details["static_frame"] = {"flag": bool(is_static), "score": float(static_score)}
     if is_static:
         return False, "static_frame", details
@@ -44,19 +50,19 @@ def run_phase1(video_path):
     if is_no_face:
         return False, f"no_face_detected (ratio={face_ratio:.2f})", details
 
-    is_screen, screen_score = detect_screen_display(video_path)
-    is_flicker, flicker_score = detect_screen_flicker_pattern(video_path)
-    is_flat, flat_score = detect_screen_flatness(video_path)
+    is_screen, screen_score = detect_screen_display_from_frames(frames)
+    is_flicker, flicker_score = detect_screen_flicker_from_frames(frames, fps)
+    is_flat, flat_score = detect_screen_flatness_from_frames(frames)
 
     details["screen_display"] = {"flag": bool(is_screen), "score": float(screen_score)}
     details["screen_flicker"] = {"flag": bool(is_flicker), "score": float(flicker_score)}
     details["screen_flatness"] = {"flag": bool(is_flat), "score": float(flat_score)}
 
-    screen_score_norm = 0.0
-    screen_score_norm += min(screen_score / 20.0, 1.0)
-    screen_score_norm += min(flicker_score / 0.1, 1.0)
-    screen_score_norm += min(flat_score / 1000.0, 1.0)
-    screen_score_norm /= 3.0
+    screen_score_norm = (
+        min(screen_score / 20.0, 1.0) +
+        min(flicker_score / 0.1, 1.0) +
+        min(flat_score / 1000.0, 1.0)
+    ) / 3.0
 
     if screen_score_norm > 0.75 and flicker_score > 0.1:
         return False, f"screen_like (score={screen_score_norm:.2f})", details
@@ -144,42 +150,46 @@ def run_phase2(video_path):
 
 def run_full_check(video_path):
     results = {}
+    timings = {}
+
     print(f"Starting Phase 1...")
     t = time.time()
     p1_passed, p1_reason, p1_details = run_phase1(video_path)
-    print(f"Phase 1 done in {time.time()-t:.1f}s: {p1_reason}")
+    timings["phase1_ms"] = round((time.time() - t) * 1000)
+    print(f"Phase 1 done in {timings['phase1_ms']}ms: {p1_reason}")
 
     results["phase1"] = "OK" if p1_passed else f"FAILED: {p1_reason}"
     results["phase1_details"] = p1_details
 
     if not p1_passed:
-        results["deepfake"] = {
-            "prediction": "FAKE",
-            "reason": f"Phase1: {p1_reason}"
-        }
+        results["timings"] = {**timings, "phase2_ms": None, "phase3_ms": None, "total_ms": timings["phase1_ms"]}
+        results["deepfake"] = {"prediction": "FAKE", "reason": f"Phase1: {p1_reason}"}
         _log(video_path, results)
         return results
 
     print(f"Starting Phase 2...")
     t = time.time()
-
     p2_passed, p2_score, p2_details = run_phase2(video_path)
-    print(f"Phase 2 done in {time.time()-t:.1f}s")
+    timings["phase2_ms"] = round((time.time() - t) * 1000)
+    print(f"Phase 2 done in {timings['phase2_ms']}ms")
+
     results["phase2"] = "OK" if p2_passed else f"FAILED ({p2_score:.3f})"
     results["phase2_score"] = round(p2_score, 4)
     results["phase2_details"] = p2_details
 
     if not p2_passed:
-        results["deepfake"] = {
-            "prediction": "FAKE",
-            "reason": f"Phase2 score={p2_score:.3f}"
-        }
+        results["timings"] = {**timings, "phase3_ms": None, "total_ms": timings["phase1_ms"] + timings["phase2_ms"]}
+        results["deepfake"] = {"prediction": "FAKE", "reason": f"Phase2 score={p2_score:.3f}"}
         _log(video_path, results)
         return results
 
+    t = time.time()
     deepfake_result = predict_video_file(video_path, threshold=0.5)
-    results["deepfake"] = deepfake_result
+    timings["phase3_ms"] = round((time.time() - t) * 1000)
+    timings["total_ms"] = timings["phase1_ms"] + timings["phase2_ms"] + timings["phase3_ms"]
 
+    results["timings"] = timings
+    results["deepfake"] = deepfake_result
     _log(video_path, results)
     return results
 
