@@ -2,10 +2,56 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 
-YOLO_PATH = r"e:\Projects\diploma\доп скрипты\yolo26n-face.pt"
-
-
+YOLO_PATH = r"e:\Projects\diploma\add_scripts\yolo26n-face.pt"
 _face_model = None
+
+def _resize_frame(frame, max_dim=640):
+    h, w = frame.shape[:2]
+    scale = min(max_dim / w, max_dim / h, 1.0)
+    if scale < 1.0:
+        return cv2.resize(frame, (int(w * scale), int(h * scale)))
+    return frame
+
+def _load_phase1_and_faces(video_path, sample_frames=40, max_seconds=5):
+    cap = cv2.VideoCapture(video_path)
+    fps = cap.get(cv2.CAP_PROP_FPS) or 25
+    total_needed = int(fps * max_seconds)
+    step = max(1, total_needed // sample_frames)
+    model = get_face_model()
+    frames = []
+    face_cache = []
+    i = 0
+    while i < total_needed and len(frames) < sample_frames:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        if i % step == 0:
+            frame_720 = _resize_frame(frame, max_dim=1280)
+            
+            frames.append(cv2.resize(frame_720, (320, 240)))
+            
+            faces = _detect_faces_yolo_frame(frame_720, model)
+            if faces:
+                x, y, w, h = faces[0]
+                face_cache.append((i, frame_720, (x, y, w, h)))
+        i += 1
+    cap.release()
+    return frames, fps, face_cache
+
+def _detect_faces_yolo_frame(frame, model=None):
+    if model is None:
+        model = get_face_model()
+    results = model(frame, verbose=False, device=0)
+    boxes = results[0].boxes
+    if boxes is None or len(boxes) == 0:
+        return []
+    faces = []
+    for box in boxes.xyxy.tolist():
+        x1, y1, x2, y2 = map(int, box)
+        w, h = x2 - x1, y2 - y1
+        if w > 10 and h > 10:
+            faces.append((x1, y1, w, h))
+    return faces
 
 def get_face_model():
     global _face_model
@@ -13,73 +59,8 @@ def get_face_model():
         _face_model = YOLO(YOLO_PATH)
     return _face_model
 
-
-def _detect_faces_yolo(frame):
-    
-    model = get_face_model()
-    results = model(frame, verbose=False, device=0)
-    boxes = results[0].boxes
-
-    if boxes is None or len(boxes) == 0:
-        return []
-
-    faces = []
-    for box in boxes.xyxy.tolist():
-        x1, y1, x2, y2 = map(int, box)
-        w = x2 - x1
-        h = y2 - y1
-        if w > 10 and h > 10:  
-            faces.append((x1, y1, w, h))
-
-    return faces
-
-
-def iterate_faces(video_path, max_frames=100):
-    cap = cv2.VideoCapture(video_path)
-    frame_id = 0
-
-    while frame_id < max_frames:
-        ret, frame = cap.read()
-        if not ret:
-            break
-
-        faces = _detect_faces_yolo(frame)
-
-        if len(faces) == 0:
-            frame_id += 1
-            continue
-
-        
-        x, y, w, h = faces[0]
-
-        yield frame, (x, y, w, h)
-
-        frame_id += 1
-
-    cap.release()
-
-def detect_no_face(video_path, max_frames=30, min_face_ratio=0.5):
-    cap = cv2.VideoCapture(video_path)
-    frames_checked = 0
-    frames_with_face = 0
-
-    while frames_checked < max_frames:
-        ret, frame = cap.read()
-        if not ret:
-            break
-
-        faces = _detect_faces_yolo(frame)
-        if len(faces) > 0:
-            frames_with_face += 1
-
-        frames_checked += 1
-
-    cap.release()
-
-    if frames_checked == 0:
+def detect_no_face(face_cache, min_face_ratio=0.5, total_frames=15):
+    if not face_cache:
         return True, 0.0
-
-    face_ratio = frames_with_face / frames_checked
-    no_face = face_ratio < min_face_ratio
-
-    return no_face, face_ratio
+    ratio = len(face_cache) / max(total_frames, 1)
+    return ratio < min_face_ratio, float(ratio)

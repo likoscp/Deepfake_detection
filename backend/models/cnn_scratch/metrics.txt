@@ -1,0 +1,7 @@
+Model:    CascadeVerify-CNN (scratch)
+IMG_SIZE: 128
+Best val: 0.6633
+Accuracy: 0.7600
+FAR:      0.2646
+FRR:      0.2227
+HTER:     0.2436

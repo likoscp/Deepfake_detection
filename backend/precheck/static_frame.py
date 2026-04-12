@@ -8,4 +8,4 @@ def detect_static_video(frames):
     diffs = [np.mean(cv2.absdiff(grays[i], grays[i+1])) 
              for i in range(len(grays)-1)]
     mean_diff = float(np.mean(diffs)) if diffs else 0.0
-    return mean_diff < 0.5, mean_diff
+    return mean_diff < 0.30, mean_diff

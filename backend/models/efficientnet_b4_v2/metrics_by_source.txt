@@ -1,0 +1,4 @@
+
+=== Metrics by source ===
+CELEB   : Acc=0.9387 | FAR=0.0580 | FRR=0.0645 | HTER=0.0613 (4714 frames)
+FF      : Acc=0.8815 | FAR=0.1277 | FRR=0.1131 | HTER=0.1204 (8522 frames)

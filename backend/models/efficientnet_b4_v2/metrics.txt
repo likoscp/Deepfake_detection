@@ -1,0 +1,8 @@
+Model:         EfficientNet-B4 fine-tune v2 (2-phase)
+IMG_SIZE:      160
+UNFREEZE:      2 blocks (phase 2)
+Best val acc:  0.8241
+Accuracy:      0.9017
+FAR:           0.0983
+FRR:           0.0983
+HTER:          0.0983

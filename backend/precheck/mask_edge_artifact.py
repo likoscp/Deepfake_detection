@@ -1,20 +1,15 @@
 import cv2
 import numpy as np
-from .face_iterator import iterate_faces
 
-def detect_mask_edges(video_path, max_frames=50):
+def detect_mask_edges(face_cache):
     scores = []
-
-    for frame, (x, y, w, h) in iterate_faces(video_path, max_frames):
+    for _, frame, (x, y, w, h) in face_cache:
         face = frame[y:y+h, x:x+w]
+        face = cv2.resize(face, (128, 128))
         gray = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
-
         edges = cv2.Canny(gray, 50, 150)
-        edge_density = np.mean(edges > 0)
-        scores.append(edge_density)
-
+        scores.append(np.mean(edges > 0))
     if not scores:
         return False, 0.0
-
     mean_edge = float(np.mean(scores))
     return mean_edge > 0.09, mean_edge

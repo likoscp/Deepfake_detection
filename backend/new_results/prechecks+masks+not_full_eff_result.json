@@ -1,0 +1,2722 @@
+{
+  "summary": {
+    "latex_mask": {
+      "total": 63,
+      "caught": 29,
+      "detection_rate": 0.4603,
+      "FAR": 0.5397,
+      "caught_by": {
+        "phase1": 0,
+        "phase2": 0,
+        "phase3_ml": 29
+      }
+    },
+    "3D_paper_mask": {
+      "total": 36,
+      "caught": 0,
+      "detection_rate": 0.0,
+      "FAR": 1.0,
+      "caught_by": {
+        "phase1": 0,
+        "phase2": 0,
+        "phase3_ml": 0
+      }
+    },
+    "Textile_Face_Mask": {
+      "total": 23,
+      "caught": 9,
+      "detection_rate": 0.3913,
+      "FAR": 0.6087,
+      "caught_by": {
+        "phase1": 0,
+        "phase2": 0,
+        "phase3_ml": 9
+      }
+    },
+    "Wrapped_paper_mask": {
+      "total": 10,
+      "caught": 1,
+      "detection_rate": 0.1,
+      "FAR": 0.9,
+      "caught_by": {
+        "phase1": 0,
+        "phase2": 0,
+        "phase3_ml": 1
+      }
+    }
+  },
+  "real": {},
+  "fake": {
+    "latex_mask": [
+      {
+        "file": "1. Back close.MOV",
+        "path": "G:\\latex_mask\\1. Back close.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 4518,
+            "total_ms": 4518
+          },
+          "deepfake": {
+            "video_score": 0.8433418273925781,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "1.MOV",
+        "path": "G:\\latex_mask\\1.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 28441,
+            "total_ms": 28441
+          },
+          "deepfake": {
+            "video_score": 5.384044357015227e-07,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "1.mp4",
+        "path": "G:\\latex_mask\\1.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13429,
+            "total_ms": 13429
+          },
+          "deepfake": {
+            "video_score": 0.0004108205030206591,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "108.mp4",
+        "path": "G:\\latex_mask\\108.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 8461,
+            "total_ms": 8461
+          },
+          "deepfake": {
+            "video_score": 0.5839009881019592,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "113.MOV",
+        "path": "G:\\latex_mask\\113.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 5036,
+            "total_ms": 5036
+          },
+          "deepfake": {
+            "video_score": 0.02208269201219082,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "134.mp4",
+        "path": "G:\\latex_mask\\134.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 7581,
+            "total_ms": 7581
+          },
+          "deepfake": {
+            "video_score": 0.0035512603353708982,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "138.MOV",
+        "path": "G:\\latex_mask\\138.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 4998,
+            "total_ms": 4998
+          },
+          "deepfake": {
+            "video_score": 0.0027924454770982265,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "167.mp4",
+        "path": "G:\\latex_mask\\167.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 7560,
+            "total_ms": 7560
+          },
+          "deepfake": {
+            "video_score": 0.8917883634567261,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "2. Back far.MOV",
+        "path": "G:\\latex_mask\\2. Back far.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 4765,
+            "total_ms": 4765
+          },
+          "deepfake": {
+            "video_score": 0.20842290669679642,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "2.MOV",
+        "path": "G:\\latex_mask\\2.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 27438,
+            "total_ms": 27438
+          },
+          "deepfake": {
+            "video_score": 0.009345168014988303,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "2.mp4",
+        "path": "G:\\latex_mask\\2.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12777,
+            "total_ms": 12777
+          },
+          "deepfake": {
+            "video_score": 0.2882259488105774,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "22.mp4",
+        "path": "G:\\latex_mask\\22.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 8053,
+            "total_ms": 8053
+          },
+          "deepfake": {
+            "video_score": 0.01541210152208805,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "3.MOV",
+        "path": "G:\\latex_mask\\3.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 22636,
+            "total_ms": 22636
+          },
+          "deepfake": {
+            "video_score": 1.857737879618071e-05,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "37.MOV",
+        "path": "G:\\latex_mask\\37.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 5210,
+            "total_ms": 5210
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "37.mp4",
+        "path": "G:\\latex_mask\\37.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1242,
+            "total_ms": 1242
+          },
+          "deepfake": {
+            "video_score": 0.9488689005374908,
+            "prediction": "FAKE",
+            "frames_analyzed": 28
+          }
+        }
+      },
+      {
+        "file": "38.mp4",
+        "path": "G:\\latex_mask\\38.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1159,
+            "total_ms": 1159
+          },
+          "deepfake": {
+            "video_score": 0.9727239012718201,
+            "prediction": "FAKE",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "39 (2).mp4",
+        "path": "G:\\latex_mask\\39 (2).mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 9000,
+            "total_ms": 9000
+          },
+          "deepfake": {
+            "video_score": 0.980558454990387,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "39.mp4",
+        "path": "G:\\latex_mask\\39.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1606,
+            "total_ms": 1606
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "4.MOV",
+        "path": "G:\\latex_mask\\4.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 22959,
+            "total_ms": 22959
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "4.mp4",
+        "path": "G:\\latex_mask\\4.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12877,
+            "total_ms": 12877
+          },
+          "deepfake": {
+            "video_score": 0.0030954843387007713,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "40.mp4",
+        "path": "G:\\latex_mask\\40.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1351,
+            "total_ms": 1351
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "41.mp4",
+        "path": "G:\\latex_mask\\41.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1199,
+            "total_ms": 1199
+          },
+          "deepfake": {
+            "video_score": 0.5410434901714325,
+            "prediction": "REAL",
+            "frames_analyzed": 28
+          }
+        }
+      },
+      {
+        "file": "42.mp4",
+        "path": "G:\\latex_mask\\42.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1135,
+            "total_ms": 1135
+          },
+          "deepfake": {
+            "video_score": 0.9003839492797852,
+            "prediction": "FAKE",
+            "frames_analyzed": 23
+          }
+        }
+      },
+      {
+        "file": "43.mp4",
+        "path": "G:\\latex_mask\\43.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1224,
+            "total_ms": 1224
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "44.mp4",
+        "path": "G:\\latex_mask\\44.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1150,
+            "total_ms": 1150
+          },
+          "deepfake": {
+            "video_score": 0.7205320298671722,
+            "prediction": "FAKE",
+            "frames_analyzed": 26
+          }
+        }
+      },
+      {
+        "file": "45.mp4",
+        "path": "G:\\latex_mask\\45.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1128,
+            "total_ms": 1128
+          },
+          "deepfake": {
+            "video_score": 0.8865647315979004,
+            "prediction": "FAKE",
+            "frames_analyzed": 25
+          }
+        }
+      },
+      {
+        "file": "46.mp4",
+        "path": "G:\\latex_mask\\46.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1301,
+            "total_ms": 1301
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "47.mp4",
+        "path": "G:\\latex_mask\\47.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1113,
+            "total_ms": 1113
+          },
+          "deepfake": {
+            "video_score": 0.3038935661315918,
+            "prediction": "REAL",
+            "frames_analyzed": 25
+          }
+        }
+      },
+      {
+        "file": "48.mp4",
+        "path": "G:\\latex_mask\\48.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1235,
+            "total_ms": 1235
+          },
+          "deepfake": {
+            "video_score": 0.308193176984787,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "49.MOV",
+        "path": "G:\\latex_mask\\49.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 5119,
+            "total_ms": 5119
+          },
+          "deepfake": {
+            "video_score": 0.3562602698802948,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "49.mp4",
+        "path": "G:\\latex_mask\\49.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1176,
+            "total_ms": 1176
+          },
+          "deepfake": {
+            "video_score": 0.8106122612953186,
+            "prediction": "FAKE",
+            "frames_analyzed": 25
+          }
+        }
+      },
+      {
+        "file": "5 (2).mp4",
+        "path": "G:\\latex_mask\\5 (2).mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12983,
+            "total_ms": 12983
+          },
+          "deepfake": {
+            "video_score": 0.568586528301239,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "5.MOV",
+        "path": "G:\\latex_mask\\5.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 26083,
+            "total_ms": 26083
+          },
+          "deepfake": {
+            "video_score": 0.034390393644571304,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "5.mp4",
+        "path": "G:\\latex_mask\\5.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1131,
+            "total_ms": 1131
+          },
+          "deepfake": {
+            "video_score": 0.8034506142139435,
+            "prediction": "FAKE",
+            "frames_analyzed": 24
+          }
+        }
+      },
+      {
+        "file": "50.mp4",
+        "path": "G:\\latex_mask\\50.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1178,
+            "total_ms": 1178
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 30
+          }
+        }
+      },
+      {
+        "file": "51.mp4",
+        "path": "G:\\latex_mask\\51.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1294,
+            "total_ms": 1294
+          },
+          "deepfake": {
+            "video_score": 0.9618691205978394,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "52.mp4",
+        "path": "G:\\latex_mask\\52.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1723,
+            "total_ms": 1723
+          },
+          "deepfake": {
+            "video_score": 0.012083414010703564,
+            "prediction": "REAL",
+            "frames_analyzed": 26
+          }
+        }
+      },
+      {
+        "file": "53.mp4",
+        "path": "G:\\latex_mask\\53.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1499,
+            "total_ms": 1499
+          },
+          "deepfake": {
+            "video_score": 0.03887958452105522,
+            "prediction": "REAL",
+            "frames_analyzed": 29
+          }
+        }
+      },
+      {
+        "file": "54.mp4",
+        "path": "G:\\latex_mask\\54.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1501,
+            "total_ms": 1501
+          },
+          "deepfake": {
+            "video_score": 0.028050130233168602,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "55.mp4",
+        "path": "G:\\latex_mask\\55.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1362,
+            "total_ms": 1362
+          },
+          "deepfake": {
+            "video_score": 0.8475071787834167,
+            "prediction": "FAKE",
+            "frames_analyzed": 29
+          }
+        }
+      },
+      {
+        "file": "56.mp4",
+        "path": "G:\\latex_mask\\56.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 979,
+            "total_ms": 979
+          },
+          "deepfake": {
+            "video_score": 0.1965409368276596,
+            "prediction": "REAL",
+            "frames_analyzed": 12
+          }
+        }
+      },
+      {
+        "file": "57.mp4",
+        "path": "G:\\latex_mask\\57.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1359,
+            "total_ms": 1359
+          },
+          "deepfake": {
+            "video_score": 0.8772194981575012,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "58.mp4",
+        "path": "G:\\latex_mask\\58.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1661,
+            "total_ms": 1661
+          },
+          "deepfake": {
+            "video_score": 0.960425078868866,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "59.mp4",
+        "path": "G:\\latex_mask\\59.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1354,
+            "total_ms": 1354
+          },
+          "deepfake": {
+            "video_score": 0.5431675314903259,
+            "prediction": "REAL",
+            "frames_analyzed": 24
+          }
+        }
+      },
+      {
+        "file": "6 (2).mp4",
+        "path": "G:\\latex_mask\\6 (2).mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13018,
+            "total_ms": 13018
+          },
+          "deepfake": {
+            "video_score": 0.015272338408976793,
+            "prediction": "REAL",
+            "frames_analyzed": 34
+          }
+        }
+      },
+      {
+        "file": "6.mp4",
+        "path": "G:\\latex_mask\\6.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1440,
+            "total_ms": 1440
+          },
+          "deepfake": {
+            "video_score": 0.40204715728759766,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "60.mp4",
+        "path": "G:\\latex_mask\\60.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1307,
+            "total_ms": 1307
+          },
+          "deepfake": {
+            "video_score": 0.38896720111370087,
+            "prediction": "REAL",
+            "frames_analyzed": 28
+          }
+        }
+      },
+      {
+        "file": "61.mp4",
+        "path": "G:\\latex_mask\\61.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1591,
+            "total_ms": 1591
+          },
+          "deepfake": {
+            "video_score": 0.7761620581150055,
+            "prediction": "FAKE",
+            "frames_analyzed": 30
+          }
+        }
+      },
+      {
+        "file": "7.mp4",
+        "path": "G:\\latex_mask\\7.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 1153,
+            "total_ms": 1153
+          },
+          "deepfake": {
+            "video_score": 0.9850054979324341,
+            "prediction": "FAKE",
+            "frames_analyzed": 25
+          }
+        }
+      },
+      {
+        "file": "8.mp4",
+        "path": "G:\\latex_mask\\8.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2000,
+            "total_ms": 2000
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 54
+          }
+        }
+      },
+      {
+        "file": "83.MOV",
+        "path": "G:\\latex_mask\\83.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 5383,
+            "total_ms": 5383
+          },
+          "deepfake": {
+            "video_score": 0.027690311893820763,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "9.mp4",
+        "path": "G:\\latex_mask\\9.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2444,
+            "total_ms": 2444
+          },
+          "deepfake": {
+            "video_score": 0.8789277076721191,
+            "prediction": "FAKE",
+            "frames_analyzed": 59
+          }
+        }
+      },
+      {
+        "file": "IMG_5046.MOV",
+        "path": "G:\\latex_mask\\IMG_5046.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 17563,
+            "total_ms": 17563
+          },
+          "deepfake": {
+            "video_score": 0.9562671780586243,
+            "prediction": "FAKE",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "IMG_5072.MOV",
+        "path": "G:\\latex_mask\\IMG_5072.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 19238,
+            "total_ms": 19238
+          },
+          "deepfake": {
+            "video_score": 0.0001839172764448449,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "IMG_5132.MOV",
+        "path": "G:\\latex_mask\\IMG_5132.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 18448,
+            "total_ms": 18448
+          },
+          "deepfake": {
+            "video_score": 0.8153295516967773,
+            "prediction": "FAKE",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "IMG_5175.MOV",
+        "path": "G:\\latex_mask\\IMG_5175.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 17676,
+            "total_ms": 17676
+          },
+          "deepfake": {
+            "video_score": 0.9603636264801025,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "IMG_5194.MOV",
+        "path": "G:\\latex_mask\\IMG_5194.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 18836,
+            "total_ms": 18836
+          },
+          "deepfake": {
+            "video_score": 0.5904373824596405,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "IMG_5211.MOV",
+        "path": "G:\\latex_mask\\IMG_5211.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 17386,
+            "total_ms": 17386
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "VID_20240611_181615.mp4",
+        "path": "G:\\latex_mask\\VID_20240611_181615.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 4514,
+            "total_ms": 4514
+          },
+          "deepfake": {
+            "video_score": 0.001044156146235764,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "VID_20240611_185727.mp4",
+        "path": "G:\\latex_mask\\VID_20240611_185727.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 5026,
+            "total_ms": 5026
+          },
+          "deepfake": {
+            "video_score": 0.011392226442694664,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "VID_20240611_194103.mp4",
+        "path": "G:\\latex_mask\\VID_20240611_194103.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 4909,
+            "total_ms": 4909
+          },
+          "deepfake": {
+            "video_score": 0.2966473549604416,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "VID_20240612_105754.mp4",
+        "path": "G:\\latex_mask\\VID_20240612_105754.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 4958,
+            "total_ms": 4958
+          },
+          "deepfake": {
+            "video_score": 0.11448027938604355,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "VID_20240612_120157.mp4",
+        "path": "G:\\latex_mask\\VID_20240612_120157.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "latex_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 5084,
+            "total_ms": 5084
+          },
+          "deepfake": {
+            "video_score": 0.00025711708440212533,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      }
+    ],
+    "3D_paper_mask": [
+      {
+        "file": "133.mp4",
+        "path": "G:\\Paper_mask\\133.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2462,
+            "total_ms": 2462
+          },
+          "deepfake": {
+            "video_score": 0.00031284301076084375,
+            "prediction": "REAL",
+            "frames_analyzed": 35
+          }
+        }
+      },
+      {
+        "file": "134.mp4",
+        "path": "G:\\Paper_mask\\134.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2565,
+            "total_ms": 2565
+          },
+          "deepfake": {
+            "video_score": 0.00013345919433049858,
+            "prediction": "REAL",
+            "frames_analyzed": 37
+          }
+        }
+      },
+      {
+        "file": "135.mp4",
+        "path": "G:\\Paper_mask\\135.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2771,
+            "total_ms": 2771
+          },
+          "deepfake": {
+            "video_score": 0.0009785298025235534,
+            "prediction": "REAL",
+            "frames_analyzed": 35
+          }
+        }
+      },
+      {
+        "file": "136.mp4",
+        "path": "G:\\Paper_mask\\136.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2208,
+            "total_ms": 2208
+          },
+          "deepfake": {
+            "video_score": 0.10343986004590988,
+            "prediction": "REAL",
+            "frames_analyzed": 35
+          }
+        }
+      },
+      {
+        "file": "137.mp4",
+        "path": "G:\\Paper_mask\\137.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2460,
+            "total_ms": 2460
+          },
+          "deepfake": {
+            "video_score": 0.030711408704519272,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "138.mp4",
+        "path": "G:\\Paper_mask\\138.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2723,
+            "total_ms": 2723
+          },
+          "deepfake": {
+            "video_score": 0.0012865721946582198,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "139.mp4",
+        "path": "G:\\Paper_mask\\139.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2599,
+            "total_ms": 2599
+          },
+          "deepfake": {
+            "video_score": 0.001277814619243145,
+            "prediction": "REAL",
+            "frames_analyzed": 34
+          }
+        }
+      },
+      {
+        "file": "140.mp4",
+        "path": "G:\\Paper_mask\\140.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2884,
+            "total_ms": 2884
+          },
+          "deepfake": {
+            "video_score": 0.000880360312294215,
+            "prediction": "REAL",
+            "frames_analyzed": 37
+          }
+        }
+      },
+      {
+        "file": "141.mp4",
+        "path": "G:\\Paper_mask\\141.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2476,
+            "total_ms": 2476
+          },
+          "deepfake": {
+            "video_score": 0.006244400981813669,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "142.mp4",
+        "path": "G:\\Paper_mask\\142.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2906,
+            "total_ms": 2906
+          },
+          "deepfake": {
+            "video_score": 0.008140630554407835,
+            "prediction": "REAL",
+            "frames_analyzed": 36
+          }
+        }
+      },
+      {
+        "file": "143.mp4",
+        "path": "G:\\Paper_mask\\143.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2582,
+            "total_ms": 2582
+          },
+          "deepfake": {
+            "video_score": 7.320680015254766e-05,
+            "prediction": "REAL",
+            "frames_analyzed": 37
+          }
+        }
+      },
+      {
+        "file": "144.mp4",
+        "path": "G:\\Paper_mask\\144.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 3181,
+            "total_ms": 3181
+          },
+          "deepfake": {
+            "video_score": 0.011761105619370937,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "145.mp4",
+        "path": "G:\\Paper_mask\\145.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2881,
+            "total_ms": 2881
+          },
+          "deepfake": {
+            "video_score": 0.0006757221708539873,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "146.mp4",
+        "path": "G:\\Paper_mask\\146.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2892,
+            "total_ms": 2892
+          },
+          "deepfake": {
+            "video_score": 0.0005339810450095683,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "147.mp4",
+        "path": "G:\\Paper_mask\\147.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2563,
+            "total_ms": 2563
+          },
+          "deepfake": {
+            "video_score": 0.013613873161375523,
+            "prediction": "REAL",
+            "frames_analyzed": 37
+          }
+        }
+      },
+      {
+        "file": "148.mp4",
+        "path": "G:\\Paper_mask\\148.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2360,
+            "total_ms": 2360
+          },
+          "deepfake": {
+            "video_score": 0.03143574297428131,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "149.mp4",
+        "path": "G:\\Paper_mask\\149.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2731,
+            "total_ms": 2731
+          },
+          "deepfake": {
+            "video_score": 0.20654648542404175,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "150.mp4",
+        "path": "G:\\Paper_mask\\150.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2893,
+            "total_ms": 2893
+          },
+          "deepfake": {
+            "video_score": 0.014143017120659351,
+            "prediction": "REAL",
+            "frames_analyzed": 35
+          }
+        }
+      },
+      {
+        "file": "151.mp4",
+        "path": "G:\\Paper_mask\\151.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2617,
+            "total_ms": 2617
+          },
+          "deepfake": {
+            "video_score": 0.0020477890502661467,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "152.mp4",
+        "path": "G:\\Paper_mask\\152.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2428,
+            "total_ms": 2428
+          },
+          "deepfake": {
+            "video_score": 0.0003547723754309118,
+            "prediction": "REAL",
+            "frames_analyzed": 39
+          }
+        }
+      },
+      {
+        "file": "153.mp4",
+        "path": "G:\\Paper_mask\\153.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 3280,
+            "total_ms": 3280
+          },
+          "deepfake": {
+            "video_score": 0.0028354956302791834,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "154.mp4",
+        "path": "G:\\Paper_mask\\154.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 3560,
+            "total_ms": 3560
+          },
+          "deepfake": {
+            "video_score": 0.04245580732822418,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "155.mp4",
+        "path": "G:\\Paper_mask\\155.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2719,
+            "total_ms": 2719
+          },
+          "deepfake": {
+            "video_score": 0.00215349392965436,
+            "prediction": "REAL",
+            "frames_analyzed": 35
+          }
+        }
+      },
+      {
+        "file": "156.mp4",
+        "path": "G:\\Paper_mask\\156.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2806,
+            "total_ms": 2806
+          },
+          "deepfake": {
+            "video_score": 0.048645999282598495,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "157.mp4",
+        "path": "G:\\Paper_mask\\157.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 3227,
+            "total_ms": 3227
+          },
+          "deepfake": {
+            "video_score": 0.006748775951564312,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "158.mp4",
+        "path": "G:\\Paper_mask\\158.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 3062,
+            "total_ms": 3062
+          },
+          "deepfake": {
+            "video_score": 0.005493248347193003,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "159.mp4",
+        "path": "G:\\Paper_mask\\159.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2548,
+            "total_ms": 2548
+          },
+          "deepfake": {
+            "video_score": 0.006961618782952428,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "160.mp4",
+        "path": "G:\\Paper_mask\\160.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 3507,
+            "total_ms": 3507
+          },
+          "deepfake": {
+            "video_score": 0.039296193048357964,
+            "prediction": "REAL",
+            "frames_analyzed": 34
+          }
+        }
+      },
+      {
+        "file": "161.mp4",
+        "path": "G:\\Paper_mask\\161.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2883,
+            "total_ms": 2883
+          },
+          "deepfake": {
+            "video_score": 0.6110607385635376,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "162.mp4",
+        "path": "G:\\Paper_mask\\162.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2388,
+            "total_ms": 2388
+          },
+          "deepfake": {
+            "video_score": 0.6808943748474121,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "163.mp4",
+        "path": "G:\\Paper_mask\\163.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2282,
+            "total_ms": 2282
+          },
+          "deepfake": {
+            "video_score": 0.004039538558572531,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "164.mp4",
+        "path": "G:\\Paper_mask\\164.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2356,
+            "total_ms": 2356
+          },
+          "deepfake": {
+            "video_score": 0.007542966865003109,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "165.mp4",
+        "path": "G:\\Paper_mask\\165.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2593,
+            "total_ms": 2593
+          },
+          "deepfake": {
+            "video_score": 0.005057143978774548,
+            "prediction": "REAL",
+            "frames_analyzed": 36
+          }
+        }
+      },
+      {
+        "file": "166.mp4",
+        "path": "G:\\Paper_mask\\166.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 2792,
+            "total_ms": 2792
+          },
+          "deepfake": {
+            "video_score": 0.0006611174321733415,
+            "prediction": "REAL",
+            "frames_analyzed": 35
+          }
+        }
+      },
+      {
+        "file": "167.mp4",
+        "path": "G:\\Paper_mask\\167.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 3458,
+            "total_ms": 3458
+          },
+          "deepfake": {
+            "video_score": 0.003305126214399934,
+            "prediction": "REAL",
+            "frames_analyzed": 35
+          }
+        }
+      },
+      {
+        "file": "168.mp4",
+        "path": "G:\\Paper_mask\\168.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "3D_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 3577,
+            "total_ms": 3577
+          },
+          "deepfake": {
+            "video_score": 0.0099524836987257,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      }
+    ],
+    "Textile_Face_Mask": [
+      {
+        "file": "20250528_181931.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_181931.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 14531,
+            "total_ms": 14531
+          },
+          "deepfake": {
+            "video_score": 0.6007692217826843,
+            "prediction": "REAL",
+            "frames_analyzed": 29
+          }
+        }
+      },
+      {
+        "file": "20250528_182036.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_182036.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12783,
+            "total_ms": 12783
+          },
+          "deepfake": {
+            "video_score": 0.03868482634425163,
+            "prediction": "REAL",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "20250528_182148.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_182148.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13035,
+            "total_ms": 13035
+          },
+          "deepfake": {
+            "video_score": 0.0004339999723015353,
+            "prediction": "REAL",
+            "frames_analyzed": 34
+          }
+        }
+      },
+      {
+        "file": "20250528_182424.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_182424.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13422,
+            "total_ms": 13422
+          },
+          "deepfake": {
+            "video_score": 0.006465618964284658,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "20250528_183829.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_183829.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12978,
+            "total_ms": 12978
+          },
+          "deepfake": {
+            "video_score": 0.5476556420326233,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "20250528_184443.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_184443.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13948,
+            "total_ms": 13948
+          },
+          "deepfake": {
+            "video_score": 0.19888348877429962,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "20250528_190425.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_190425.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12910,
+            "total_ms": 12910
+          },
+          "deepfake": {
+            "video_score": 0.1139640361070633,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "20250528_190841.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_190841.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12865,
+            "total_ms": 12865
+          },
+          "deepfake": {
+            "video_score": 0.692155659198761,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "20250528_191234.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_191234.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12826,
+            "total_ms": 12826
+          },
+          "deepfake": {
+            "video_score": 0.009360218420624733,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "20250528_191333.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_191333.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13160,
+            "total_ms": 13160
+          },
+          "deepfake": {
+            "video_score": 0.09603671357035637,
+            "prediction": "REAL",
+            "frames_analyzed": 34
+          }
+        }
+      },
+      {
+        "file": "20250528_191602.mp4",
+        "path": "G:\\Textile_Face_Mask\\20250528_191602.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 12870,
+            "total_ms": 12870
+          },
+          "deepfake": {
+            "video_score": 0.2441009134054184,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "IMG_5143.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5143.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 14065,
+            "total_ms": 14065
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "IMG_5145.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5145.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 14009,
+            "total_ms": 14009
+          },
+          "deepfake": {
+            "video_score": 0.25235167890787125,
+            "prediction": "REAL",
+            "frames_analyzed": 30
+          }
+        }
+      },
+      {
+        "file": "IMG_5151.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5151.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 14032,
+            "total_ms": 14032
+          },
+          "deepfake": {
+            "video_score": 0.05546760931611061,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "IMG_5159.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5159.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 14894,
+            "total_ms": 14894
+          },
+          "deepfake": {
+            "video_score": 0.957520991563797,
+            "prediction": "FAKE",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "IMG_5170.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5170.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 14979,
+            "total_ms": 14979
+          },
+          "deepfake": {
+            "video_score": 0.9460978507995605,
+            "prediction": "FAKE",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "IMG_5171.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5171.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13394,
+            "total_ms": 13394
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "IMG_5181.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5181.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13516,
+            "total_ms": 13516
+          },
+          "deepfake": {
+            "video_score": 0.0003348007157910615,
+            "prediction": "REAL",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "IMG_5183.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5183.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13717,
+            "total_ms": 13717
+          },
+          "deepfake": {
+            "video_score": 0.7988973259925842,
+            "prediction": "FAKE",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "IMG_5189.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5189.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13495,
+            "total_ms": 13495
+          },
+          "deepfake": {
+            "video_score": 0.9235150814056396,
+            "prediction": "FAKE",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "IMG_5192.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5192.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 14395,
+            "total_ms": 14395
+          },
+          "deepfake": {
+            "video_score": 0.7907372415065765,
+            "prediction": "FAKE",
+            "frames_analyzed": 32
+          }
+        }
+      },
+      {
+        "file": "IMG_5193.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5193.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13381,
+            "total_ms": 13381
+          },
+          "deepfake": {
+            "video_score": 0.7041990160942078,
+            "prediction": "FAKE",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "IMG_5201.MOV",
+        "path": "G:\\Textile_Face_Mask\\IMG_5201.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Textile_Face_Mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 13720,
+            "total_ms": 13720
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 34
+          }
+        }
+      }
+    ],
+    "Wrapped_paper_mask": [
+      {
+        "file": "101.mp4",
+        "path": "G:\\Wrapped_paper_mask\\101.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 6704,
+            "total_ms": 6704
+          },
+          "deepfake": {
+            "video_score": 0.007316520903259516,
+            "prediction": "REAL",
+            "frames_analyzed": 37
+          }
+        }
+      },
+      {
+        "file": "102.mp4",
+        "path": "G:\\Wrapped_paper_mask\\102.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 6510,
+            "total_ms": 6510
+          },
+          "deepfake": {
+            "video_score": 0.00011715643631760031,
+            "prediction": "REAL",
+            "frames_analyzed": 36
+          }
+        }
+      },
+      {
+        "file": "104.mp4",
+        "path": "G:\\Wrapped_paper_mask\\104.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 6832,
+            "total_ms": 6832
+          },
+          "deepfake": {
+            "video_score": 0.0005961373099125922,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "122.MOV",
+        "path": "G:\\Wrapped_paper_mask\\122.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
+        "raw": {
+          "timings": {
+            "phase3_ms": 7781,
+            "total_ms": 7781
+          },
+          "deepfake": {
+            "video_score": 0.99,
+            "prediction": "FAKE",
+            "frames_analyzed": 33
+          }
+        }
+      },
+      {
+        "file": "126.MOV",
+        "path": "G:\\Wrapped_paper_mask\\126.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 7018,
+            "total_ms": 7018
+          },
+          "deepfake": {
+            "video_score": 0.07079166546463966,
+            "prediction": "REAL",
+            "frames_analyzed": 36
+          }
+        }
+      },
+      {
+        "file": "135.MOV",
+        "path": "G:\\Wrapped_paper_mask\\135.MOV",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 7288,
+            "total_ms": 7288
+          },
+          "deepfake": {
+            "video_score": 0.0005051172920502722,
+            "prediction": "REAL",
+            "frames_analyzed": 31
+          }
+        }
+      },
+      {
+        "file": "PXL_20230411_164048136.mp4",
+        "path": "G:\\Wrapped_paper_mask\\PXL_20230411_164048136.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 7066,
+            "total_ms": 7066
+          },
+          "deepfake": {
+            "video_score": 0.006965230219066143,
+            "prediction": "REAL",
+            "frames_analyzed": 39
+          }
+        }
+      },
+      {
+        "file": "PXL_20230411_170407287.mp4",
+        "path": "G:\\Wrapped_paper_mask\\PXL_20230411_170407287.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 6276,
+            "total_ms": 6276
+          },
+          "deepfake": {
+            "video_score": 0.21952222287654877,
+            "prediction": "REAL",
+            "frames_analyzed": 35
+          }
+        }
+      },
+      {
+        "file": "PXL_20230411_171453533.mp4",
+        "path": "G:\\Wrapped_paper_mask\\PXL_20230411_171453533.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 6186,
+            "total_ms": 6186
+          },
+          "deepfake": {
+            "video_score": 0.0005863207916263491,
+            "prediction": "REAL",
+            "frames_analyzed": 34
+          }
+        }
+      },
+      {
+        "file": "PXL_20230411_171630469.mp4",
+        "path": "G:\\Wrapped_paper_mask\\PXL_20230411_171630469.mp4",
+        "ground_truth": "FAKE",
+        "attack_type": "Wrapped_paper_mask",
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
+        "raw": {
+          "timings": {
+            "phase3_ms": 6183,
+            "total_ms": 6183
+          },
+          "deepfake": {
+            "video_score": 0.0003075859567616135,
+            "prediction": "REAL",
+            "frames_analyzed": 34
+          }
+        }
+      }
+    ]
+  },
+  "timing_summary": {
+    "all": {
+      "count": 132,
+      "avg_total_ms": 7000,
+      "avg_phase1_ms": null,
+      "avg_phase2_ms": null,
+      "avg_phase3_ms": 7000
+    },
+    "p1_only": {
+      "count": 132,
+      "avg_total_ms": 7000,
+      "avg_phase1_ms": null,
+      "avg_phase2_ms": null,
+      "avg_phase3_ms": 7000
+    },
+    "p3_reached": {
+      "count": 132,
+      "avg_total_ms": 7000,
+      "avg_phase1_ms": null,
+      "avg_phase2_ms": null,
+      "avg_phase3_ms": 7000
+    }
+  }
+}

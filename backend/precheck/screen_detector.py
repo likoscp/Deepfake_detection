@@ -1,33 +1,12 @@
 import cv2
 import numpy as np
 
-def _load_phase1_frames(video_path, sample_frames=25, max_seconds=3):
-    cap = cv2.VideoCapture(video_path)
-    fps = cap.get(cv2.CAP_PROP_FPS) or 25
-    total_needed = int(fps * max_seconds)
-    step = max(1, total_needed // sample_frames)
-    
-    frames = []
-    i = 0
-    while len(frames) < sample_frames:
-        ret, frame = cap.read()
-        if not ret:
-            break
-        if i % step == 0:
-            frames.append(cv2.resize(frame, (320, 240)))
-        i += 1
-        if i > total_needed:
-            break
-    cap.release()
-    return frames, fps
-
 
 def detect_static_from_frames(frames):
     grays = [cv2.cvtColor(f, cv2.COLOR_BGR2GRAY) for f in frames]
     diffs = [np.mean(cv2.absdiff(grays[i], grays[i+1])) for i in range(len(grays)-1)]
     mean_diff = float(np.mean(diffs)) if diffs else 0.0
     return mean_diff < 0.5, mean_diff
-
 
 def detect_screen_display_from_frames(frames):
     scores = []
