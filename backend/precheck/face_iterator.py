@@ -19,7 +19,8 @@ def _load_phase1_and_faces(video_path, sample_frames=40, max_seconds=5):
     step = max(1, total_needed // sample_frames)
     model = get_face_model()
     frames = []
-    face_cache = []
+    sampled_720 = []
+    sampled_indices = []
     i = 0
     while i < total_needed and len(frames) < sample_frames:
         ret, frame = cap.read()
@@ -27,15 +28,26 @@ def _load_phase1_and_faces(video_path, sample_frames=40, max_seconds=5):
             break
         if i % step == 0:
             frame_720 = _resize_frame(frame, max_dim=1280)
-            
             frames.append(cv2.resize(frame_720, (320, 240)))
-            
-            faces = _detect_faces_yolo_frame(frame_720, model)
-            if faces:
-                x, y, w, h = faces[0]
-                face_cache.append((i, frame_720, (x, y, w, h)))
+            sampled_720.append(frame_720)
+            sampled_indices.append(i)
         i += 1
     cap.release()
+
+    face_cache = []
+    if sampled_720:
+        results = model(sampled_720, verbose=False, device=0)
+        for frame_idx, frame_720, result in zip(sampled_indices, sampled_720, results):
+            boxes = result.boxes
+            if boxes is None or len(boxes) == 0:
+                continue
+            for box in boxes.xyxy.tolist():
+                x1, y1, x2, y2 = map(int, box)
+                w, h = x2 - x1, y2 - y1
+                if w > 10 and h > 10:
+                    face_cache.append((frame_idx, frame_720, (x1, y1, w, h)))
+                    break
+
     return frames, fps, face_cache
 
 def _detect_faces_yolo_frame(frame, model=None):
