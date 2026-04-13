@@ -235,51 +235,58 @@ def run_phase2(video_path, face_cache=None, frames=None, fps=25.0):
 
 
 def run_full_check(video_path):
+    full_check = True
     results = {}
     timings = {}
+    if full_check:
+        t = time.time()
+        p1_result = run_phase1(video_path)
+        timings["phase1_ms"] = round((time.time() - t) * 1000)
+        p1_passed, p1_reason, p1_details, face_cache, frames, fps = p1_result
 
-    t = time.time()
-    p1_result = run_phase1(video_path)
-    timings["phase1_ms"] = round((time.time() - t) * 1000)
-    p1_passed, p1_reason, p1_details, face_cache, frames, fps = p1_result
+        print(f"Phase 1 done in {timings['phase1_ms']}ms: {p1_reason}")
+        results["phase1"] = "OK" if p1_passed else f"FAILED: {p1_reason}"
+        results["phase1_details"] = p1_details
 
-    print(f"Phase 1 done in {timings['phase1_ms']}ms: {p1_reason}")
-    results["phase1"] = "OK" if p1_passed else f"FAILED: {p1_reason}"
-    results["phase1_details"] = p1_details
+        if not p1_passed:
+            results["timings"] = {**timings, "phase2_ms": None, "phase3_ms": None, "total_ms": timings["phase1_ms"]}
+            results["deepfake"] = {"prediction": "FAKE", "reason": f"Phase1: {p1_reason}"}
+            _log(video_path, results)
+            return results
 
-    if not p1_passed:
-        results["timings"] = {**timings, "phase2_ms": None, "phase3_ms": None, "total_ms": timings["phase1_ms"]}
-        results["deepfake"] = {"prediction": "FAKE", "reason": f"Phase1: {p1_reason}"}
-        _log(video_path, results)
-        return results
+        t = time.time()
+        p2_passed, p2_score, p2_details = run_phase2(video_path, face_cache, frames, fps)
+        timings["phase2_ms"] = round((time.time() - t) * 1000)
+        print(f"Phase 2 done in {timings['phase2_ms']}ms")
 
-    t = time.time()
-    p2_passed, p2_score, p2_details = run_phase2(video_path, face_cache, frames, fps)
-    timings["phase2_ms"] = round((time.time() - t) * 1000)
-    print(f"Phase 2 done in {timings['phase2_ms']}ms")
+        results["phase2"] = "OK" if p2_passed else f"FAILED ({p2_score:.3f})"
+        results["phase2_score"] = round(p2_score, 4)
+        results["phase2_details"] = p2_details
 
-    results["phase2"] = "OK" if p2_passed else f"FAILED ({p2_score:.3f})"
-    results["phase2_score"] = round(p2_score, 4)
-    results["phase2_details"] = p2_details
+        if not p2_passed:
+            results["timings"] = {**timings, "phase3_ms": None, "total_ms": timings["phase1_ms"] + timings["phase2_ms"]}
+            results["deepfake"] = {"prediction": "FAKE", "reason": f"Phase2 score={p2_score:.3f}"}
+            _log(video_path, results)
+            return results
 
-    if not p2_passed:
-        results["timings"] = {**timings, "phase3_ms": None, "total_ms": timings["phase1_ms"] + timings["phase2_ms"]}
-        results["deepfake"] = {"prediction": "FAKE", "reason": f"Phase2 score={p2_score:.3f}"}
-        _log(video_path, results)
-        return results
+    # отрубила фазу 3
 
-# отрубила фазу 3
+        # results["timings"] = {**timings, "phase3_ms": None, "total_ms": timings["phase1_ms"] + timings["phase2_ms"]}
+        # results["deepfake"] = {"prediction": "REAL", "reason": "Phase3 disabled"}
+        # _log(video_path, results)
+        # return results
 
-    results["timings"] = {**timings, "phase3_ms": None, "total_ms": timings["phase1_ms"] + timings["phase2_ms"]}
-    results["deepfake"] = {"prediction": "REAL", "reason": "Phase3 disabled"}
-    _log(video_path, results)
-    return results
-
-    t = time.time()
-    deepfake_result = predict_video_file(video_path, threshold=0.70)
-    timings["phase3_ms"] = round((time.time() - t) * 1000)
-    timings["total_ms"] = timings["phase1_ms"] + timings["phase2_ms"] + timings["phase3_ms"]
-
+        t = time.time()
+        deepfake_result = predict_video_file(video_path, threshold=0.65)
+        timings["phase3_ms"] = round((time.time() - t) * 1000)
+        
+        timings["total_ms"] = timings["phase1_ms"] + timings["phase2_ms"] + timings["phase3_ms"]
+        
+    else:
+        t = time.time()
+        deepfake_result = predict_video_file(video_path, threshold=0.65)
+        timings["phase3_ms"] = round((time.time() - t) * 1000)
+        timings["total_ms"] = timings["phase3_ms"]
     results["timings"] = timings
     results["deepfake"] = deepfake_result
     _log(video_path, results)

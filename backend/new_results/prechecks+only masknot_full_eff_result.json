@@ -2,35 +2,35 @@
   "summary": {
     "latex_mask": {
       "total": 63,
-      "caught": 29,
-      "detection_rate": 0.4603,
-      "FAR": 0.5397,
+      "caught": 28,
+      "detection_rate": 0.4444,
+      "FAR": 0.5556,
       "caught_by": {
         "phase1": 0,
         "phase2": 0,
-        "phase3_ml": 29
+        "phase3_ml": 28
       }
     },
     "3D_paper_mask": {
       "total": 36,
-      "caught": 0,
-      "detection_rate": 0.0,
-      "FAR": 1.0,
+      "caught": 1,
+      "detection_rate": 0.0278,
+      "FAR": 0.9722,
       "caught_by": {
         "phase1": 0,
         "phase2": 0,
-        "phase3_ml": 0
+        "phase3_ml": 1
       }
     },
     "Textile_Face_Mask": {
       "total": 23,
-      "caught": 9,
-      "detection_rate": 0.3913,
-      "FAR": 0.6087,
+      "caught": 10,
+      "detection_rate": 0.4348,
+      "FAR": 0.5652,
       "caught_by": {
         "phase1": 0,
         "phase2": 0,
-        "phase3_ml": 9
+        "phase3_ml": 10
       }
     },
     "Wrapped_paper_mask": {
@@ -53,17 +53,17 @@
         "path": "G:\\latex_mask\\1. Back close.MOV",
         "ground_truth": "FAKE",
         "attack_type": "latex_mask",
-        "prediction": "FAKE",
-        "caught_by": "phase3_ml",
-        "correct": true,
+        "prediction": "REAL",
+        "caught_by": null,
+        "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 4518,
-            "total_ms": 4518
+            "phase3_ms": 5261,
+            "total_ms": 5261
           },
           "deepfake": {
-            "video_score": 0.8433418273925781,
-            "prediction": "FAKE",
+            "video_score": 0.26675474643707275,
+            "prediction": "REAL",
             "frames_analyzed": 31
           }
         }
@@ -78,8 +78,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 28441,
-            "total_ms": 28441
+            "phase3_ms": 25942,
+            "total_ms": 25942
           },
           "deepfake": {
             "video_score": 5.384044357015227e-07,
@@ -98,8 +98,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 13429,
-            "total_ms": 13429
+            "phase3_ms": 14919,
+            "total_ms": 14919
           },
           "deepfake": {
             "video_score": 0.0004108205030206591,
@@ -118,8 +118,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 8461,
-            "total_ms": 8461
+            "phase3_ms": 8221,
+            "total_ms": 8221
           },
           "deepfake": {
             "video_score": 0.5839009881019592,
@@ -138,8 +138,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 5036,
-            "total_ms": 5036
+            "phase3_ms": 5083,
+            "total_ms": 5083
           },
           "deepfake": {
             "video_score": 0.02208269201219082,
@@ -158,8 +158,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 7581,
-            "total_ms": 7581
+            "phase3_ms": 7617,
+            "total_ms": 7617
           },
           "deepfake": {
             "video_score": 0.0035512603353708982,
@@ -178,8 +178,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 4998,
-            "total_ms": 4998
+            "phase3_ms": 4941,
+            "total_ms": 4941
           },
           "deepfake": {
             "video_score": 0.0027924454770982265,
@@ -198,8 +198,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 7560,
-            "total_ms": 7560
+            "phase3_ms": 7468,
+            "total_ms": 7468
           },
           "deepfake": {
             "video_score": 0.8917883634567261,
@@ -218,8 +218,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 4765,
-            "total_ms": 4765
+            "phase3_ms": 4691,
+            "total_ms": 4691
           },
           "deepfake": {
             "video_score": 0.20842290669679642,
@@ -238,8 +238,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 27438,
-            "total_ms": 27438
+            "phase3_ms": 30091,
+            "total_ms": 30091
           },
           "deepfake": {
             "video_score": 0.009345168014988303,
@@ -258,8 +258,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 12777,
-            "total_ms": 12777
+            "phase3_ms": 12663,
+            "total_ms": 12663
           },
           "deepfake": {
             "video_score": 0.2882259488105774,
@@ -278,8 +278,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 8053,
-            "total_ms": 8053
+            "phase3_ms": 7989,
+            "total_ms": 7989
           },
           "deepfake": {
             "video_score": 0.01541210152208805,
@@ -298,8 +298,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 22636,
-            "total_ms": 22636
+            "phase3_ms": 25654,
+            "total_ms": 25654
           },
           "deepfake": {
             "video_score": 1.857737879618071e-05,
@@ -318,8 +318,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 5210,
-            "total_ms": 5210
+            "phase3_ms": 5274,
+            "total_ms": 5274
           },
           "deepfake": {
             "video_score": 0.99,
@@ -338,8 +338,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1242,
-            "total_ms": 1242
+            "phase3_ms": 1230,
+            "total_ms": 1230
           },
           "deepfake": {
             "video_score": 0.9488689005374908,
@@ -358,8 +358,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1159,
-            "total_ms": 1159
+            "phase3_ms": 1191,
+            "total_ms": 1191
           },
           "deepfake": {
             "video_score": 0.9727239012718201,
@@ -378,8 +378,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 9000,
-            "total_ms": 9000
+            "phase3_ms": 8828,
+            "total_ms": 8828
           },
           "deepfake": {
             "video_score": 0.980558454990387,
@@ -398,8 +398,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1606,
-            "total_ms": 1606
+            "phase3_ms": 1379,
+            "total_ms": 1379
           },
           "deepfake": {
             "video_score": 0.99,
@@ -418,8 +418,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 22959,
-            "total_ms": 22959
+            "phase3_ms": 24900,
+            "total_ms": 24900
           },
           "deepfake": {
             "video_score": 0.99,
@@ -438,8 +438,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 12877,
-            "total_ms": 12877
+            "phase3_ms": 12725,
+            "total_ms": 12725
           },
           "deepfake": {
             "video_score": 0.0030954843387007713,
@@ -458,8 +458,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1351,
-            "total_ms": 1351
+            "phase3_ms": 1354,
+            "total_ms": 1354
           },
           "deepfake": {
             "video_score": 0.99,
@@ -478,8 +478,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1199,
-            "total_ms": 1199
+            "phase3_ms": 1606,
+            "total_ms": 1606
           },
           "deepfake": {
             "video_score": 0.5410434901714325,
@@ -498,8 +498,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1135,
-            "total_ms": 1135
+            "phase3_ms": 1349,
+            "total_ms": 1349
           },
           "deepfake": {
             "video_score": 0.9003839492797852,
@@ -518,8 +518,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1224,
-            "total_ms": 1224
+            "phase3_ms": 1305,
+            "total_ms": 1305
           },
           "deepfake": {
             "video_score": 0.99,
@@ -538,8 +538,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1150,
-            "total_ms": 1150
+            "phase3_ms": 1126,
+            "total_ms": 1126
           },
           "deepfake": {
             "video_score": 0.7205320298671722,
@@ -558,8 +558,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1128,
-            "total_ms": 1128
+            "phase3_ms": 1613,
+            "total_ms": 1613
           },
           "deepfake": {
             "video_score": 0.8865647315979004,
@@ -578,8 +578,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1301,
-            "total_ms": 1301
+            "phase3_ms": 1321,
+            "total_ms": 1321
           },
           "deepfake": {
             "video_score": 0.99,
@@ -598,8 +598,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1113,
-            "total_ms": 1113
+            "phase3_ms": 1041,
+            "total_ms": 1041
           },
           "deepfake": {
             "video_score": 0.3038935661315918,
@@ -618,8 +618,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1235,
-            "total_ms": 1235
+            "phase3_ms": 1379,
+            "total_ms": 1379
           },
           "deepfake": {
             "video_score": 0.308193176984787,
@@ -638,8 +638,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 5119,
-            "total_ms": 5119
+            "phase3_ms": 5482,
+            "total_ms": 5482
           },
           "deepfake": {
             "video_score": 0.3562602698802948,
@@ -658,8 +658,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1176,
-            "total_ms": 1176
+            "phase3_ms": 1354,
+            "total_ms": 1354
           },
           "deepfake": {
             "video_score": 0.8106122612953186,
@@ -678,8 +678,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 12983,
-            "total_ms": 12983
+            "phase3_ms": 13858,
+            "total_ms": 13858
           },
           "deepfake": {
             "video_score": 0.568586528301239,
@@ -698,8 +698,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 26083,
-            "total_ms": 26083
+            "phase3_ms": 27707,
+            "total_ms": 27707
           },
           "deepfake": {
             "video_score": 0.034390393644571304,
@@ -718,8 +718,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1131,
-            "total_ms": 1131
+            "phase3_ms": 1375,
+            "total_ms": 1375
           },
           "deepfake": {
             "video_score": 0.8034506142139435,
@@ -738,8 +738,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1178,
-            "total_ms": 1178
+            "phase3_ms": 1505,
+            "total_ms": 1505
           },
           "deepfake": {
             "video_score": 0.99,
@@ -758,8 +758,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1294,
-            "total_ms": 1294
+            "phase3_ms": 1720,
+            "total_ms": 1720
           },
           "deepfake": {
             "video_score": 0.9618691205978394,
@@ -778,8 +778,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1723,
-            "total_ms": 1723
+            "phase3_ms": 1457,
+            "total_ms": 1457
           },
           "deepfake": {
             "video_score": 0.012083414010703564,
@@ -798,8 +798,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1499,
-            "total_ms": 1499
+            "phase3_ms": 1546,
+            "total_ms": 1546
           },
           "deepfake": {
             "video_score": 0.03887958452105522,
@@ -818,8 +818,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1501,
-            "total_ms": 1501
+            "phase3_ms": 1422,
+            "total_ms": 1422
           },
           "deepfake": {
             "video_score": 0.028050130233168602,
@@ -838,8 +838,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1362,
-            "total_ms": 1362
+            "phase3_ms": 1364,
+            "total_ms": 1364
           },
           "deepfake": {
             "video_score": 0.8475071787834167,
@@ -858,8 +858,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 979,
-            "total_ms": 979
+            "phase3_ms": 959,
+            "total_ms": 959
           },
           "deepfake": {
             "video_score": 0.1965409368276596,
@@ -878,8 +878,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1359,
-            "total_ms": 1359
+            "phase3_ms": 1376,
+            "total_ms": 1376
           },
           "deepfake": {
             "video_score": 0.8772194981575012,
@@ -898,8 +898,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1661,
-            "total_ms": 1661
+            "phase3_ms": 1302,
+            "total_ms": 1302
           },
           "deepfake": {
             "video_score": 0.960425078868866,
@@ -918,8 +918,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1354,
-            "total_ms": 1354
+            "phase3_ms": 1151,
+            "total_ms": 1151
           },
           "deepfake": {
             "video_score": 0.5431675314903259,
@@ -938,8 +938,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 13018,
-            "total_ms": 13018
+            "phase3_ms": 12876,
+            "total_ms": 12876
           },
           "deepfake": {
             "video_score": 0.015272338408976793,
@@ -958,8 +958,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1440,
-            "total_ms": 1440
+            "phase3_ms": 1349,
+            "total_ms": 1349
           },
           "deepfake": {
             "video_score": 0.40204715728759766,
@@ -978,8 +978,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 1307,
-            "total_ms": 1307
+            "phase3_ms": 1117,
+            "total_ms": 1117
           },
           "deepfake": {
             "video_score": 0.38896720111370087,
@@ -998,8 +998,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1591,
-            "total_ms": 1591
+            "phase3_ms": 1389,
+            "total_ms": 1389
           },
           "deepfake": {
             "video_score": 0.7761620581150055,
@@ -1018,8 +1018,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 1153,
-            "total_ms": 1153
+            "phase3_ms": 1183,
+            "total_ms": 1183
           },
           "deepfake": {
             "video_score": 0.9850054979324341,
@@ -1038,8 +1038,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 2000,
-            "total_ms": 2000
+            "phase3_ms": 1961,
+            "total_ms": 1961
           },
           "deepfake": {
             "video_score": 0.99,
@@ -1058,8 +1058,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 5383,
-            "total_ms": 5383
+            "phase3_ms": 5398,
+            "total_ms": 5398
           },
           "deepfake": {
             "video_score": 0.027690311893820763,
@@ -1078,8 +1078,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 2444,
-            "total_ms": 2444
+            "phase3_ms": 2278,
+            "total_ms": 2278
           },
           "deepfake": {
             "video_score": 0.8789277076721191,
@@ -1098,8 +1098,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 17563,
-            "total_ms": 17563
+            "phase3_ms": 17737,
+            "total_ms": 17737
           },
           "deepfake": {
             "video_score": 0.9562671780586243,
@@ -1118,8 +1118,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 19238,
-            "total_ms": 19238
+            "phase3_ms": 19577,
+            "total_ms": 19577
           },
           "deepfake": {
             "video_score": 0.0001839172764448449,
@@ -1138,8 +1138,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 18448,
-            "total_ms": 18448
+            "phase3_ms": 18916,
+            "total_ms": 18916
           },
           "deepfake": {
             "video_score": 0.8153295516967773,
@@ -1158,8 +1158,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 17676,
-            "total_ms": 17676
+            "phase3_ms": 17774,
+            "total_ms": 17774
           },
           "deepfake": {
             "video_score": 0.9603636264801025,
@@ -1178,8 +1178,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 18836,
-            "total_ms": 18836
+            "phase3_ms": 18882,
+            "total_ms": 18882
           },
           "deepfake": {
             "video_score": 0.5904373824596405,
@@ -1198,8 +1198,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 17386,
-            "total_ms": 17386
+            "phase3_ms": 17890,
+            "total_ms": 17890
           },
           "deepfake": {
             "video_score": 0.99,
@@ -1218,8 +1218,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 4514,
-            "total_ms": 4514
+            "phase3_ms": 4879,
+            "total_ms": 4879
           },
           "deepfake": {
             "video_score": 0.001044156146235764,
@@ -1238,8 +1238,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 5026,
-            "total_ms": 5026
+            "phase3_ms": 5233,
+            "total_ms": 5233
           },
           "deepfake": {
             "video_score": 0.011392226442694664,
@@ -1258,8 +1258,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 4909,
-            "total_ms": 4909
+            "phase3_ms": 5189,
+            "total_ms": 5189
           },
           "deepfake": {
             "video_score": 0.2966473549604416,
@@ -1278,8 +1278,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 4958,
-            "total_ms": 4958
+            "phase3_ms": 5096,
+            "total_ms": 5096
           },
           "deepfake": {
             "video_score": 0.11448027938604355,
@@ -1298,8 +1298,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 5084,
-            "total_ms": 5084
+            "phase3_ms": 5210,
+            "total_ms": 5210
           },
           "deepfake": {
             "video_score": 0.00025711708440212533,
@@ -1320,8 +1320,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2462,
-            "total_ms": 2462
+            "phase3_ms": 2561,
+            "total_ms": 2561
           },
           "deepfake": {
             "video_score": 0.00031284301076084375,
@@ -1340,8 +1340,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2565,
-            "total_ms": 2565
+            "phase3_ms": 2636,
+            "total_ms": 2636
           },
           "deepfake": {
             "video_score": 0.00013345919433049858,
@@ -1360,8 +1360,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2771,
-            "total_ms": 2771
+            "phase3_ms": 2827,
+            "total_ms": 2827
           },
           "deepfake": {
             "video_score": 0.0009785298025235534,
@@ -1380,8 +1380,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2208,
-            "total_ms": 2208
+            "phase3_ms": 2328,
+            "total_ms": 2328
           },
           "deepfake": {
             "video_score": 0.10343986004590988,
@@ -1400,8 +1400,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2460,
-            "total_ms": 2460
+            "phase3_ms": 2415,
+            "total_ms": 2415
           },
           "deepfake": {
             "video_score": 0.030711408704519272,
@@ -1420,8 +1420,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2723,
-            "total_ms": 2723
+            "phase3_ms": 2707,
+            "total_ms": 2707
           },
           "deepfake": {
             "video_score": 0.0012865721946582198,
@@ -1440,8 +1440,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2599,
-            "total_ms": 2599
+            "phase3_ms": 2654,
+            "total_ms": 2654
           },
           "deepfake": {
             "video_score": 0.001277814619243145,
@@ -1460,8 +1460,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2884,
-            "total_ms": 2884
+            "phase3_ms": 3004,
+            "total_ms": 3004
           },
           "deepfake": {
             "video_score": 0.000880360312294215,
@@ -1480,8 +1480,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2476,
-            "total_ms": 2476
+            "phase3_ms": 2537,
+            "total_ms": 2537
           },
           "deepfake": {
             "video_score": 0.006244400981813669,
@@ -1500,8 +1500,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2906,
-            "total_ms": 2906
+            "phase3_ms": 2952,
+            "total_ms": 2952
           },
           "deepfake": {
             "video_score": 0.008140630554407835,
@@ -1520,8 +1520,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2582,
-            "total_ms": 2582
+            "phase3_ms": 2603,
+            "total_ms": 2603
           },
           "deepfake": {
             "video_score": 7.320680015254766e-05,
@@ -1540,8 +1540,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 3181,
-            "total_ms": 3181
+            "phase3_ms": 3211,
+            "total_ms": 3211
           },
           "deepfake": {
             "video_score": 0.011761105619370937,
@@ -1560,8 +1560,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2881,
-            "total_ms": 2881
+            "phase3_ms": 3032,
+            "total_ms": 3032
           },
           "deepfake": {
             "video_score": 0.0006757221708539873,
@@ -1580,8 +1580,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2892,
-            "total_ms": 2892
+            "phase3_ms": 3032,
+            "total_ms": 3032
           },
           "deepfake": {
             "video_score": 0.0005339810450095683,
@@ -1600,8 +1600,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2563,
-            "total_ms": 2563
+            "phase3_ms": 3015,
+            "total_ms": 3015
           },
           "deepfake": {
             "video_score": 0.013613873161375523,
@@ -1620,8 +1620,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2360,
-            "total_ms": 2360
+            "phase3_ms": 2653,
+            "total_ms": 2653
           },
           "deepfake": {
             "video_score": 0.03143574297428131,
@@ -1640,8 +1640,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2731,
-            "total_ms": 2731
+            "phase3_ms": 2967,
+            "total_ms": 2967
           },
           "deepfake": {
             "video_score": 0.20654648542404175,
@@ -1660,8 +1660,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2893,
-            "total_ms": 2893
+            "phase3_ms": 3202,
+            "total_ms": 3202
           },
           "deepfake": {
             "video_score": 0.014143017120659351,
@@ -1680,8 +1680,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2617,
-            "total_ms": 2617
+            "phase3_ms": 2884,
+            "total_ms": 2884
           },
           "deepfake": {
             "video_score": 0.0020477890502661467,
@@ -1700,8 +1700,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2428,
-            "total_ms": 2428
+            "phase3_ms": 2622,
+            "total_ms": 2622
           },
           "deepfake": {
             "video_score": 0.0003547723754309118,
@@ -1720,8 +1720,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 3280,
-            "total_ms": 3280
+            "phase3_ms": 3366,
+            "total_ms": 3366
           },
           "deepfake": {
             "video_score": 0.0028354956302791834,
@@ -1740,8 +1740,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 3560,
-            "total_ms": 3560
+            "phase3_ms": 3527,
+            "total_ms": 3527
           },
           "deepfake": {
             "video_score": 0.04245580732822418,
@@ -1760,8 +1760,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2719,
-            "total_ms": 2719
+            "phase3_ms": 2815,
+            "total_ms": 2815
           },
           "deepfake": {
             "video_score": 0.00215349392965436,
@@ -1780,8 +1780,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2806,
-            "total_ms": 2806
+            "phase3_ms": 2968,
+            "total_ms": 2968
           },
           "deepfake": {
             "video_score": 0.048645999282598495,
@@ -1800,8 +1800,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 3227,
-            "total_ms": 3227
+            "phase3_ms": 3046,
+            "total_ms": 3046
           },
           "deepfake": {
             "video_score": 0.006748775951564312,
@@ -1820,8 +1820,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 3062,
-            "total_ms": 3062
+            "phase3_ms": 3162,
+            "total_ms": 3162
           },
           "deepfake": {
             "video_score": 0.005493248347193003,
@@ -1840,8 +1840,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2548,
-            "total_ms": 2548
+            "phase3_ms": 2704,
+            "total_ms": 2704
           },
           "deepfake": {
             "video_score": 0.006961618782952428,
@@ -1860,8 +1860,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 3507,
-            "total_ms": 3507
+            "phase3_ms": 3918,
+            "total_ms": 3918
           },
           "deepfake": {
             "video_score": 0.039296193048357964,
@@ -1880,8 +1880,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2883,
-            "total_ms": 2883
+            "phase3_ms": 3063,
+            "total_ms": 3063
           },
           "deepfake": {
             "video_score": 0.6110607385635376,
@@ -1895,17 +1895,17 @@
         "path": "G:\\Paper_mask\\162.mp4",
         "ground_truth": "FAKE",
         "attack_type": "3D_paper_mask",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 2388,
-            "total_ms": 2388
+            "phase3_ms": 2641,
+            "total_ms": 2641
           },
           "deepfake": {
             "video_score": 0.6808943748474121,
-            "prediction": "REAL",
+            "prediction": "FAKE",
             "frames_analyzed": 33
           }
         }
@@ -1920,8 +1920,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2282,
-            "total_ms": 2282
+            "phase3_ms": 2208,
+            "total_ms": 2208
           },
           "deepfake": {
             "video_score": 0.004039538558572531,
@@ -1940,8 +1940,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2356,
-            "total_ms": 2356
+            "phase3_ms": 2403,
+            "total_ms": 2403
           },
           "deepfake": {
             "video_score": 0.007542966865003109,
@@ -1960,8 +1960,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2593,
-            "total_ms": 2593
+            "phase3_ms": 2637,
+            "total_ms": 2637
           },
           "deepfake": {
             "video_score": 0.005057143978774548,
@@ -1980,8 +1980,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 2792,
-            "total_ms": 2792
+            "phase3_ms": 2810,
+            "total_ms": 2810
           },
           "deepfake": {
             "video_score": 0.0006611174321733415,
@@ -2000,8 +2000,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 3458,
-            "total_ms": 3458
+            "phase3_ms": 3636,
+            "total_ms": 3636
           },
           "deepfake": {
             "video_score": 0.003305126214399934,
@@ -2020,8 +2020,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 3577,
-            "total_ms": 3577
+            "phase3_ms": 3772,
+            "total_ms": 3772
           },
           "deepfake": {
             "video_score": 0.0099524836987257,
@@ -2042,8 +2042,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 14531,
-            "total_ms": 14531
+            "phase3_ms": 16094,
+            "total_ms": 16094
           },
           "deepfake": {
             "video_score": 0.6007692217826843,
@@ -2062,8 +2062,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 12783,
-            "total_ms": 12783
+            "phase3_ms": 13255,
+            "total_ms": 13255
           },
           "deepfake": {
             "video_score": 0.03868482634425163,
@@ -2082,8 +2082,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 13035,
-            "total_ms": 13035
+            "phase3_ms": 14355,
+            "total_ms": 14355
           },
           "deepfake": {
             "video_score": 0.0004339999723015353,
@@ -2102,8 +2102,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 13422,
-            "total_ms": 13422
+            "phase3_ms": 15203,
+            "total_ms": 15203
           },
           "deepfake": {
             "video_score": 0.006465618964284658,
@@ -2122,8 +2122,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 12978,
-            "total_ms": 12978
+            "phase3_ms": 14391,
+            "total_ms": 14391
           },
           "deepfake": {
             "video_score": 0.5476556420326233,
@@ -2142,8 +2142,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 13948,
-            "total_ms": 13948
+            "phase3_ms": 15657,
+            "total_ms": 15657
           },
           "deepfake": {
             "video_score": 0.19888348877429962,
@@ -2162,8 +2162,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 12910,
-            "total_ms": 12910
+            "phase3_ms": 14004,
+            "total_ms": 14004
           },
           "deepfake": {
             "video_score": 0.1139640361070633,
@@ -2177,17 +2177,17 @@
         "path": "G:\\Textile_Face_Mask\\20250528_190841.mp4",
         "ground_truth": "FAKE",
         "attack_type": "Textile_Face_Mask",
-        "prediction": "REAL",
-        "caught_by": null,
-        "correct": false,
+        "prediction": "FAKE",
+        "caught_by": "phase3_ml",
+        "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 12865,
-            "total_ms": 12865
+            "phase3_ms": 14234,
+            "total_ms": 14234
           },
           "deepfake": {
             "video_score": 0.692155659198761,
-            "prediction": "REAL",
+            "prediction": "FAKE",
             "frames_analyzed": 33
           }
         }
@@ -2202,8 +2202,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 12826,
-            "total_ms": 12826
+            "phase3_ms": 14463,
+            "total_ms": 14463
           },
           "deepfake": {
             "video_score": 0.009360218420624733,
@@ -2222,8 +2222,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 13160,
-            "total_ms": 13160
+            "phase3_ms": 13235,
+            "total_ms": 13235
           },
           "deepfake": {
             "video_score": 0.09603671357035637,
@@ -2242,8 +2242,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 12870,
-            "total_ms": 12870
+            "phase3_ms": 14426,
+            "total_ms": 14426
           },
           "deepfake": {
             "video_score": 0.2441009134054184,
@@ -2262,8 +2262,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 14065,
-            "total_ms": 14065
+            "phase3_ms": 14455,
+            "total_ms": 14455
           },
           "deepfake": {
             "video_score": 0.99,
@@ -2282,8 +2282,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 14009,
-            "total_ms": 14009
+            "phase3_ms": 15090,
+            "total_ms": 15090
           },
           "deepfake": {
             "video_score": 0.25235167890787125,
@@ -2302,8 +2302,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 14032,
-            "total_ms": 14032
+            "phase3_ms": 14516,
+            "total_ms": 14516
           },
           "deepfake": {
             "video_score": 0.05546760931611061,
@@ -2322,8 +2322,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 14894,
-            "total_ms": 14894
+            "phase3_ms": 15257,
+            "total_ms": 15257
           },
           "deepfake": {
             "video_score": 0.957520991563797,
@@ -2342,8 +2342,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 14979,
-            "total_ms": 14979
+            "phase3_ms": 15361,
+            "total_ms": 15361
           },
           "deepfake": {
             "video_score": 0.9460978507995605,
@@ -2362,8 +2362,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 13394,
-            "total_ms": 13394
+            "phase3_ms": 13441,
+            "total_ms": 13441
           },
           "deepfake": {
             "video_score": 0.99,
@@ -2382,8 +2382,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 13516,
-            "total_ms": 13516
+            "phase3_ms": 14878,
+            "total_ms": 14878
           },
           "deepfake": {
             "video_score": 0.0003348007157910615,
@@ -2402,8 +2402,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 13717,
-            "total_ms": 13717
+            "phase3_ms": 15364,
+            "total_ms": 15364
           },
           "deepfake": {
             "video_score": 0.7988973259925842,
@@ -2422,8 +2422,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 13495,
-            "total_ms": 13495
+            "phase3_ms": 13652,
+            "total_ms": 13652
           },
           "deepfake": {
             "video_score": 0.9235150814056396,
@@ -2442,8 +2442,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 14395,
-            "total_ms": 14395
+            "phase3_ms": 15176,
+            "total_ms": 15176
           },
           "deepfake": {
             "video_score": 0.7907372415065765,
@@ -2462,8 +2462,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 13381,
-            "total_ms": 13381
+            "phase3_ms": 14544,
+            "total_ms": 14544
           },
           "deepfake": {
             "video_score": 0.7041990160942078,
@@ -2482,8 +2482,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 13720,
-            "total_ms": 13720
+            "phase3_ms": 13740,
+            "total_ms": 13740
           },
           "deepfake": {
             "video_score": 0.99,
@@ -2504,8 +2504,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 6704,
-            "total_ms": 6704
+            "phase3_ms": 6758,
+            "total_ms": 6758
           },
           "deepfake": {
             "video_score": 0.007316520903259516,
@@ -2524,8 +2524,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 6510,
-            "total_ms": 6510
+            "phase3_ms": 6620,
+            "total_ms": 6620
           },
           "deepfake": {
             "video_score": 0.00011715643631760031,
@@ -2544,8 +2544,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 6832,
-            "total_ms": 6832
+            "phase3_ms": 6925,
+            "total_ms": 6925
           },
           "deepfake": {
             "video_score": 0.0005961373099125922,
@@ -2564,8 +2564,8 @@
         "correct": true,
         "raw": {
           "timings": {
-            "phase3_ms": 7781,
-            "total_ms": 7781
+            "phase3_ms": 7884,
+            "total_ms": 7884
           },
           "deepfake": {
             "video_score": 0.99,
@@ -2584,8 +2584,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 7018,
-            "total_ms": 7018
+            "phase3_ms": 7573,
+            "total_ms": 7573
           },
           "deepfake": {
             "video_score": 0.07079166546463966,
@@ -2604,8 +2604,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 7288,
-            "total_ms": 7288
+            "phase3_ms": 7472,
+            "total_ms": 7472
           },
           "deepfake": {
             "video_score": 0.0005051172920502722,
@@ -2624,8 +2624,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 7066,
-            "total_ms": 7066
+            "phase3_ms": 7604,
+            "total_ms": 7604
           },
           "deepfake": {
             "video_score": 0.006965230219066143,
@@ -2644,8 +2644,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 6276,
-            "total_ms": 6276
+            "phase3_ms": 6961,
+            "total_ms": 6961
           },
           "deepfake": {
             "video_score": 0.21952222287654877,
@@ -2664,8 +2664,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 6186,
-            "total_ms": 6186
+            "phase3_ms": 6143,
+            "total_ms": 6143
           },
           "deepfake": {
             "video_score": 0.0005863207916263491,
@@ -2684,8 +2684,8 @@
         "correct": false,
         "raw": {
           "timings": {
-            "phase3_ms": 6183,
-            "total_ms": 6183
+            "phase3_ms": 6870,
+            "total_ms": 6870
           },
           "deepfake": {
             "video_score": 0.0003075859567616135,
@@ -2699,24 +2699,24 @@
   "timing_summary": {
     "all": {
       "count": 132,
-      "avg_total_ms": 7000,
+      "avg_total_ms": 7317,
       "avg_phase1_ms": null,
       "avg_phase2_ms": null,
-      "avg_phase3_ms": 7000
+      "avg_phase3_ms": 7317
     },
     "p1_only": {
       "count": 132,
-      "avg_total_ms": 7000,
+      "avg_total_ms": 7317,
       "avg_phase1_ms": null,
       "avg_phase2_ms": null,
-      "avg_phase3_ms": 7000
+      "avg_phase3_ms": 7317
     },
     "p3_reached": {
       "count": 132,
-      "avg_total_ms": 7000,
+      "avg_total_ms": 7317,
       "avg_phase1_ms": null,
       "avg_phase2_ms": null,
-      "avg_phase3_ms": 7000
+      "avg_phase3_ms": 7317
     }
   }
 }
