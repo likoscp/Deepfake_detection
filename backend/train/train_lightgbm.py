@@ -20,6 +20,7 @@ JSON_FILES = [
 
 LABEL_MAP = {
     "real_celeb":    0,
+    "real_celeb2":   0,
     "real_ff":       0,
     "deepfake_ff":   1,
     "deepfake_celeb": 1,
@@ -125,13 +126,15 @@ def train(X, y):
         num_class=3,
         objective="multiclass",
         metric="multi_logloss",
-        n_estimators=500,
-        learning_rate=0.05,
-        max_depth=6,
+
+        n_estimators=800,
+        learning_rate=0.03,
+        max_depth=5,
         num_leaves=31,
-        min_child_samples=5,
+        min_child_samples=10,
         subsample=0.8,
         colsample_bytree=0.8,
+
         random_state=42,
         n_jobs=-1,
         verbose=-1,
@@ -154,7 +157,7 @@ def evaluate(model, X_val, y_val):
     print("\n Classification Report")
     print(classification_report(y_val, y_pred, target_names=["real", "deepfake", "physical"]))
 
-    print("── Confusion Matrix ──")
+    print(" Confusion Matrix")
     cm = confusion_matrix(y_val, y_pred)
     header = f"{'':>12}" + "".join(f"  pred_{CLASS_NAMES[i]:<10}" for i in range(3))
     print(header)
