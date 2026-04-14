@@ -149,16 +149,46 @@ def train(X, y):
 
     return model, X_val, y_val
 
+def predict_with_threshold(model, X, real_t=0.45, physical_t=0.70):
+    probs = model.predict_proba(X)
+
+    preds = []
+    for p in probs:
+        real_p = p[0]
+        deepfake_p = p[1]
+        physical_p = p[2]
+
+        if physical_p > physical_t:
+            preds.append(2)
+
+        elif real_p > real_t:
+            preds.append(0)
+
+        else:
+            preds.append(1)
+
+    return np.array(preds)
 
 def evaluate(model, X_val, y_val):
-    y_pred = model.predict(X_val)
-    y_prob = model.predict_proba(X_val)
+    y_pred_default = model.predict(X_val)
+    y_pred_thresh = predict_with_threshold(model, X_val)
 
-    print("\n Classification Report")
-    print(classification_report(y_val, y_pred, target_names=["real", "deepfake", "physical"]))
+    print("\n── DEFAULT LightGBM ──")
+    print(classification_report(y_val, y_pred_default,
+                                target_names=["real", "deepfake", "physical"]))
 
-    print(" Confusion Matrix")
-    cm = confusion_matrix(y_val, y_pred)
+    print("\n── THRESHOLD SWEEP (real_t) ──")
+    for t in [0.50, 0.55, 0.60]:
+        preds = predict_with_threshold(model, X_val, real_t=t)
+        print(f"\n  real_t={t}")
+        print(classification_report(y_val, preds, target_names=["real", "deepfake", "physical"]))
+
+    print("\n── THRESHOLD MODEL (real_t=0.45) ──")
+    print(classification_report(y_val, y_pred_thresh,
+                                target_names=["real", "deepfake", "physical"]))
+
+    cm = confusion_matrix(y_val, y_pred_thresh)
+    print("\nConfusion Matrix (threshold)")
     header = f"{'':>12}" + "".join(f"  pred_{CLASS_NAMES[i]:<10}" for i in range(3))
     print(header)
     for i, row in enumerate(cm):
