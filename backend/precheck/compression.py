@@ -1,18 +1,8 @@
 import cv2
 import numpy as np
 
-def detect_compression_artifacts(frames, face_cache=None):
-    if face_cache:
-        crops = []
-        for _, frame, (x, y, w, h) in face_cache:
-            if not isinstance(frame, np.ndarray):
-                continue
-            crop = frame[max(0,y):y+h, max(0,x):x+w]
-            if crop.shape[0] >= 32 and crop.shape[1] >= 32:
-                crops.append(crop)
-        source = crops if crops else frames
-    else:
-        source = frames
+def detect_compression_artifacts(frames):
+    source = [f for f in frames if isinstance(f, np.ndarray) and f.ndim == 3]
 
     if not source:
         return False, 0.0

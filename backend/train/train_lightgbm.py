@@ -64,7 +64,7 @@ FEATURE_NAMES = [
 def extract_record(video, label):
     raw = video.get("raw", {})
 
-    p2 = raw.get("phase2_details")
+    p2 = raw.get("phase1_details") or raw.get("phase2_details")
     if not p2:
         return None, None
 

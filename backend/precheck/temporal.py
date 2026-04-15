@@ -7,7 +7,7 @@ def detect_temporal_inconsistency(face_cache, threshold=0.035):
     face_flows = []
     bg_flows = []
 
-    def _small(frame, box, max_dim=320):
+    def _small(frame, box, max_dim=160):
         h, w = frame.shape[:2]
         scale = min(max_dim/w, max_dim/h, 1.0)
         if scale < 1.0:
