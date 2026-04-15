@@ -26,7 +26,7 @@ from .blending_boundary import detect_blending_boundary
 from .temporal_freq import detect_temporal_freq
 from .prnu import detect_prnu_inconsistency
 from .face_iterator import detect_no_face, _load_phase1_and_faces
-from models.deepfake_model.main_model_eff import predict_video_file
+from models.deepfake_model.main_model_eff import predict_video_file, predict_from_face_cache
 import os
 import time
 import pickle
@@ -68,9 +68,9 @@ def run_phase1(video_path):
     frames, fps, face_cache = _load_phase1_and_faces(video_path)
 
     if not frames:
-        return False, "no_frames", details
+        return False, "no_frames", details, []
     if not face_cache:
-        return False, "no_face_detected", details
+        return False, "no_face_detected", details, []
 
     print(f"  frames={len(frames)} | fps={fps:.1f} | faces={len(face_cache)}")
 
@@ -79,14 +79,14 @@ def run_phase1(video_path):
     print(f"  static_frame:     {(time.time()-t0)*1000:.0f}ms  flag={is_static} score={static_score:.3f}")
     details["static_frame"] = {"flag": bool(is_static), "score": float(static_score)}
     if is_static:
-        return False, "static_frame", details
+        return False, "static_frame", details, []
 
     t0 = time.time()
     is_no_face, face_ratio = detect_no_face(face_cache, total_frames=len(frames))
     print(f"  no_face:          {(time.time()-t0)*1000:.0f}ms  flag={is_no_face} ratio={face_ratio:.2f}")
     details["no_face"] = {"flag": bool(is_no_face), "score": float(face_ratio)}
     if is_no_face:
-        return False, f"no_face_detected (ratio={face_ratio:.2f})", details
+        return False, f"no_face_detected (ratio={face_ratio:.2f})", details, []
 
     t0 = time.time()
     is_screen, screen_score   = detect_screen_display_from_frames(frames)
@@ -109,7 +109,7 @@ def run_phase1(video_path):
     ) / 3.0
 
     if screen_score_norm > 0.75 and flicker_score > 0.1:
-        return False, f"screen_like (score={screen_score_norm:.2f})", details
+        return False, f"screen_like (score={screen_score_norm:.2f})", details, []
 
     DETECTORS = [
         ("no_blink",               lambda p: detect_blinks(face_cache)),
@@ -161,11 +161,11 @@ def run_phase1(video_path):
     if nb >= 1.0 and sh < 0.04 and rppg > 0.40:
         details["photo_pattern"] = True
         print("  photo_pattern detected → FAKE")
-        return False, "photo_pattern", details
+        return False, "photo_pattern", details, []
     else:
         details["photo_pattern"] = False
 
-    return True, "ok", details
+    return True, "ok", details, face_cache
 
 def run_phase2(p1_details):
     if _lgbm_model is None:
@@ -208,14 +208,39 @@ def run_phase2(p1_details):
     }
     return prediction, reason, lgbm_details
 
-def run_phase3(video_path):
+def run_phase3(video_path, face_cache=None):
+    if face_cache:
+        return predict_from_face_cache(face_cache, threshold=0.65)
     return predict_video_file(video_path, threshold=0.65)
+
+_P3_ONLY_MODE = False
 
 def run_full_check(video_path):
     results = {}
     timings = {}
+
+    if _P3_ONLY_MODE:
+        from .face_iterator import _load_phase1_and_faces
+        t = time.time()
+        _, _, face_cache = _load_phase1_and_faces(video_path)
+        timings["phase1_ms"] = round((time.time() - t) * 1000)
+        results["phase1"] = "SKIPPED"
+        results["phase2"] = "SKIPPED"
+        timings["phase2_ms"] = None
+
+        t = time.time()
+        deepfake_result = run_phase3(video_path, face_cache=face_cache)
+        timings["phase3_ms"] = round((time.time() - t) * 1000)
+        timings["total_ms"] = timings["phase1_ms"] + timings["phase3_ms"]
+        print(f"Phase 3 (face_cache 5s) done in {timings['phase3_ms']}ms: {deepfake_result}")
+
+        results["timings"] = timings
+        results["deepfake"] = deepfake_result
+        _log(video_path, results)
+        return results
+
     t = time.time()
-    p1_passed, p1_reason, p1_details = run_phase1(video_path)
+    p1_passed, p1_reason, p1_details, p1_face_cache = run_phase1(video_path)
     timings["phase1_ms"] = round((time.time() - t) * 1000)
     print(f"Phase 1 done in {timings['phase1_ms']}ms: {p1_reason}")
 
@@ -243,7 +268,7 @@ def run_full_check(video_path):
         return results
 
     t = time.time()
-    deepfake_result = run_phase3(video_path)
+    deepfake_result = run_phase3(video_path, face_cache=p1_face_cache)
     timings["phase3_ms"] = round((time.time() - t) * 1000)
     timings["total_ms"] = timings["phase1_ms"] + timings["phase2_ms"] + timings["phase3_ms"]
     print(f"Phase 3 done in {timings['phase3_ms']}ms: {deepfake_result}")

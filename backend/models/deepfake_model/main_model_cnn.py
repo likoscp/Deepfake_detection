@@ -203,3 +203,45 @@ def predict_video_file(video_path, max_frames=30, threshold=0.65, max_seconds=30
         "prediction": prediction,
         "frames_analyzed": len(scores)
     }
+
+
+def predict_from_face_cache(face_cache, threshold=0.65):
+    scores = []
+    for _, frame_640, (x1, y1, w, h) in face_cache:
+        pad_x = int(w * 0.2)
+        pad_y = int(h * 0.2)
+        cx1 = max(0, x1 - pad_x)
+        cy1 = max(0, y1 - pad_y)
+        cx2 = min(frame_640.shape[1], x1 + w + pad_x)
+        cy2 = min(frame_640.shape[0], y1 + h + pad_y)
+
+        face_crop = frame_640[cy1:cy2, cx1:cx2]
+        if face_crop.size == 0:
+            continue
+
+        face_crop = cv2.resize(face_crop, (256, 256))
+        face_rgb  = cv2.cvtColor(face_crop, cv2.COLOR_BGR2RGB)
+        pil_img   = Image.fromarray(face_rgb)
+
+        img = transform(pil_img).unsqueeze(0).to(device)
+        with torch.no_grad():
+            outputs = model(img)
+            prob    = torch.softmax(outputs, dim=1)
+            scores.append(prob[0, 1].item())
+
+    if not scores:
+        return {
+            "video_score": None,
+            "prediction":  "ERROR",
+            "reason":      "No faces in cache"
+        }
+
+    video_score = float(np.median(scores))
+    video_score = min(video_score, 0.99)
+    prediction  = "FAKE" if video_score >= threshold else "REAL"
+
+    return {
+        "video_score":     video_score,
+        "prediction":      prediction,
+        "frames_analyzed": len(scores)
+    }
