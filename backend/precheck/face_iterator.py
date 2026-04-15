@@ -18,21 +18,22 @@ def _load_phase1_and_faces(video_path, sample_frames=40, max_seconds=5):
     total_needed = int(fps * max_seconds)
     step = max(1, total_needed // sample_frames)
     model = get_face_model()
-    indices = list(range(0, total_needed, step))[:sample_frames]
 
     frames = []
     sampled_720 = []
     sampled_indices = []
 
-    for idx in indices:
-        cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
+    idx = 0
+    while idx < total_needed and len(sampled_720) < sample_frames:
         ret, frame = cap.read()
         if not ret:
             break
-        frame_720 = _resize_frame(frame, max_dim=640)
-        frames.append(cv2.resize(frame_720, (320, 240)))
-        sampled_720.append(frame_720)
-        sampled_indices.append(idx)
+        if idx % step == 0:
+            frame_720 = _resize_frame(frame, max_dim=640)
+            frames.append(cv2.resize(frame_720, (320, 240)))
+            sampled_720.append(frame_720)
+            sampled_indices.append(idx)
+        idx += 1
     cap.release()
 
     face_cache = []
