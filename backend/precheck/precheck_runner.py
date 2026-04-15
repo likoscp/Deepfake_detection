@@ -44,7 +44,7 @@ LGBM_FEATURE_NAMES = [
     "blending_boundary", "prnu_inconsistency",
 ]
 
-LGBM_REAL_THRESHOLD     = 0.45
+LGBM_REAL_THRESHOLD     = 0.40
 LGBM_PHYSICAL_THRESHOLD = 0.70
 LGBM_DEEPFAKE_THRESHOLD = 0.80
 
@@ -57,42 +57,8 @@ except Exception as _e:
     print(f"[warn] LightGBM model not found: {_e}")
 
 def normalize(det_name, score):
-    if det_name == "gan_fingerprint":
-        return min(score / 10.0, 1.0)
-    elif det_name == "temporal_inconsistency":
-        return max(min(score / 2.0, 1.0), 0.0)
-    elif det_name == "compression_artifacts":
-        return max(min((score - 1.05) / 0.50, 1.0), 0.0)
-    elif det_name == "skin_tone":
-        return min(score / 20.0, 1.0)
-    elif det_name == "face_warping":
-        return max(min((score - 0.03) / 0.17, 1.0), 0.0)
-    elif det_name == "color_inconsistency":
-        return max(min(score / 20.0, 1.0), 0.0)
-    elif det_name == "face_flicker":
-        return max(min(score / 2.0, 1.0), 0.0)
-    elif det_name == "temporal_texture":
-        return max(min(score / 0.03, 1.0), 0.0)
-    elif det_name == "halftone_pattern":
-        return max(min((score - 8.0) / 22.0, 1.0), 0.0)
-    elif det_name == "lbp_entropy":
-        return max(min((1.6 - score) / 1.6, 1.0), 0.0)
-    elif det_name == "color_depth":
-        return max(min(score / 0.5, 1.0), 0.0)
-    elif det_name == "specular_consistency":
-        return max(min(score / 0.8, 1.0), 0.0)
-    elif det_name == "face_bg_sharpness":
-        return max(min((score - 0.9) / 2.0, 1.0), 0.0)
-    elif det_name == "eye_region_temporal":
-        return max(min((score - 4.0) / 10.0, 1.0), 0.0)
-    elif det_name == "rppg_absence":
+    if det_name == "rppg_absence":
         return max(min(score, 1.0), 0.0)
-    elif det_name == "blending_boundary":
-        return max(min((score - 0.7) / 1.5, 1.0), 0.0)
-    elif det_name == "temporal_freq":
-        return max(min(score / 0.20, 1.0), 0.0)
-    elif det_name == "prnu_inconsistency":
-        return max(min(score / 0.5, 1.0), 0.0)
     else:
         return min(score, 1.0)
 
@@ -152,7 +118,7 @@ def run_phase1(video_path):
         ("temporal_freq",          lambda p: detect_temporal_freq(face_cache, fps)),
         ("gan_fingerprint",        lambda p: detect_gan_fingerprint(face_cache)),
         ("texture",                lambda p: detect_texture_consistency(face_cache)),
-        ("compression_artifacts",  lambda p: detect_compression_artifacts(frames)),
+        ("compression_artifacts",  lambda p: detect_compression_artifacts([f for _, f, _ in face_cache])),
         ("temporal_inconsistency", lambda p: detect_temporal_inconsistency(face_cache)),
         ("mask_edges",             lambda p: detect_mask_edges(face_cache)),
         ("skin_tone",              lambda p: detect_skin_tone_mismatch(face_cache)),

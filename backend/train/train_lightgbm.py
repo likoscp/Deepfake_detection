@@ -11,11 +11,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 TRAIN_DIR = os.path.dirname(os.path.abspath(__file__))
 
 JSON_FILES = [
-    "celeb+ff_deepfake_result.json",
-    "dfdc_result.json",
-    "mask_result.json",
-    "print_result.json",
-    "replay_result.json",
+    "Test_Phase1_Time_All_result.json"
 ]
 
 LABEL_MAP = {
@@ -149,7 +145,7 @@ def train(X, y):
 
     return model, X_val, y_val
 
-def predict_with_threshold(model, X, real_t=0.45, physical_t=0.70):
+def predict_with_threshold(model, X, real_t=0.40, physical_t=0.70):
     probs = model.predict_proba(X)
 
     preds = []
@@ -178,12 +174,12 @@ def evaluate(model, X_val, y_val):
                                 target_names=["real", "deepfake", "physical"]))
 
     print("\n── THRESHOLD SWEEP (real_t) ──")
-    for t in [0.50, 0.55, 0.60]:
+    for t in [0.30, 0.35, 0.40, 0.50, 0.55, 0.60]:
         preds = predict_with_threshold(model, X_val, real_t=t)
         print(f"\n  real_t={t}")
         print(classification_report(y_val, preds, target_names=["real", "deepfake", "physical"]))
 
-    print("\n── THRESHOLD MODEL (real_t=0.45) ──")
+    print("\n── THRESHOLD MODEL (real_t=0.40) ──")
     print(classification_report(y_val, y_pred_thresh,
                                 target_names=["real", "deepfake", "physical"]))
 
