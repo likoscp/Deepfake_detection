@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "latex_mask": {
+      "total": 63,
+      "caught": 4,
+      "detection_rate": 0.0635,
+      "FAR": 0.9365
+    }
+  }
+}

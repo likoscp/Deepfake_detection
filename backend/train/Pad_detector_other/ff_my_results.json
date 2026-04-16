@@ -1,0 +1,17 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "fake": {
+      "total": 210,
+      "caught": 8,
+      "detection_rate": 0.0381,
+      "FAR": 0.9619
+    },
+    "real": {
+      "total": 112,
+      "correct": 105,
+      "accuracy": 0.9375,
+      "FRR": 0.0625
+    }
+  }
+}

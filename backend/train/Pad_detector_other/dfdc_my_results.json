@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "dfdc": {
+      "total": 48,
+      "caught": 9,
+      "detection_rate": 0.1875,
+      "FAR": 0.8125
+    }
+  }
+}

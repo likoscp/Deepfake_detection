@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "static_attack": {
+      "total": 36,
+      "caught": 9,
+      "detection_rate": 0.25,
+      "FAR": 0.75
+    }
+  }
+}

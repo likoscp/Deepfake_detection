@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "replay": {
+      "total": 100,
+      "caught": 83,
+      "detection_rate": 0.83,
+      "FAR": 0.17
+    }
+  }
+}

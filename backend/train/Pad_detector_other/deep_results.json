@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "deep": {
+      "total": 201,
+      "caught": 10,
+      "detection_rate": 0.0498,
+      "FAR": 0.9502
+    }
+  }
+}

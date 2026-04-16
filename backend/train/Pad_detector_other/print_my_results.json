@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "print": {
+      "total": 55,
+      "caught": 51,
+      "detection_rate": 0.9273,
+      "FAR": 0.0727
+    }
+  }
+}

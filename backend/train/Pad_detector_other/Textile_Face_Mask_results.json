@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "Textile_Face_Mask": {
+      "total": 23,
+      "caught": 2,
+      "detection_rate": 0.087,
+      "FAR": 0.913
+    }
+  }
+}

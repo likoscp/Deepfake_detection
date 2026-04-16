@@ -1,0 +1,11 @@
+{
+  "threshold": 0.5,
+  "summary": {
+    "no_human": {
+      "total": 24,
+      "caught": 17,
+      "detection_rate": 0.7083,
+      "FAR": 0.2917
+    }
+  }
+}
