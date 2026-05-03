@@ -12,14 +12,23 @@ function RecordingViewport({
   phase,
   recordSecs = 5,
   onComplete,
+  stream,
 }: {
   phase: RecordPhase;
   recordSecs?: number;
   onComplete?: () => void;
+  stream?: MediaStream | null;
 }) {
   const { t } = useI18n();
   const [count, setCount] = useState(3);
   const [elapsed, setElapsed] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && stream) {
+      videoRef.current.srcObject = stream;
+    }
+  }, [stream]);
 
   useEffect(() => {
     if (phase === "countdown") {
@@ -70,15 +79,33 @@ function RecordingViewport({
           "radial-gradient(ellipse at top, rgba(255,255,255,0.05), transparent 50%), repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px)",
       }}
     >
-      {/* Silhouette */}
-      <svg
-        viewBox="0 0 100 130"
-        preserveAspectRatio="xMidYMid meet"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.18 }}
-      >
-        <ellipse cx="50" cy="50" rx="20" ry="26" fill="#e8edf5" />
-        <rect x="35" y="74" width="30" height="40" rx="14" fill="#e8edf5" />
-      </svg>
+      {/* Real camera feed */}
+      {stream && (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          playsInline
+          style={{
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%",
+            objectFit: "cover",
+            transform: "scaleX(-1)",
+          }}
+        />
+      )}
+
+      {/* Silhouette (only when no camera) */}
+      {!stream && (
+        <svg
+          viewBox="0 0 100 130"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.18 }}
+        >
+          <ellipse cx="50" cy="50" rx="20" ry="26" fill="#e8edf5" />
+          <rect x="35" y="74" width="30" height="40" rx="14" fill="#e8edf5" />
+        </svg>
+      )}
 
       {/* Oval guide */}
       <svg
@@ -261,9 +288,27 @@ function VStepIntro({ onNext, originSite }: { onNext: () => void; originSite: st
 }
 
 // ── Step: Permission ──────────────────────────────────────────
-function VStepPermission({ onNext }: { onNext: () => void }) {
+function VStepPermission({ onNext }: { onNext: (stream: MediaStream) => void }) {
   const { t } = useI18n();
   const [granted, setGranted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const streamRef = useRef<MediaStream | null>(null);
+
+  const requestCamera = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const s = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      streamRef.current = s;
+      setGranted(true);
+    } catch {
+      setError("Camera access denied. Please allow access in browser settings.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
       <div style={{ alignSelf: "center", marginTop: 8 }}>
@@ -287,12 +332,17 @@ function VStepPermission({ onNext }: { onNext: () => void }) {
           {granted ? t.vCamReadyDesc : t.vCamDesc}
         </p>
       </div>
+      {error && (
+        <div style={{ fontSize: 12.5, color: "var(--danger)", background: "var(--danger-soft)", borderRadius: 8, padding: "9px 12px", textAlign: "center" }}>
+          {error}
+        </div>
+      )}
       {!granted ? (
-        <button className="btn btn-accent" onClick={() => setGranted(true)} style={{ width: "100%" }}>
-          {t.vAllow}
+        <button className="btn btn-accent" onClick={requestCamera} disabled={loading} style={{ width: "100%" }}>
+          {loading ? <span className="spinner" style={{ width: 16, height: 16 }} /> : <><Icon.camera size={14} /> {t.vAllow}</>}
         </button>
       ) : (
-        <button className="btn btn-accent" onClick={onNext} style={{ width: "100%" }}>
+        <button className="btn btn-accent" onClick={() => onNext(streamRef.current!)} style={{ width: "100%" }}>
           {t.vContinue} <Icon.arrowRight size={14} />
         </button>
       )}
@@ -301,22 +351,48 @@ function VStepPermission({ onNext }: { onNext: () => void }) {
 }
 
 // ── Step: Record ──────────────────────────────────────────────
-function VStepRecord({ onNext }: { onNext: () => void }) {
+function VStepRecord({ stream, onNext }: { stream: MediaStream | null; onNext: (blob: Blob) => void }) {
   const { t } = useI18n();
   const [phase, setPhase] = useState<RecordPhase>("idle");
-  const handleComplete = () => setTimeout(() => onNext(), 400);
+  const recorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+
+  const startFlow = () => {
+    setPhase("countdown");
+    setTimeout(() => {
+      setPhase("recording");
+      if (stream) {
+        chunksRef.current = [];
+        const mimeType = MediaRecorder.isTypeSupported("video/webm;codecs=vp9")
+          ? "video/webm;codecs=vp9"
+          : "video/webm";
+        const recorder = new MediaRecorder(stream, { mimeType });
+        recorderRef.current = recorder;
+        recorder.ondataavailable = (e) => { if (e.data.size > 0) chunksRef.current.push(e.data); };
+        recorder.onstop = () => {
+          const blob = new Blob(chunksRef.current, { type: "video/webm" });
+          setTimeout(() => onNext(blob), 400);
+        };
+        recorder.start();
+      }
+    }, 2100);
+  };
+
+  const handleComplete = () => {
+    recorderRef.current?.stop();
+    setPhase("done");
+  };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-      <RecordingViewport phase={phase} onComplete={handleComplete} />
+      <RecordingViewport phase={phase} stream={stream} onComplete={handleComplete} />
       <div style={{ display: "flex", gap: 8 }}>
         {phase === "idle" && (
           <button
             className="btn btn-accent"
             style={{ flex: 1 }}
             onClick={() => {
-              setPhase("countdown");
-              setTimeout(() => setPhase("recording"), 2100);
+              startFlow();
             }}
           >
             <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#fff" }} />
@@ -582,6 +658,14 @@ export function VerificationFlow({
   const [email, setEmail] = useState("user@example.com");
   const [code, setCode] = useState("284619");
   const [result] = useState<"pass" | "retry">(forceResult ?? (Math.random() > 0.5 ? "pass" : "retry"));
+  const [stream, setStream] = useState<MediaStream | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
+
+  // Stop camera tracks when component unmounts or user leaves flow
+  useEffect(() => {
+    return () => { stream?.getTracks().forEach((t) => t.stop()); };
+  }, [stream]);
 
   const idx = STEP_ORDER.indexOf(step);
   const next = () => {
@@ -614,8 +698,8 @@ export function VerificationFlow({
       {/* Body */}
       <div style={{ flex: 1, minHeight: 0, overflowY: "auto" }}>
         {step === "intro" && <VStepIntro onNext={next} originSite={originSite} />}
-        {step === "permission" && <VStepPermission onNext={next} />}
-        {step === "record" && <VStepRecord onNext={next} />}
+        {step === "permission" && <VStepPermission onNext={(s) => { setStream(s); next(); }} />}
+        {step === "record" && <VStepRecord stream={stream} onNext={(blob) => { setVideoBlob(blob); next(); }} />}
         {step === "email" && <VStepEmail email={email} setEmail={setEmail} onNext={next} />}
         {step === "code" && <VStepCode email={email} code={code} setCode={setCode} onNext={next} />}
         {step === "processing" && <VStepProcessing onNext={next} />}

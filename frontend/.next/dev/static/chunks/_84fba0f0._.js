@@ -397,11 +397,21 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 ;
 ;
-function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
+function RecordingViewport({ phase, recordSecs = 5, onComplete, stream }) {
     _s();
     const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$i18n$2d$provider$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useI18n"])();
     const [count, setCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(3);
     const [elapsed, setElapsed] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const videoRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "RecordingViewport.useEffect": ()=>{
+            if (videoRef.current && stream) {
+                videoRef.current.srcObject = stream;
+            }
+        }
+    }["RecordingViewport.useEffect"], [
+        stream
+    ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "RecordingViewport.useEffect": ()=>{
             if (phase === "countdown") {
@@ -452,7 +462,25 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
             backgroundImage: "radial-gradient(ellipse at top, rgba(255,255,255,0.05), transparent 50%), repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px)"
         },
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+            stream && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("video", {
+                ref: videoRef,
+                autoPlay: true,
+                muted: true,
+                playsInline: true,
+                style: {
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transform: "scaleX(-1)"
+                }
+            }, void 0, false, {
+                fileName: "[project]/components/verification-flow.tsx",
+                lineNumber: 84,
+                columnNumber: 9
+            }, this),
+            !stream && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 viewBox: "0 0 100 130",
                 preserveAspectRatio: "xMidYMid meet",
                 style: {
@@ -471,8 +499,8 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                         fill: "#e8edf5"
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 79,
-                        columnNumber: 9
+                        lineNumber: 105,
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
                         x: "35",
@@ -483,14 +511,14 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                         fill: "#e8edf5"
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 80,
-                        columnNumber: 9
+                        lineNumber: 106,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 74,
-                columnNumber: 7
+                lineNumber: 100,
+                columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 viewBox: "0 0 100 130",
@@ -512,12 +540,12 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                     strokeDasharray: "2 2"
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 89,
+                    lineNumber: 116,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 84,
+                lineNumber: 111,
                 columnNumber: 7
             }, this),
             [
@@ -550,7 +578,7 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                     }
                 }, i, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 107,
+                    lineNumber: 134,
                     columnNumber: 9
                 }, this)),
             phase === "recording" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -565,7 +593,7 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 122,
+                lineNumber: 149,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -600,7 +628,7 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 147,
+                                lineNumber: 174,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -617,17 +645,17 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 148,
+                                lineNumber: 175,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 140,
+                        lineNumber: 167,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 152,
+                        lineNumber: 179,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -644,13 +672,13 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                         children: "1080p · 30fps"
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 153,
+                        lineNumber: 180,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 133,
+                lineNumber: 160,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -668,7 +696,7 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                 children: guidance
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 166,
+                lineNumber: 193,
                 columnNumber: 7
             }, this),
             phase === "countdown" && count > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -691,12 +719,12 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                     children: count
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 185,
+                    lineNumber: 212,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 178,
+                lineNumber: 205,
                 columnNumber: 9
             }, this),
             phase === "recording" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -720,22 +748,22 @@ function RecordingViewport({ phase, recordSecs = 5, onComplete }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 200,
+                    lineNumber: 227,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 193,
+                lineNumber: 220,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 61,
+        lineNumber: 70,
         columnNumber: 5
     }, this);
 }
-_s(RecordingViewport, "SudJTqiZu1vh5k4rAbgUS+2jKTQ=", false, function() {
+_s(RecordingViewport, "fD8iGg9ltMm5Uu7ewRtw+mHsNA0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$i18n$2d$provider$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useI18n"]
     ];
@@ -765,7 +793,7 @@ function VStepIntro({ onNext, originSite }) {
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 218,
+                lineNumber: 245,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -781,7 +809,7 @@ function VStepIntro({ onNext, originSite }) {
                         children: t.vTitle
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 222,
+                        lineNumber: 249,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -794,13 +822,13 @@ function VStepIntro({ onNext, originSite }) {
                         children: t.vDesc
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 225,
+                        lineNumber: 252,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 221,
+                lineNumber: 248,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -853,7 +881,7 @@ function VStepIntro({ onNext, originSite }) {
                                 children: n
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 236,
+                                lineNumber: 263,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -869,7 +897,7 @@ function VStepIntro({ onNext, originSite }) {
                                         children: title
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification-flow.tsx",
-                                        lineNumber: 247,
+                                        lineNumber: 274,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -880,24 +908,24 @@ function VStepIntro({ onNext, originSite }) {
                                         children: sub
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification-flow.tsx",
-                                        lineNumber: 248,
+                                        lineNumber: 275,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 246,
+                                lineNumber: 273,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, n, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 235,
+                        lineNumber: 262,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 229,
+                lineNumber: 256,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -913,13 +941,13 @@ function VStepIntro({ onNext, originSite }) {
                         size: 14
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 254,
+                        lineNumber: 281,
                         columnNumber: 24
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 253,
+                lineNumber: 280,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -935,13 +963,13 @@ function VStepIntro({ onNext, originSite }) {
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 256,
+                lineNumber: 283,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 217,
+        lineNumber: 244,
         columnNumber: 5
     }, this);
 }
@@ -956,6 +984,25 @@ function VStepPermission({ onNext }) {
     _s2();
     const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$i18n$2d$provider$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useI18n"])();
     const [granted, setGranted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
+    const streamRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const requestCamera = async ()=>{
+        setLoading(true);
+        setError("");
+        try {
+            const s = await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true
+            });
+            streamRef.current = s;
+            setGranted(true);
+        } catch  {
+            setError("Camera access denied. Please allow access in browser settings.");
+        } finally{
+            setLoading(false);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         style: {
             display: "flex",
@@ -984,23 +1031,23 @@ function VStepPermission({ onNext }) {
                         size: 28
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 279,
+                        lineNumber: 324,
                         columnNumber: 22
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Icon"].camera, {
                         size: 28
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 279,
+                        lineNumber: 324,
                         columnNumber: 49
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 270,
+                    lineNumber: 315,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 269,
+                lineNumber: 314,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1018,7 +1065,7 @@ function VStepPermission({ onNext }) {
                         children: granted ? t.vCamGranted : t.vCamTitle
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 283,
+                        lineNumber: 328,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1031,29 +1078,67 @@ function VStepPermission({ onNext }) {
                         children: granted ? t.vCamReadyDesc : t.vCamDesc
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 286,
+                        lineNumber: 331,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 282,
+                lineNumber: 327,
                 columnNumber: 7
+            }, this),
+            error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    fontSize: 12.5,
+                    color: "var(--danger)",
+                    background: "var(--danger-soft)",
+                    borderRadius: 8,
+                    padding: "9px 12px",
+                    textAlign: "center"
+                },
+                children: error
+            }, void 0, false, {
+                fileName: "[project]/components/verification-flow.tsx",
+                lineNumber: 336,
+                columnNumber: 9
             }, this),
             !granted ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 className: "btn btn-accent",
-                onClick: ()=>setGranted(true),
+                onClick: requestCamera,
+                disabled: loading,
                 style: {
                     width: "100%"
                 },
-                children: t.vAllow
+                children: loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                    className: "spinner",
+                    style: {
+                        width: 16,
+                        height: 16
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/components/verification-flow.tsx",
+                    lineNumber: 342,
+                    columnNumber: 22
+                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Icon"].camera, {
+                            size: 14
+                        }, void 0, false, {
+                            fileName: "[project]/components/verification-flow.tsx",
+                            lineNumber: 342,
+                            columnNumber: 89
+                        }, this),
+                        " ",
+                        t.vAllow
+                    ]
+                }, void 0, true)
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 291,
+                lineNumber: 341,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 className: "btn btn-accent",
-                onClick: onNext,
+                onClick: ()=>onNext(streamRef.current),
                 style: {
                     width: "100%"
                 },
@@ -1064,34 +1149,63 @@ function VStepPermission({ onNext }) {
                         size: 14
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 296,
+                        lineNumber: 346,
                         columnNumber: 25
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 295,
+                lineNumber: 345,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 268,
+        lineNumber: 313,
         columnNumber: 5
     }, this);
 }
-_s2(VStepPermission, "GCeYRERtsizcmkgyT24axp4FYg8=", false, function() {
+_s2(VStepPermission, "KrkeT2zFkQbIzbQVwmrZHLbCvW0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$i18n$2d$provider$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useI18n"]
     ];
 });
 _c2 = VStepPermission;
 // ── Step: Record ──────────────────────────────────────────────
-function VStepRecord({ onNext }) {
+function VStepRecord({ stream, onNext }) {
     _s3();
     const { t } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$i18n$2d$provider$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useI18n"])();
     const [phase, setPhase] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("idle");
-    const handleComplete = ()=>setTimeout(()=>onNext(), 400);
+    const recorderRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const chunksRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])([]);
+    const startFlow = ()=>{
+        setPhase("countdown");
+        setTimeout(()=>{
+            setPhase("recording");
+            if (stream) {
+                chunksRef.current = [];
+                const mimeType = MediaRecorder.isTypeSupported("video/webm;codecs=vp9") ? "video/webm;codecs=vp9" : "video/webm";
+                const recorder = new MediaRecorder(stream, {
+                    mimeType
+                });
+                recorderRef.current = recorder;
+                recorder.ondataavailable = (e)=>{
+                    if (e.data.size > 0) chunksRef.current.push(e.data);
+                };
+                recorder.onstop = ()=>{
+                    const blob = new Blob(chunksRef.current, {
+                        type: "video/webm"
+                    });
+                    setTimeout(()=>onNext(blob), 400);
+                };
+                recorder.start();
+            }
+        }, 2100);
+    };
+    const handleComplete = ()=>{
+        recorderRef.current?.stop();
+        setPhase("done");
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         style: {
             display: "flex",
@@ -1101,10 +1215,11 @@ function VStepRecord({ onNext }) {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(RecordingViewport, {
                 phase: phase,
+                stream: stream,
                 onComplete: handleComplete
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 311,
+                lineNumber: 388,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1119,8 +1234,7 @@ function VStepRecord({ onNext }) {
                             flex: 1
                         },
                         onClick: ()=>{
-                            setPhase("countdown");
-                            setTimeout(()=>setPhase("recording"), 2100);
+                            startFlow();
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1132,14 +1246,14 @@ function VStepRecord({ onNext }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 322,
+                                lineNumber: 398,
                                 columnNumber: 13
                             }, this),
                             t.vStartRec
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 314,
+                        lineNumber: 391,
                         columnNumber: 11
                     }, this),
                     (phase === "countdown" || phase === "recording") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1151,13 +1265,13 @@ function VStepRecord({ onNext }) {
                         children: phase === "countdown" ? t.vPreparing : t.vIsRecording
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 327,
+                        lineNumber: 403,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 312,
+                lineNumber: 389,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1171,17 +1285,17 @@ function VStepRecord({ onNext }) {
                 children: t.vCancelNote
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 332,
+                lineNumber: 408,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 310,
+        lineNumber: 387,
         columnNumber: 5
     }, this);
 }
-_s3(VStepRecord, "gjfQV7EC1SYOZSwGKMNAY2ReqWs=", false, function() {
+_s3(VStepRecord, "jfevGI8rPntUmVt5p9LeECVePtc=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$i18n$2d$provider$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useI18n"]
     ];
@@ -1211,7 +1325,7 @@ function VStepEmail({ email, setEmail, onNext }) {
                         children: t.vEmailTitle
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 346,
+                        lineNumber: 422,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1224,13 +1338,13 @@ function VStepEmail({ email, setEmail, onNext }) {
                         children: t.vEmailDesc
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 347,
+                        lineNumber: 423,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 345,
+                lineNumber: 421,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1251,7 +1365,7 @@ function VStepEmail({ email, setEmail, onNext }) {
                         children: t.vEmailLabel
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 350,
+                        lineNumber: 426,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1263,13 +1377,13 @@ function VStepEmail({ email, setEmail, onNext }) {
                         autoFocus: true
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 353,
+                        lineNumber: 429,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 349,
+                lineNumber: 425,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1289,7 +1403,7 @@ function VStepEmail({ email, setEmail, onNext }) {
                         size: 14
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 356,
+                        lineNumber: 432,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1304,19 +1418,19 @@ function VStepEmail({ email, setEmail, onNext }) {
                                 children: "0x4f8a…b2c1"
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 359,
+                                lineNumber: 435,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 357,
+                        lineNumber: 433,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 355,
+                lineNumber: 431,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1333,19 +1447,19 @@ function VStepEmail({ email, setEmail, onNext }) {
                         size: 14
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 363,
+                        lineNumber: 439,
                         columnNumber: 23
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 362,
+                lineNumber: 438,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 344,
+        lineNumber: 420,
         columnNumber: 5
     }, this);
 }
@@ -1396,7 +1510,7 @@ function VStepCode({ email, code, setCode, onNext }) {
                         children: t.vCodeTitle
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 389,
+                        lineNumber: 465,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1417,7 +1531,7 @@ function VStepCode({ email, code, setCode, onNext }) {
                                 children: email || "name@example.com"
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 392,
+                                lineNumber: 468,
                                 columnNumber: 11
                             }, this),
                             ".",
@@ -1432,19 +1546,19 @@ function VStepCode({ email, code, setCode, onNext }) {
                                 children: "284 619"
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 394,
+                                lineNumber: 470,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 390,
+                        lineNumber: 466,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 388,
+                lineNumber: 464,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1482,12 +1596,12 @@ function VStepCode({ email, code, setCode, onNext }) {
                         }
                     }, i, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 399,
+                        lineNumber: 475,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 397,
+                lineNumber: 473,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1505,7 +1619,7 @@ function VStepCode({ email, code, setCode, onNext }) {
                         children: t.vNoCode
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 420,
+                        lineNumber: 496,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1519,7 +1633,7 @@ function VStepCode({ email, code, setCode, onNext }) {
                                 size: 12
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 422,
+                                lineNumber: 498,
                                 columnNumber: 11
                             }, this),
                             " ",
@@ -1527,13 +1641,13 @@ function VStepCode({ email, code, setCode, onNext }) {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 421,
+                        lineNumber: 497,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 419,
+                lineNumber: 495,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1550,19 +1664,19 @@ function VStepCode({ email, code, setCode, onNext }) {
                         size: 14
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 426,
+                        lineNumber: 502,
                         columnNumber: 22
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 425,
+                lineNumber: 501,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 387,
+        lineNumber: 463,
         columnNumber: 5
     }, this);
 }
@@ -1649,25 +1763,25 @@ function VStepProcessing({ onNext }) {
                             }
                         }, void 0, false, {
                             fileName: "[project]/components/verification-flow.tsx",
-                            lineNumber: 459,
+                            lineNumber: 535,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$icons$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Icon"].cpu, {
                             size: 22
                         }, void 0, false, {
                             fileName: "[project]/components/verification-flow.tsx",
-                            lineNumber: 460,
+                            lineNumber: 536,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 452,
+                    lineNumber: 528,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 451,
+                lineNumber: 527,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1685,7 +1799,7 @@ function VStepProcessing({ onNext }) {
                         children: t.vAnalyzingTitle
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 464,
+                        lineNumber: 540,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1698,13 +1812,13 @@ function VStepProcessing({ onNext }) {
                         children: t.vAnalyzingDesc
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 465,
+                        lineNumber: 541,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 463,
+                lineNumber: 539,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1744,7 +1858,7 @@ function VStepProcessing({ onNext }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification-flow.tsx",
-                                        lineNumber: 478,
+                                        lineNumber: 554,
                                         columnNumber: 29
                                     }, this),
                                     i === stage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1757,13 +1871,13 @@ function VStepProcessing({ onNext }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/verification-flow.tsx",
-                                        lineNumber: 479,
+                                        lineNumber: 555,
                                         columnNumber: 31
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 470,
+                                lineNumber: 546,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1776,7 +1890,7 @@ function VStepProcessing({ onNext }) {
                                 children: label
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 481,
+                                lineNumber: 557,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1788,24 +1902,24 @@ function VStepProcessing({ onNext }) {
                                 children: models[i]
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 484,
+                                lineNumber: 560,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 469,
+                        lineNumber: 545,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 467,
+                lineNumber: 543,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 450,
+        lineNumber: 526,
         columnNumber: 5
     }, this);
 }
@@ -1847,17 +1961,17 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                             size: 32
                         }, void 0, false, {
                             fileName: "[project]/components/verification-flow.tsx",
-                            lineNumber: 501,
+                            lineNumber: 577,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 500,
+                        lineNumber: 576,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 499,
+                    lineNumber: 575,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1875,7 +1989,7 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                             children: t.vPassTitle
                         }, void 0, false, {
                             fileName: "[project]/components/verification-flow.tsx",
-                            lineNumber: 505,
+                            lineNumber: 581,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1888,13 +2002,13 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                             children: t.vPassDesc
                         }, void 0, false, {
                             fileName: "[project]/components/verification-flow.tsx",
-                            lineNumber: 506,
+                            lineNumber: 582,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 504,
+                    lineNumber: 580,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1940,7 +2054,7 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                                     children: k
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification-flow.tsx",
-                                    lineNumber: 516,
+                                    lineNumber: 592,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1952,18 +2066,18 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                                     children: v
                                 }, void 0, false, {
                                     fileName: "[project]/components/verification-flow.tsx",
-                                    lineNumber: 517,
+                                    lineNumber: 593,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, k, true, {
                             fileName: "[project]/components/verification-flow.tsx",
-                            lineNumber: 515,
+                            lineNumber: 591,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 508,
+                    lineNumber: 584,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1981,13 +2095,13 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                             size: 14
                         }, void 0, false, {
                             fileName: "[project]/components/verification-flow.tsx",
-                            lineNumber: 522,
+                            lineNumber: 598,
                             columnNumber: 38
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 521,
+                    lineNumber: 597,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2000,13 +2114,13 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                     children: t.vAutoReturn
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 524,
+                    lineNumber: 600,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/verification-flow.tsx",
-            lineNumber: 498,
+            lineNumber: 574,
             columnNumber: 7
         }, this);
     }
@@ -2037,17 +2151,17 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                         size: 28
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 535,
+                        lineNumber: 611,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 534,
+                    lineNumber: 610,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 533,
+                lineNumber: 609,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2065,7 +2179,7 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                         children: t.vRetryTitle
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 539,
+                        lineNumber: 615,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2078,13 +2192,13 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                         children: t.vRetryDesc
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 540,
+                        lineNumber: 616,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 538,
+                lineNumber: 614,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2125,7 +2239,7 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                                 children: k
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 549,
+                                lineNumber: 625,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2137,18 +2251,18 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                                 children: v
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 550,
+                                lineNumber: 626,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, k, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 548,
+                        lineNumber: 624,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 542,
+                lineNumber: 618,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2169,7 +2283,7 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                                 size: 14
                             }, void 0, false, {
                                 fileName: "[project]/components/verification-flow.tsx",
-                                lineNumber: 556,
+                                lineNumber: 632,
                                 columnNumber: 11
                             }, this),
                             " ",
@@ -2177,7 +2291,7 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 555,
+                        lineNumber: 631,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2189,19 +2303,19 @@ function VStepResult({ result, onRetry, onReturn, originSite }) {
                         children: t.vCancelReturn
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 558,
+                        lineNumber: 634,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 554,
+                lineNumber: 630,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 532,
+        lineNumber: 608,
         columnNumber: 5
     }, this);
 }
@@ -2226,6 +2340,23 @@ function VerificationFlow({ start = "intro", forceResult = null, originSite = "e
     const [email, setEmail] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("user@example.com");
     const [code, setCode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("284619");
     const [result] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(forceResult ?? (Math.random() > 0.5 ? "pass" : "retry"));
+    const [stream, setStream] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [videoBlob, setVideoBlob] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // Stop camera tracks when component unmounts or user leaves flow
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "VerificationFlow.useEffect": ()=>{
+            return ({
+                "VerificationFlow.useEffect": ()=>{
+                    stream?.getTracks().forEach({
+                        "VerificationFlow.useEffect": (t)=>t.stop()
+                    }["VerificationFlow.useEffect"]);
+                }
+            })["VerificationFlow.useEffect"];
+        }
+    }["VerificationFlow.useEffect"], [
+        stream
+    ]);
     const idx = STEP_ORDER.indexOf(step);
     const next = ()=>{
         const cur = STEP_ORDER.indexOf(step);
@@ -2252,7 +2383,7 @@ function VerificationFlow({ start = "intro", forceResult = null, originSite = "e
                         size: 13
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 597,
+                        lineNumber: 681,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2268,13 +2399,13 @@ function VerificationFlow({ start = "intro", forceResult = null, originSite = "e
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 598,
+                        lineNumber: 682,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 596,
+                lineNumber: 680,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2293,12 +2424,12 @@ function VerificationFlow({ start = "intro", forceResult = null, originSite = "e
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/verification-flow.tsx",
-                    lineNumber: 605,
+                    lineNumber: 689,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 604,
+                lineNumber: 688,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2313,21 +2444,28 @@ function VerificationFlow({ start = "intro", forceResult = null, originSite = "e
                         originSite: originSite
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 616,
+                        lineNumber: 700,
                         columnNumber: 30
                     }, this),
                     step === "permission" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(VStepPermission, {
-                        onNext: next
+                        onNext: (s)=>{
+                            setStream(s);
+                            next();
+                        }
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 617,
+                        lineNumber: 701,
                         columnNumber: 35
                     }, this),
                     step === "record" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(VStepRecord, {
-                        onNext: next
+                        stream: stream,
+                        onNext: (blob)=>{
+                            setVideoBlob(blob);
+                            next();
+                        }
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 618,
+                        lineNumber: 702,
                         columnNumber: 31
                     }, this),
                     step === "email" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(VStepEmail, {
@@ -2336,7 +2474,7 @@ function VerificationFlow({ start = "intro", forceResult = null, originSite = "e
                         onNext: next
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 619,
+                        lineNumber: 703,
                         columnNumber: 30
                     }, this),
                     step === "code" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(VStepCode, {
@@ -2346,14 +2484,14 @@ function VerificationFlow({ start = "intro", forceResult = null, originSite = "e
                         onNext: next
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 620,
+                        lineNumber: 704,
                         columnNumber: 29
                     }, this),
                     step === "processing" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(VStepProcessing, {
                         onNext: next
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 621,
+                        lineNumber: 705,
                         columnNumber: 35
                     }, this),
                     step === "result" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(VStepResult, {
@@ -2363,23 +2501,23 @@ function VerificationFlow({ start = "intro", forceResult = null, originSite = "e
                         originSite: originSite
                     }, void 0, false, {
                         fileName: "[project]/components/verification-flow.tsx",
-                        lineNumber: 622,
+                        lineNumber: 706,
                         columnNumber: 31
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/verification-flow.tsx",
-                lineNumber: 615,
+                lineNumber: 699,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/verification-flow.tsx",
-        lineNumber: 594,
+        lineNumber: 678,
         columnNumber: 5
     }, this);
 }
-_s8(VerificationFlow, "WuBhJ2YJQz6TYlRPFLZS1CLan2o=");
+_s8(VerificationFlow, "1QKMuTdTWzyg9xmYv+4+DC0SBwI=");
 _c8 = VerificationFlow;
 var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8;
 __turbopack_context__.k.register(_c, "RecordingViewport");
