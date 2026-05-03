@@ -158,7 +158,7 @@ export function Stat({
           color: "var(--muted)",
           textTransform: "uppercase",
           letterSpacing: "0.06em",
-          fontFamily: "var(--font-mono)",
+          fontFamily: "var(--font-sans)",
         }}
       >
         {label}
@@ -180,7 +180,7 @@ export function Stat({
           style={{
             fontSize: 11.5,
             color: trend === "up" ? "var(--ok)" : trend === "down" ? "var(--danger)" : "var(--muted)",
-            fontFamily: "var(--font-mono)",
+            fontFamily: "var(--font-sans)",
           }}
         >
           {sub}

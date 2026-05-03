@@ -1,348 +1,85 @@
-[00:00:03.135] Server  LOG      ✓ Ready in 2.2s
-[00:00:22.600] Server  LOG      ○ Compiling / ...
-[00:00:29.464] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:17.887] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:32:03.715] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:35:23.140] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:43:18.137] Server  LOG      ✓ Compiled in 963ms
-[01:43:24.089] Server  LOG      ✓ Compiled in 497ms
-[01:43:24.550] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:44:30.537] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:06.492] Server  ERROR    ⨯ ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-
-[01:45:07.529] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:07.529] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:07.529] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:07.877] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:08.002] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:09.600] Browser ERROR   uncaughtError: Error: ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-
-[01:45:09.721] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:09.721] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:09.721] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:09.868] Browser ERROR   ./lib/translations.ts:51:50
-Parsing ecmascript source code failed
-  49 |   vContinue: "Continue",
-  50 |
-> 51 |   vIdle: "Place your face in the oval and press "Start"",
-     |                                                  ^^^^^
-  52 |   vCountdown: "Don't move…",
-  53 |   vLookAt: "Look at the camera",
-  54 |   vTurnRight: "Turn your head right",
-
-Expected ',', got 'Start'
-
-Import traces:
-  Client Component Browser:
-    ./lib/translations.ts [Client Component Browser]
-    ./components/i18n-provider.tsx [Client Component Browser]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-
-  Client Component SSR:
-    ./lib/translations.ts [Client Component SSR]
-    ./components/i18n-provider.tsx [Client Component SSR]
-    ./components/i18n-provider.tsx [Server Component]
-    ./app/layout.tsx [Server Component]
-[01:45:37.340] Server  LOG      ✓ Compiled in 45ms
-[01:45:38.734] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:50:22.309] Server  LOG      ✓ Compiled in 301ms
-[01:50:33.019] Server  LOG      ✓ Compiled in 215ms
-[01:50:52.738] Server  LOG      ✓ Compiled in 595ms
-[01:52:11.202] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:55:58.937] Server  LOG      ✓ Compiled in 598ms
-[01:55:59.269] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[01:56:02.255] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:57:38.776] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:57:43.302] Server  LOG      ✓ Compiled in 170ms
-[01:58:57.522] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:12:46.423] Server  LOG      ✓ Compiled in 582ms
-[02:12:51.891] Server  LOG      ✓ Compiled in 593ms
-[03:56:22.387] Server  LOG      ✓ Compiled in 895ms
-[03:56:40.179] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[03:56:40.210] Server  LOG      ✓ Compiled in 65ms
-[03:56:43.005] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[04:02:56.690] Server  LOG      ✓ Compiled in 206ms
-[04:02:56.956] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[04:02:58.815] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:05:52.607] Server  LOG      ✓ Compiled in 443ms
-[05:05:52.675] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[05:05:55.977] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:01.647] Server  LOG      ✓ Ready in 1197ms
+[00:00:35.203] Server  LOG      ○ Compiling / ...
+[00:00:41.777] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:00.697] Server  LOG      ✓ Compiled in 188ms
+[00:06:27.703] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/i18n-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:06:27.713] Server  LOG      ✓ Compiled in 91ms
+[00:06:28.659] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:54.903] Server  LOG      ✓ Compiled in 244ms
+[00:16:41.230] Server  LOG      ✓ Compiled in 965ms
+[00:16:53.970] Server  LOG      ✓ Compiled in 103ms
+[00:17:10.112] Server  LOG      ✓ Compiled in 295ms
+[00:17:16.517] Server  LOG      ✓ Compiled in 80ms
+[00:17:30.039] Server  LOG      ✓ Compiled in 121ms
+[00:17:38.292] Server  LOG      ✓ Compiled in 114ms
+[00:17:50.910] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:59.421] Server  LOG      ○ Compiling /verify ...
+[00:18:07.624] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:19.216] Server  LOG      ✓ Compiled in 67ms
+[00:20:12.184] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:17.681] Server  LOG      ✓ Compiled in 216ms
+[00:24:19.263] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/i18n-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:24:19.266] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/i18n-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:24:19.274] Server  LOG      ✓ Compiled in 59ms
+[00:24:20.290] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:20.302] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:00.097] Server  LOG      ✓ Compiled in 184ms
+[00:29:08.796] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:29:08.803] Server  LOG      ✓ Compiled in 237ms
+[00:29:08.812] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:29:10.223] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:10.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:26.827] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:29:26.844] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:29:26.849] Server  LOG      ✓ Compiled in 89ms
+[00:29:27.771] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:27.989] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:36.544] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:31:36.559] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:31:36.563] Server  LOG      ✓ Compiled in 124ms
+[00:31:37.783] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:38.263] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:06.916] Server  LOG      ✓ Compiled in 400ms
+[00:33:08.128] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:08.476] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:33:13.130] Server  LOG      ✓ Compiled in 136ms
+[00:33:38.538] Server  LOG      ✓ Compiled in 81ms
+[00:33:43.876] Server  LOG      ✓ Compiled in 94ms
+[00:33:59.587] Server  LOG      ✓ Compiled in 128ms
+[00:34:11.811] Server  LOG      ✓ Compiled in 82ms
+[00:34:20.838] Server  LOG      ✓ Compiled in 134ms
+[00:34:29.084] Server  LOG      ✓ Compiled in 108ms
+[00:34:40.611] Server  LOG      ✓ Compiled in 67ms
+[02:01:54.405] Server  LOG      ✓ Compiled in 236ms
+[02:02:01.468] Server  LOG      ✓ Compiled in 96ms
+[02:05:35.443] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/auth-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:05:35.453] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/auth-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:05:35.467] Server  LOG      ✓ Compiled in 176ms
+[02:05:37.344] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:05:37.680] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:05:42.170] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:05:42.172] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:05:42.175] Server  LOG      ✓ Compiled in 38ms
+[02:05:43.014] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:05:43.347] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:06:21.302] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:06:21.303] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:06:21.315] Server  LOG      ✓ Compiled in 76ms
+[02:06:22.138] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:06:22.546] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:06:29.788] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:06:29.788] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./lib/translations.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:06:29.811] Server  LOG      ✓ Compiled in 36ms
+[02:06:30.618] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:06:30.968] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:11:11.927] Browser ERROR   unhandledRejection: TypeError: Cannot read properties of undefined (reading 'split')
+[02:13:41.679] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/auth-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:13:41.689] Server  LOG      ✓ Compiled in 73ms
+[02:13:41.690] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/auth-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:13:42.757] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:13:43.000] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:13:55.268] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/auth-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:13:55.276] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/auth-provider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[02:13:55.295] Server  LOG      ✓ Compiled in 53ms
+[02:13:56.128] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:13:56.230] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

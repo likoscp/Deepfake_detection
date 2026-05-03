@@ -10,6 +10,16 @@
       "static/media/3fe682a82f50d426-s.p.23358719.woff2",
       "static/media/70bc3e132a0a741e-s.p.15008bfb.woff2"
     ],
+    "[project]/app/login/page": [
+      "static/media/2c55a0e60120577a-s.p.2a48534a.woff2",
+      "static/media/9c72aa0f40e4eef8-s.p.18a48cbc.woff2",
+      "static/media/1bffadaabf893a1e-s.p.7cd81963.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/13bf9871fe164e7f-s.p.f2220059.woff2",
+      "static/media/cc545e633e20c56d-s.p.f6f1950f.woff2",
+      "static/media/3fe682a82f50d426-s.p.23358719.woff2",
+      "static/media/70bc3e132a0a741e-s.p.15008bfb.woff2"
+    ],
     "[project]/app/page": [
       "static/media/2c55a0e60120577a-s.p.2a48534a.woff2",
       "static/media/9c72aa0f40e4eef8-s.p.18a48cbc.woff2",
@@ -20,9 +30,24 @@
       "static/media/3fe682a82f50d426-s.p.23358719.woff2",
       "static/media/70bc3e132a0a741e-s.p.15008bfb.woff2"
     ],
-    "[project]/app/verify/page": [
+    "[project]/app/register/page": [
+      "static/media/2c55a0e60120577a-s.p.2a48534a.woff2",
       "static/media/9c72aa0f40e4eef8-s.p.18a48cbc.woff2",
+      "static/media/1bffadaabf893a1e-s.p.7cd81963.woff2",
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/13bf9871fe164e7f-s.p.f2220059.woff2",
+      "static/media/cc545e633e20c56d-s.p.f6f1950f.woff2",
+      "static/media/3fe682a82f50d426-s.p.23358719.woff2",
+      "static/media/70bc3e132a0a741e-s.p.15008bfb.woff2"
+    ],
+    "[project]/app/verify/page": [
+      "static/media/2c55a0e60120577a-s.p.2a48534a.woff2",
+      "static/media/9c72aa0f40e4eef8-s.p.18a48cbc.woff2",
+      "static/media/1bffadaabf893a1e-s.p.7cd81963.woff2",
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/13bf9871fe164e7f-s.p.f2220059.woff2",
+      "static/media/cc545e633e20c56d-s.p.f6f1950f.woff2",
+      "static/media/3fe682a82f50d426-s.p.23358719.woff2",
       "static/media/70bc3e132a0a741e-s.p.15008bfb.woff2"
     ]
   },

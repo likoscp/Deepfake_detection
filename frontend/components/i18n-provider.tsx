@@ -33,6 +33,7 @@ export function LangSwitcher() {
   const { lang, setLang } = useI18n();
   const opts: { value: Lang; label: string }[] = [
     { value: "en", label: "EN" },
+    { value: "ru", label: "RU" },
     { value: "kz", label: "ҚАЗ" },
   ];
   return (
@@ -56,10 +57,10 @@ export function LangSwitcher() {
             padding: "6px 12px",
             fontSize: 12,
             fontWeight: 500,
-            fontFamily: "var(--font-mono)",
-            letterSpacing: "0.03em",
+            fontFamily: "var(--font-sans)",
+            letterSpacing: "0.02em",
             background: lang === o.value ? "var(--ink)" : "transparent",
-            color: lang === o.value ? "#fff" : "var(--muted)",
+            color: lang === o.value ? "var(--bg)" : "var(--muted)",
             transition: "background 0.12s, color 0.12s",
           }}
         >

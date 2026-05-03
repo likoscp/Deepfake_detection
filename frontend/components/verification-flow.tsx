@@ -253,7 +253,7 @@ function VStepIntro({ onNext, originSite }: { onNext: () => void; originSite: st
       <button className="btn btn-accent" onClick={onNext} style={{ width: "100%" }}>
         {t.vStartFlow} <Icon.arrowRight size={14} />
       </button>
-      <div style={{ fontSize: 10.5, color: "var(--muted-2)", textAlign: "center", fontFamily: "var(--font-mono)" }}>
+      <div style={{ fontSize: 10.5, color: "var(--muted-2)", textAlign: "center", fontFamily: "var(--font-sans)" }}>
         {t.vProtected}{Math.floor(Math.random() * 1e6).toString().padStart(6, "0")}
       </div>
     </div>
@@ -329,7 +329,7 @@ function VStepRecord({ onNext }: { onNext: () => void }) {
           </button>
         )}
       </div>
-      <div style={{ fontSize: 11, color: "var(--muted-2)", fontFamily: "var(--font-mono)", textAlign: "center", letterSpacing: "0.04em" }}>
+      <div style={{ fontSize: 11, color: "var(--muted-2)", fontFamily: "var(--font-sans)", textAlign: "center", letterSpacing: "0.04em" }}>
         {t.vCancelNote}
       </div>
     </div>
@@ -521,7 +521,7 @@ function VStepResult({ result, onRetry, onReturn, originSite }: { result: "pass"
         <button className="btn btn-accent" onClick={onReturn} style={{ width: "100%" }}>
           {t.vReturnTo} {originSite} <Icon.arrowRight size={14} />
         </button>
-        <div style={{ textAlign: "center", fontSize: 11, color: "var(--muted-2)", fontFamily: "var(--font-mono)" }}>
+        <div style={{ textAlign: "center", fontSize: 11, color: "var(--muted-2)", fontFamily: "var(--font-sans)" }}>
           {t.vAutoReturn}
         </div>
       </div>

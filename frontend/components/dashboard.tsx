@@ -5,7 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Logo, Sparkline, BarChart, Donut, Stat, Avatar, Toggle } from "./primitives";
 import { Icon } from "./icons";
-import { useI18n } from "./i18n-provider";
+import { useI18n, LangSwitcher } from "./i18n-provider";
+import { ThemeToggle } from "./theme-provider";
+import { useToast } from "./toast";
+import { useAuth } from "./auth-provider";
 
 type Pane = "overview" | "attacks" | "models" | "billing" | "integrations";
 
@@ -57,15 +60,26 @@ function DashSidebar({ active, setActive }: { active: Pane; setActive: (p: Pane)
 }
 
 // ── Topbar ─────────────────────────────────────────────────────
+const NOTIFS = [
+  { title: "Attack spike on examplebank.kz", desc: "+34% in last hour", time: "2m ago", dot: "var(--danger)" },
+  { title: "vrf_8fa4b21c verified", desc: "Confidence 99.4%", time: "5m ago", dot: "var(--ok)" },
+  { title: "Low balance alert", desc: "≈ 14 days remaining", time: "1h ago", dot: "var(--warn)" },
+];
+
 function DashTopbar({ title, subtitle }: { title: string; subtitle?: string }) {
   const { t } = useI18n();
+  const { logout, session } = useAuth();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [bellOpen, setBellOpen] = useState(false);
+  const [read, setRead] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const bellRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handler(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (bellRef.current && !bellRef.current.contains(e.target as Node)) setBellOpen(false);
     }
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -77,7 +91,62 @@ function DashTopbar({ title, subtitle }: { title: string; subtitle?: string }) {
         <h1 style={{ margin: 0, fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em" }}>{title}</h1>
         {subtitle && <div style={{ fontSize: 12, color: "var(--muted)", marginTop: 2 }}>{subtitle}</div>}
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <LangSwitcher />
+        <ThemeToggle />
+
+        {/* Notifications bell */}
+        <div ref={bellRef} style={{ position: "relative" }}>
+          <button
+            onClick={() => setBellOpen((v) => !v)}
+            className="btn btn-ghost"
+            style={{ padding: "7px 10px", position: "relative" }}
+          >
+            <Icon.bell size={15} />
+            {!read && (
+              <span style={{
+                position: "absolute", top: 6, right: 6,
+                width: 7, height: 7, borderRadius: "50%",
+                background: "var(--danger)", border: "2px solid var(--surface)",
+              }} />
+            )}
+          </button>
+          {bellOpen && (
+            <div style={{
+              position: "absolute", top: "calc(100% + 8px)", right: 0, zIndex: 50,
+              background: "var(--surface)", border: "1px solid var(--line)",
+              borderRadius: 10, minWidth: 300,
+              boxShadow: "0 8px 32px rgba(0,0,0,0.15)", overflow: "hidden",
+            }}>
+              <div style={{ padding: "12px 16px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--line)" }}>
+                <span style={{ fontSize: 13, fontWeight: 500 }}>{t.dNotifs}</span>
+                <button
+                  className="btn btn-ghost"
+                  onClick={() => setRead(true)}
+                  style={{ padding: "3px 8px", fontSize: 11 }}
+                >
+                  {t.dMarkRead}
+                </button>
+              </div>
+              {NOTIFS.map((n, i) => (
+                <div key={i} style={{
+                  padding: "12px 16px",
+                  borderBottom: i < NOTIFS.length - 1 ? "1px solid var(--line)" : "none",
+                  display: "flex", alignItems: "flex-start", gap: 10,
+                  background: !read ? "var(--bg)" : "var(--surface)",
+                }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: n.dot, flexShrink: 0, marginTop: 4 }} />
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 12.5, fontWeight: 500, color: "var(--ink-2)" }}>{n.title}</div>
+                    <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 2 }}>{n.desc}</div>
+                  </div>
+                  <span style={{ fontSize: 10.5, color: "var(--muted-2)", fontFamily: "var(--font-mono)", flexShrink: 0, marginTop: 2 }}>{n.time}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
         <button className="btn btn-ghost" style={{ padding: "7px 12px", fontSize: 12.5 }}>
           <Icon.refresh size={13} /> {t.dLastWeek}
         </button>
@@ -96,12 +165,12 @@ function DashTopbar({ title, subtitle }: { title: string; subtitle?: string }) {
               boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
             }}>
               <div style={{ padding: "10px 14px 10px" }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)" }}>Admin</div>
-                <div style={{ fontSize: 11.5, color: "var(--muted)", marginTop: 2 }}>admin@verus.id</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)" }}>{session?.companyName ?? "Company"}</div>
+                <div style={{ fontSize: 11.5, color: "var(--muted)", marginTop: 2, fontFamily: "var(--font-mono)" }}>{session?.login ?? ""}</div>
               </div>
               <div style={{ height: 1, background: "var(--line)", margin: "0 4px" }} />
               <button
-                onClick={() => { setOpen(false); router.push("/"); }}
+                onClick={() => { setOpen(false); logout(); router.push("/login"); }}
                 style={{
                   display: "flex", alignItems: "center", gap: 8, width: "100%",
                   padding: "9px 14px", marginTop: 4,
@@ -125,6 +194,7 @@ function DashTopbar({ title, subtitle }: { title: string; subtitle?: string }) {
 // ── Pane: Overview ─────────────────────────────────────────────
 function PaneOverview() {
   const { t } = useI18n();
+  const [search, setSearch] = useState("");
   const sparkData  = [12, 18, 16, 22, 19, 28, 31, 27, 35, 32, 38, 41];
   const sparkData2 = [3, 2, 4, 1, 5, 3, 6, 4, 7, 5, 4, 6];
   const sparkData3 = [98, 99, 97, 99, 98, 96, 99, 99, 97, 98, 99, 99];
@@ -151,6 +221,9 @@ function PaneOverview() {
     ["vrf_8fa4ac0e", "14:35:11", "attack", "EFN-B7 · ViT · Liv", "8.1%",  "cryptopay.kz"],
     ["vrf_8fa4aa44", "14:33:28", "pass",   "EFN-B7 · ViT",       "99.7%", "examplebank.kz"],
   ];
+  const filteredRows = rows.filter(
+    (r) => !search || r.some((cell) => cell.toLowerCase().includes(search.toLowerCase()))
+  );
 
   return (
     <div style={{ padding: 28, display: "flex", flexDirection: "column", gap: 20 }}>
@@ -213,21 +286,40 @@ function PaneOverview() {
       </div>
 
       <div className="card" style={{ padding: 0, overflow: "hidden" }}>
-        <div style={{ padding: "16px 20px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between" }}>
+        <div style={{ padding: "14px 20px", borderBottom: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
           <div style={{ fontSize: 13, fontWeight: 500 }}>{t.dRecentChecks}</div>
-          <button className="btn btn-ghost" style={{ padding: "4px 10px", fontSize: 11.5 }}>{t.dAllBtn}</button>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+              <Icon.search size={13} style={{ position: "absolute", left: 9, color: "var(--muted)", pointerEvents: "none" }} />
+              <input
+                className="txt"
+                placeholder={t.dSearch}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                style={{ paddingLeft: 28, paddingTop: 5, paddingBottom: 5, fontSize: 12, height: 30, width: 190 }}
+              />
+            </div>
+            <button className="btn btn-ghost" style={{ padding: "4px 10px", fontSize: 11.5 }}>{t.dAllBtn}</button>
+          </div>
         </div>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12.5 }}>
           <thead>
             <tr style={{ background: "var(--bg)" }}>
               {[t.dColId, t.dColTime, t.dColResult, t.dColModels, t.dColConf, t.dColSource].map((h) => (
-                <th key={h} style={{ padding: "10px 16px", textAlign: "left", fontWeight: 500, fontSize: 11, color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "var(--font-mono)", borderBottom: "1px solid var(--line)" }}>{h}</th>
+                <th key={h} style={{ padding: "10px 16px", textAlign: "left", fontWeight: 500, fontSize: 11, color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.05em", fontFamily: "var(--font-sans)", borderBottom: "1px solid var(--line)" }}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, i) => (
-              <tr key={i} style={{ borderBottom: i < rows.length - 1 ? "1px solid var(--line)" : "none" }}>
+            {filteredRows.length === 0 && (
+              <tr>
+                <td colSpan={6} style={{ padding: "24px 20px", textAlign: "center", color: "var(--muted)", fontSize: 12.5 }}>
+                  No results for &ldquo;{search}&rdquo;
+                </td>
+              </tr>
+            )}
+            {filteredRows.map((row, i) => (
+              <tr key={row[0]} style={{ borderBottom: i < filteredRows.length - 1 ? "1px solid var(--line)" : "none" }}>
                 <td style={{ padding: "12px 16px" }}><span className="mono" style={{ color: "var(--ink-2)" }}>{row[0]}</span></td>
                 <td style={{ padding: "12px 16px" }}><span className="mono" style={{ color: "var(--muted)" }}>{row[1]}</span></td>
                 <td style={{ padding: "12px 16px" }}>
@@ -299,7 +391,7 @@ function PaneModels() {
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <span style={{ fontSize: 13, fontWeight: 500 }}>{m.name}</span>
-                  {m.recommended && <span style={{ fontSize: 10, padding: "1px 6px", borderRadius: 3, background: "var(--accent-soft)", color: "var(--accent-ink)", fontFamily: "var(--font-mono)", letterSpacing: "0.04em", textTransform: "uppercase" }}>{t.dRec}</span>}
+                  {m.recommended && <span style={{ fontSize: 10, padding: "1px 6px", borderRadius: 3, background: "var(--accent-soft)", color: "var(--accent-ink)", fontFamily: "var(--font-sans)", letterSpacing: "0.04em", textTransform: "uppercase" }}>{t.dRec}</span>}
                 </div>
                 <div style={{ fontSize: 11.5, color: "var(--muted)", marginTop: 2 }}>{m.kind}</div>
               </div>
@@ -309,7 +401,7 @@ function PaneModels() {
                 [t.dColPrice,    `₸ ${m.price.toFixed(2)}`],
               ] as [string, string][]).map(([label, val]) => (
                 <div key={label}>
-                  <div style={{ fontSize: 10.5, color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.04em", fontFamily: "var(--font-mono)" }}>{label}</div>
+                  <div style={{ fontSize: 10.5, color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.04em", fontFamily: "var(--font-sans)" }}>{label}</div>
                   <div className="mono" style={{ fontSize: 13, fontWeight: 500 }}>{val}</div>
                 </div>
               ))}
@@ -436,6 +528,7 @@ function PaneAttacks() {
 // ── Pane: Billing ───────────────────────────────────────────────
 function PaneBilling() {
   const { t } = useI18n();
+  const { show } = useToast();
   const [topUp, setTopUp] = useState(50000);
   const presets = [10000, 50000, 100000, 500000];
   const spendData = [24,28,18,32,38,42,28,52,48,56,62,58,71,68,84,76,88,92,68,78,84,72,88,96,82,94,108,98,112,124];
@@ -444,7 +537,7 @@ function PaneBilling() {
     <div style={{ padding: 28, display: "flex", flexDirection: "column", gap: 20 }}>
       <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 16 }}>
         <div className="card" style={{ padding: 24 }}>
-          <div style={{ fontSize: 11, color: "var(--muted)", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{t.dCurrentBalance}</div>
+          <div style={{ fontSize: 11, color: "var(--muted)", fontFamily: "var(--font-sans)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{t.dCurrentBalance}</div>
           <div className="mono" style={{ fontSize: 44, fontWeight: 500, letterSpacing: "-0.02em", marginTop: 6 }}>₸ 184,200</div>
           <div style={{ fontSize: 12.5, color: "var(--muted)", marginTop: 4 }}>{t.dBalanceSub}</div>
           <div style={{ marginTop: 24, padding: 16, background: "var(--bg-2)", borderRadius: 10 }}>
@@ -468,7 +561,11 @@ function PaneBilling() {
             ))}
           </div>
           <input className="txt mono" value={topUp.toLocaleString()} onChange={(e) => setTopUp(parseInt(e.target.value.replace(/\D/g, "") || "0"))} style={{ marginBottom: 12 }} />
-          <button className="btn btn-accent" style={{ width: "100%" }}>
+          <button
+            className="btn btn-accent"
+            style={{ width: "100%" }}
+            onClick={() => show(t.dTopUpOk, "info")}
+          >
             {t.dTopUpBtn} ₸ {topUp.toLocaleString()}
           </button>
           <div style={{ marginTop: 12, fontSize: 10.5, color: "var(--muted-2)", textAlign: "center", fontFamily: "var(--font-mono)" }}>{t.dPayMethods}</div>
@@ -481,7 +578,7 @@ function PaneBilling() {
           <tbody>
             {t.dHistoryRows.map((row, i) => (
               <tr key={i} style={{ borderBottom: i < t.dHistoryRows.length - 1 ? "1px solid var(--line)" : "none" }}>
-                <td style={{ padding: "12px 20px", color: "var(--muted)", fontFamily: "var(--font-mono)", width: 80 }}>{row[0]}</td>
+                <td style={{ padding: "12px 20px", color: "var(--muted)", fontFamily: "var(--font-sans)", width: 80 }}>{row[0]}</td>
                 <td style={{ padding: "12px 20px", color: "var(--ink-2)" }}>{row[1]}</td>
                 <td style={{ padding: "12px 20px", textAlign: "right", fontFamily: "var(--font-mono)", fontWeight: 500, color: row[2].startsWith("+") ? "var(--ok)" : "var(--ink-2)" }}>{row[2]}</td>
               </tr>
@@ -494,21 +591,40 @@ function PaneBilling() {
 }
 
 // ── Pane: Integrations ──────────────────────────────────────────
+const API_KEY = "vrs_live_8fa4b21c9d3e2f1a7b6c5d4e3f2a1b0c";
+
 function PaneIntegrations() {
   const { t } = useI18n();
+  const { show } = useToast();
+  const [copied, setCopied] = useState(false);
+
+  const copyKey = () => {
+    navigator.clipboard.writeText(API_KEY).catch(() => {});
+    setCopied(true);
+    show(t.dCopied);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div style={{ padding: 28 }}>
       <div className="card" style={{ padding: 24 }}>
         <div style={{ fontSize: 13, fontWeight: 500, marginBottom: 12 }}>{t.dApiKey}</div>
-        <div className="mono" style={{ padding: 12, background: "var(--bg-2)", borderRadius: 8, fontSize: 12, color: "var(--ink-2)", marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span>vrs_live_8fa4b21c9d3e2f1a7b6c5d4e3f2a1b0c</span>
-          <button className="btn btn-ghost" style={{ padding: "4px 10px", fontSize: 11 }}>{t.dCopy}</button>
+        <div className="mono" style={{ padding: 12, background: "var(--bg-2)", borderRadius: 8, fontSize: 12, color: "var(--ink-2)", marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+          <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{API_KEY}</span>
+          <button
+            className="btn btn-ghost"
+            style={{ padding: "4px 10px", fontSize: 11, flexShrink: 0, color: copied ? "var(--ok)" : undefined }}
+            onClick={copyKey}
+          >
+            {copied ? <Icon.check size={12} /> : null}
+            {copied ? " " + t.dCopied : t.dCopy}
+          </button>
         </div>
         <div style={{ fontSize: 13, fontWeight: 500, marginBottom: 8 }}>{t.dRedirectUrl}</div>
         <input className="txt mono" defaultValue="https://examplebank.kz/auth/verus/callback" style={{ marginBottom: 16 }} />
         <div style={{ fontSize: 13, fontWeight: 500, marginBottom: 8 }}>{t.dWebhook}</div>
         <input className="txt mono" defaultValue="https://api.examplebank.kz/v1/verus/hook" style={{ marginBottom: 16 }} />
-        <button className="btn btn-accent">{t.dSave}</button>
+        <button className="btn btn-accent" onClick={() => show(t.dSaved)}>{t.dSave}</button>
       </div>
     </div>
   );

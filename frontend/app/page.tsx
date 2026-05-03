@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { Logo } from "@/components/primitives";
-import { useI18n } from "@/components/i18n-provider";
+import { useI18n, LangSwitcher } from "@/components/i18n-provider";
+import { ThemeToggle } from "@/components/theme-provider";
+import { useAuth } from "@/components/auth-provider";
 
 export default function Home() {
   const { t } = useI18n();
+  const { session } = useAuth();
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)", display: "flex", flexDirection: "column" }}>
@@ -21,13 +24,26 @@ export default function Home() {
         }}
       >
         <Logo size={15} />
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+          <LangSwitcher />
+          <ThemeToggle />
           <Link href="/verify" className="btn btn-ghost" style={{ fontSize: 13, padding: "8px 16px" }}>
             {t.navVerify}
           </Link>
-          <Link href="/dashboard" className="btn btn-accent" style={{ fontSize: 13, padding: "8px 16px" }}>
-            {t.navDashboard}
-          </Link>
+          {session ? (
+            <Link href="/dashboard" className="btn btn-accent" style={{ fontSize: 13, padding: "8px 16px" }}>
+              {t.navDashboard}
+            </Link>
+          ) : (
+            <>
+              <Link href="/login" className="btn btn-ghost" style={{ fontSize: 13, padding: "8px 16px" }}>
+                {t.navLogin}
+              </Link>
+              <Link href="/register" className="btn btn-primary" style={{ fontSize: 13, padding: "8px 16px" }}>
+                {t.navRegister}
+              </Link>
+            </>
+          )}
         </div>
       </nav>
 
@@ -85,7 +101,7 @@ export default function Home() {
           <Link href="/verify" className="btn btn-primary" style={{ fontSize: 15, padding: "13px 28px" }}>
             {t.heroCta}
           </Link>
-          <Link href="/dashboard" className="btn btn-ghost" style={{ fontSize: 15, padding: "13px 28px" }}>
+          <Link href={session ? "/dashboard" : "/login"} className="btn btn-ghost" style={{ fontSize: 15, padding: "13px 28px" }}>
             {t.heroDashboard}
           </Link>
         </div>
