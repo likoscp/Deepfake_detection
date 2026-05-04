@@ -142,6 +142,7 @@ const en = {
   dColModels: "Models",
   dColConf: "Confidence",
   dColSource: "Source",
+  dColEmail: "Email",
 
   // ── Models pane ──────────────────────────────────────────────
   dModelsEnabled: "MODELS ENABLED",
@@ -399,6 +400,7 @@ const kz: typeof en = {
   dColModels: "Модельдер",
   dColConf: "Сенімділік",
   dColSource: "Дереккөз",
+  dColEmail: "Email",
 
   dModelsEnabled: "МОДЕЛЬДЕР ҚОСУЛЫ",
   dCostPerCheck: "ТЕКСЕРУ БАҒАСЫ",
@@ -650,6 +652,7 @@ const ru: typeof en = {
   dColModels: "Модели",
   dColConf: "Уверенность",
   dColSource: "Источник",
+  dColEmail: "Email",
 
   dModelsEnabled: "МОДЕЛЕЙ ВКЛЮЧЕНО",
   dCostPerCheck: "СТОИМОСТЬ ЗА ПРОВЕРКУ",
