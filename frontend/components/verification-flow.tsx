@@ -10,7 +10,7 @@ type RecordPhase = "idle" | "countdown" | "recording" | "done";
 
 function RecordingViewport({
   phase,
-  recordSecs = 5,
+  recordSecs = 6,
   onComplete,
   stream,
 }: {
