@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import random
 import numpy as np
 from PIL import Image
@@ -13,7 +14,7 @@ from torchvision.models import efficientnet_b4, EfficientNet_B4_Weights
 
 CELEB_ROOT = r"D:\celeb\frames_celeb"
 FF_ROOT    = r"D:\ff\frames"
-SAVE_DIR   = r"E:\Projects\diploma\Deepfake_detection\backend\models\efficientnet_b4_v2"
+SAVE_DIR   = str(Path(__file__).resolve().parent.parent / "efficientnet_b4_v2")
 
 IMG_SIZE    = 160
 BATCH_SIZE  = 32

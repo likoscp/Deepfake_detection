@@ -1,7 +1,4 @@
 
-# MODEL_PATH = r"E:\Projects\diploma\Deepfake_detection\backend\models\efficientnet_b4\best_model.pth"
-
-
 import cv2
 import torch
 import numpy as np
@@ -10,8 +7,10 @@ from torchvision import transforms
 from ultralytics import YOLO
 import torch.nn as nn
 
-MODEL_PATH = r"E:\Projects\diploma\Deepfake_detection\backend\models\cnn_scratch\best_model.pth"
-YOLO_PATH  = r"e:\Projects\diploma\add_scripts\yolo26n-face.pt"
+from pathlib import Path
+_BASE = Path(__file__).resolve().parents[2]
+MODEL_PATH = str(_BASE / "cnn_scratch" / "best_model.pth")
+YOLO_PATH  = str(_BASE.parent / "yolo26n-face.pt")
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 

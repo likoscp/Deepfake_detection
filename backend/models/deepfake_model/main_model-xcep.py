@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import torch
 import numpy as np
 from PIL import Image
@@ -12,7 +13,7 @@ from torch.utils.data import WeightedRandomSampler
 
 MODEL_NAME           = "prithivMLmods/Deep-Fake-Detector-v2-Model"
 FRAMES_DIR           = r"G:\dataset\dataset_ready"
-SAVE_DIR             = r"E:\Projects\diploma\Deepfake_detection\backend\models"
+SAVE_DIR             = str(Path(__file__).resolve().parents[1])
 BATCH_SIZE           = 32
 EPOCHS               = 10
 LR                   = 2e-5

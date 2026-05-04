@@ -7,8 +7,10 @@ from torchvision.models import efficientnet_b4, EfficientNet_B4_Weights
 from ultralytics import YOLO
 import torch.nn as nn
 
-MODEL_PATH = r"E:\Projects\diploma\Deepfake_detection\backend\models\efficientnet_b4_v2\best_model.pth"
-YOLO_PATH  = r"e:\Projects\diploma\add_scripts\yolo26n-face.pt"
+from pathlib import Path
+_BASE = Path(__file__).resolve().parents[2]
+MODEL_PATH = str(_BASE / "efficientnet_b4_v2" / "best_model.pth")
+YOLO_PATH  = str(_BASE.parent / "yolo26n-face.pt")
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 

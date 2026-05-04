@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import random
 import numpy as np
 from PIL import Image
@@ -14,7 +15,7 @@ from torchvision import transforms
 CELEB_ROOT = r"D:\celeb\frames_celeb"
 FF_ROOT    = r"D:\ff\frames"
 
-SAVE_DIR    = r"E:\Projects\diploma\Deepfake_detection\backend\models\cnn_scratch"
+SAVE_DIR    = str(Path(__file__).resolve().parent.parent / "cnn_scratch")
 EPOCHS      = 20
 LR         = 1e-4 
 BATCH_SIZE = 64

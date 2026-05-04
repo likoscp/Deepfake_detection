@@ -2,7 +2,8 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 
-YOLO_PATH = r"e:\Projects\diploma\add_scripts\yolo26n-face.pt"
+from pathlib import Path
+YOLO_PATH = str(Path(__file__).resolve().parents[1] / "yolo26n-face.pt")
 _face_model = None
 
 def _resize_frame(frame, max_dim=640):
